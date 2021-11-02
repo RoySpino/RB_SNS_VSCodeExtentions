@@ -1,0 +1,194 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "avr",
+	"patterns": [
+		{"include": "#Controlkeywords"},
+		{"include": "#strings"},
+		{"include": "#stringsSinglQ"},
+		{"include": "#commentsclike"},
+		{"include": "#commentBlock"},
+		{"include": "#comments-rpgClasicNotInd"},
+		{"include": "#comments-rpgClasicInd"},
+		{"include": "#sqlFree"},
+		{"include": "#sqlStruct"},
+		{"include": "#Commandkeywords2"},
+		{"include": "starConstants"},
+		{"include": "#starConstants"},
+		{"include": "#specialIndicators"},
+		{"include": "#keyIndicators"},
+		{"include": "#numberIndicators"},
+		{"include": "#precentFunctions"},
+		{"include": "#DeclareKeywords"},
+		{"include": "#procedursAndSubs"},
+		{"include": "#variableTypes"},
+		{"include": "#freeHSpec"},
+		{"include": "#modifierKeywords"},
+        {"include": "#numbers"},
+        {"include": "#regions"},
+		{"include": "#numbersInBrakets"}
+	],
+	"repository": {
+		"commentsclike": {
+			"patterns": [{
+				"name":"comment.line.avr",
+				"begin": "\/\/",
+				"end": "\n"
+			}]
+		},"commentBlock":{
+			"patterns": [{
+				"name":"comment.line.avr",
+				"begin": "\/\\*",
+				"end": "\\*\/"
+			}]
+		},"comments-rpgClasicNotInd": {
+			"patterns": [{
+				"name":"comment.line.avr",
+				"begin": "(^[0-9 a-zA-Z\\*\\-\\s][\\*].*$)",
+				"end": "\n"
+			}],
+			"comment": "comments lines with * on column 2"
+		},
+		"comments-rpgClasicInd": {
+			"patterns": [{
+				"name":"comment.line",
+				"begin": "(^[0-9 \\s][0-9 \\s][0-9 \\s][0-9 \\s][0-9 \\s][0-9 a-zA-Z\\*\\-\\s][\\*].*$)",
+				"end": "\n"
+			}],
+			"comment": "comments lines with * on column 7"
+		},
+		"sqlFree": {
+			"patterns": [{
+				"name":"invalid.illegal.avr",
+				"begin": "(?i)\\b(exec sql)",
+				"end": ";"
+			}]
+		},
+		"sqlStruct":{
+			"patterns": [{
+				"name":"invalid.illegal.avr",
+				"begin": "(?i)\\b([(c|\\s)][/][E][X][E][C][ ][S][Q][L])\\b",
+				"end":"(?i)\\b([(c|\\s)][/][E][N][D][-][E][X][E][C])\\b"
+			}]
+		},
+		"Controlkeywords": {
+			"patterns": [{
+				"name": "keyword.control.avr",
+				"match": "(?i)\\b(catch|for|if|Do|DoWhile|DoUntil|select|when|begsr|else|endsr|endif|endsl|enddo|endfor|endtry|endwith|try|With)\\b"
+			}]
+		},
+		"Commandkeywords": {
+			"patterns": [{
+				"name": "keyword.control.avr",
+				"match": "(?i)\\b(abs|addr|alloc|bitand|bitnot|bitor|bitxor|char|check|checkr|date|days|dec|dech|decpos|diff|div|editc|editflt|editw|elem|eof|equal|error|fields|float|found|graph|hours|int|inth|kds|len|lookup|minutes|months|mseconds|nullind|occur|open|paddr|parms|realloc|rem|replace|subst|scan|scanrpl|seconds|shtdn|size|sfile|sqrt|status|str|subarr|subdt|subst|this|time|timestamp|tlookup|trim|triml|trimr|ucs2|uns|unsh|xfoot|xlate|years)\\b"
+			}]
+		},
+		"Commandkeywords2": {
+			"patterns": [{
+				"name":"variable.avr",
+				"match": "(?i)\\b(acq|add|adddur|alloc|addeq|addge|addgt|addle|addlt|addne|and|andeq|andge|andgt|andlt|andle|andne|begsr|bitoff|biton|cab|cabeq|cabge|cabgt|cable|cablt|cabne|call|callb|callp|cas|case|caseq|casge|casgt|casle|caslt|casne|cat|chain|check|checkr|clear|close|commit|comp|dealloc|define|delete|div|dsply|dump|endcs|eval|evalr|except|exfmt|exsr|extrct|feod|force|goto|in|iter|kfld|klist|leave|leavesr|lookup|mhhzo|mhlzo|mlhzo|mllzo|move|move(p)|movea|movel|movel(p)|mult|mvr|next|not|occur|on|on-error|open|or|oreq|orge|orgt|orle|orlt|orne|other|out|parm|plist|post|read|readc|reade|readp|readpe|realloc|rel|reset|return|rolbk|scan|setgt|setll|setoff|seton|shtdn|sorta|sqrt|sub|subdur|subst|tag|test|testb|testn|testz|time|to|unlock|update|write|xfoot|xlate|z-add|z-sub)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.avr",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.avr",
+					"match": "\\\\."
+				}
+			]
+		},
+		"stringsSinglQ": {
+			"name": "string.quoted.double.avr",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.avr",
+					"match": "\\\\."
+				}
+			]
+		},
+		"starConstants": {
+			"patterns": [{
+				"name":"constant.language.avr",
+				"match": "(?i)[*](AND|AS|ALL|BLANK|BLANKS|BASE|BOOLEAN|CANCL|CURRENT|D|DAY|DAYS|DELETE|DETC|DETL|DFT|DMY|DMY|DMYY|DMYY|DOS|DTAARA|DTS|END|ENTRY|EQ|FALSE|GETIN|H|HIVAL|HOURS|HOURGLASS|INDEXED|INIT|INTEGER4|INZSR|INPUT|IS|JOB|JOB|JOBRUN|JUL|LDA|LIKE|LOCK|LONGJUL|LONGJUL|LOVAL|M|MDY|MDY|MDYY|MDYY|MINUTES|MN|MONTH|MONTHS|MS|MSECONDS|N|NE|NEW|NEXT|NO|NODEBUGIO|NOPARM|NOPASS|NONE|NOTHING|OBJECT|OFF|ON|OFL|OPCODE|OUTPUT|OVERRIDES|PACKED|PARMS|PRIVATE|PROTECTED|PUBLIC|PDA|PLACE|PROC|PSSR|ROUTINE|S|SECONDS|SRCSTMT|START|STATUS|STRING|SYS|SYSVAL|SYSVAL|TERM|TERMSR|THIS|TOTC|TOTL|TRUE|UPDATE|USRCTL|VARSIZE|Y|YEAR|YEARS|YES|YMD|YMD|YYMD|YYMD|ZERO|ZEROS|ZONED)\\b"
+			}]
+		},
+		"specialIndicators": {
+			"patterns": [{
+				"name":"constant.language.avr",
+				"match": "(?i)[*](inlr)\\b"
+			}]
+		},
+		"keyIndicators": {
+			"patterns": [{
+				"name":"constant.language.avr",
+				"match": "(?i)[*](inka|inkb|inkc|inkd|inke|inkf|inkg|inkh|inki|inkj|inkk|inkl|inkm|inkn|inko|inkp|inkq|inkr|inks|inkt|inku|inkv|inkw|inkx)\\b"
+			}]
+		},
+		"numberIndicators": {
+			"patterns": [{
+				"name":"constant.language.avr",
+				"match": "(?i)[*][i][n][0-9][0-9]\\b"
+			}]
+		},
+		"precentFunctions": {
+			"patterns": [{
+				"name":"constant.language.avr",
+				"match": "(?i)[\\%](abs|addr|alloc|bitand|bitnot|bitor|bitxor|char|check|checkr|date|days|dec|dech|decpos|diff|div|editc|editflt|editw|elem|eof|equal|error|fields|float|found|graph|hours|int|inth|kds|len|lookup|minutes|months|mseconds|nullind|occur|open|paddr|parms|realloc|rem|replace|subst|scan|scanrpl|seconds|shtdn|size|sfile|sqrt|status|str|subarr|subdt|subst|this|time|timestamp|tlookup|trim|triml|trimr|ucs2|uns|unsh|xfoot|xlate|years)\\b"
+			}]
+		},
+		"DeclareKeywords": {
+			"patterns": [{
+				"name":"constant.language.avr",
+				"match": "(?i)\\b(DclSrParm|Dclfld)\\b"
+			}]
+		},
+		"procedursAndSubs": {
+			"patterns": [{
+				"name":"keyword.control.avr",
+				"match": "(?i)\\b(type|BegFunc|BegConstructor|EndConstructor|BegClass|EndClass|EndFunc|BegSr|EndSr|DclNamespace|Using|Access)\\b"
+			}]
+		},
+		"variableTypes":{
+			"patterns": [{
+				"name":"storage.type.avr",
+				"match": "\\b(?i:(type|BegFunc|BegConstructor|EndConstructor|BegClass|EndClass|EndFunc|BegSr|EndSr|DclNamespace|Using|Access|var))\\b"
+			}]
+		},
+		"modifierKeywords":{
+			"patterns": [{
+				"name":"constant.character.escape.avr",
+				"match": "(?i)\\b(disk|dim|end|extname|inz|like|rename|oflind|overlay|pos|prefix|printer|rename|usropn|workstn|value|varying)\\b"
+			}]
+		},
+		"numbers":{
+			"patterns": [{
+				"name":"constant.numeric.avr",
+				"match": "(\\s|^)(\\-|\\+|\\:|\\;|\\=)?((([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?(?=\\s|\\.|\\:|\\;|,)"
+			}]
+		},
+		"numbersInBrakets":{
+			"patterns": [{
+				"name": "constant.numeric.avr",
+				"match": "(?<=(\\(|\\[|:))((\\-\\+)*[0-9 ,\\.\\+\\-\\*\\/]+)(?=(\\)|\\]|:))",
+				"captures": {
+					"1": { "name": "keyword.start.bracket.avr" },
+					"2": { "name": "constant.numeric.avr" },
+					"3": { "name": "keyword.end.bracket.avr"}
+				},
+				"comment": "simple numerics in () and []"
+			  }]
+        },
+        "regions":{
+            "patterns": [{
+                "name":"storage.type.avr",
+                "begin": "(?i)[/](region|endregion)\\b",
+                "end": "\n"
+            }]
+        }
+	},
+	"scopeName": "source.avr"
+}

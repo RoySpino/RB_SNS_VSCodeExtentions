@@ -1,0 +1,66 @@
+{
+	"do": {
+        "prefix": "do",
+		"body": ["Do fromVal toVal indexVal;",
+				 "\t// loop body",
+				 "Enddo;"],
+        "description": "Add a loop to a Free rpg project ",
+		"scope": "source.RPG"
+    },
+	"dow": {
+        "prefix": "dow",
+		"body": ["Dow (1 = 1);",
+				 "\t// loop body",
+				 "\tleave",
+				 "Enddo;"],
+        "description": "Add a do wile loop to a Free rpg project ",
+		"scope": "source.RPG"
+	},
+	"for": {
+        "prefix": "for",
+		"body": ["For index To limit;",
+				 "\t// loop body",
+				 "EndFor;"],
+        "description": "Add a for loop to a free rpg project ",
+		"scope": "source.RPG"
+    },
+	"if": {
+        "prefix": "if",
+		"body": ["If 1 = 1;",
+				 "\t// when true do this",
+				 "Endif;"],
+        "description": "Add a if block to a free rpg project ",
+		"scope": "source.RPG"
+    },
+	"if/else": {
+        "prefix": "if",
+		"body": ["If 1 = 1;",
+				 "\t// when true do this",
+				 "Else;",
+				 "\t// otherwise do this",
+				 "Endif;"],
+        "description": "Add a If Else Block to a free rpg project ",
+		"scope": "source.RPG"
+    },
+	"select": {
+        "prefix": "select",
+		"body": ["Select;",
+				 "\tWhen 1 = 1;",
+				 "\t// if 1 = 1 do this",
+				 "\tOther;",
+				 "\t// when 1 is not equal to 1 do this",
+				 "EndSl;"],
+        "description": "Add a select (switch) block to free rpg project ",
+		"scope": "source.RPG"
+    },
+	"monitor": {
+        "prefix": "monitor",
+		"body": ["Monitor;",
+				 "\t// Code to execute",
+				 "On-Error;",
+				 "\t// Code to execute on error",
+				 "EndMon;"],
+        "description": "Add a try catch block to a  rpg project ",
+		"scope": "source.RPG"
+    }
+}

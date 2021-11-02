@@ -1,0 +1,1969 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "rpg3",
+	"patterns": [
+		{"include": "#CommentLine"},
+		{"include": "#CommentLineCol80"},
+		{"include": "#Numerics"},
+		{"include": "#Hspec"},
+		{"include": "#GOTO_Tags"},
+		{"include": "#GOTO_TagsNoComment"},
+		{"include": "#GOTO_Line"},
+		{"include": "#GOTO_LineNoComment"},
+		{"include": "#Fspec2"},
+		{"include": "#Fspec2_NoComent"},
+		{"include": "#Fspec2_NoEntry"},
+		{"include": "#Fspec2_NoOption"},
+		{"include": "#Fspec2_NoK"},
+		{"include": "#Fspec2_NoRcdnbr"},
+		{"include": "#Fspec"},
+		{"include": "#Fspec_NoComm}ent"},
+		{"include": "#Fspec_NoU1"},
+		{"include": "#Fspec_NoA2"},
+		{"include": "#Fspec_NoEntry"},
+		{"include": "#Fspec_NoExit"},
+		{"include": "#Fspec_NoK"},
+		{"include": "#Fspec_NoI2"},
+		{"include": "#Fspec_NoL"},
+		{"include": "#Fspec_NoF"},
+		{"include": "#Fspec_NoA"},
+		{"include": "#Fspec_NoE"},
+		{"include": "#Fspec_NoP"},
+		{"include": "#Fspec_NoI"},
+		{"include": "#Cspec_Control"},
+		{"include": "#Cspec_Control_NoEq"},
+		{"include": "#Cspec_Control_NoLo"},
+		{"include": "#Cspec_Control_NoHi"},
+		{"include": "#Cspec_Control_NoH"},
+		{"include": "#Cspec_Control_NoD"},
+		{"include": "#Cspec_Control_NoLen"},
+		{"include": "#Cspec_Control_NoFac2"},
+		{"include": "#Cspec_Control_NoFac1"},
+		{"include": "#Cspec_Control_NoOpt"},
+		{"include": "#Cspec"},
+		{"include": "#Cspec_NoComment"},
+		{"include": "#Cspec_NoEq"},
+		{"include": "#Cspec_NoLo"},
+		{"include": "#Cspec_NoHi"},
+		{"include": "#Cspec_NoH"},
+		{"include": "#Cspec_NoD"},
+		{"include": "#Cspec_NoResult"},
+		{"include": "#Cspec_NoFac2"},
+		{"include": "#Cspec_NoOpt"},
+		{"include": "#Cspec_NoFac1"},
+		{"include": "#Cspec_No03"},
+		{"include": "#Cspec_NoN3"},
+		{"include": "#Cspec_No02"},
+		{"include": "#Cspec_NoN2"},
+		{"include": "#Cspec_No01"},
+		{"include": "#Cspec_NoL0"}
+	],
+	"repository": {
+		"CommentLine": {
+			"name": "comment.line",
+			"begin": "^......\\*",
+			"end": "\\n"
+		},
+		"keywordControl":{
+			"name":"keyword.control.rpgle",
+			"match": "(?i)(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)"
+		},
+		"keywordsFuncstions":{
+			"name":"variable.rpgle",
+			"match": "(?i)(acq|add|addeq|addge|addgt|addle|addlt|addne|and  |andeq|andge|andgt|andlt|andle|andne|delet|cab  |cabeq|cabge|cabgt|cable|cablt|cabne|cas  |case |caseq|casge|casgt|casle|caslt|casne|cat  |chain|check|clear|close|comp |div  |dsply|dump |exfmt|exsr |feod |force|goto |in   |lokup|kfld |klist|mhhzo|mhlzo|mlhzo|mllzo|move |movea|movel|mult |mult\\(h\\)   |mvr  |next |not  |occur|on   |open |or   |oreq |orge |orgt |orle |orlt |orne |out  |parm |post |read |readc|reade|readp|rel  |reset|rolbk|scan |setgt|setll|setof|seton|shtdn|sorta|sqrt |sub  |subst|tag  |test |testb|testn|testz|time |updat|write|xfoot|xlate|z-add|z-sub)"
+		},
+		"Numerics": {
+			"patterns": [
+				{
+					"include": "#number-float"
+				},
+				{
+					"include": "#number-dec"
+				},
+				{
+					"include": "#number-hex"
+				},
+				{
+					"include": "#number-oct"
+				},
+				{
+					"include": "#number-bin"
+				}
+			]
+		},
+		"number-float": {
+			"name": "constant.numeric.float.dspf",
+			"match": "(?x)\n  (?<! \\w)(?:\n    (?:\n      \\.[0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\. [0-9](?: _?[0-9] )*\n      |[+0-9](?: _?[0-9] )*|\n      [0-9](?: _?[0-9] )* \\.\n    ) (?: [eE][+-]?[0-9](?: _?[0-9] )* )?\n    |\n    [0-9](?: _?[0-9] )* (?: [eE][+-]?[0-9](?: _?[0-9] )* )\n  )([jJ])?\\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.imaginary.number.dspf"
+				}
+			}
+		},
+		"number-dec": {
+			"name": "constant.numeric.dec.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])(?:\n      [1-9](?: _?[0-9] )*\n      |\n      0+\n      |\n      [0-9](?: _?[0-9] )* ([jJ])\n      |\n      0 ([0-9]+)(?![eE\\.])\n  )\\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.imaginary.number.dspf"
+				},
+				"2": {
+					"name": "constant.numeric.dspf"
+				},
+				"3": {
+					"name": "constant.numeric.dspf"
+				}
+			}
+		},
+		"number-hex": {
+			"name": "constant.numeric.hex.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[xX]) (_?[0-9a-fA-F])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		},
+		"number-oct": {
+			"name": "constant.numeric.oct.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[oO]) (_?[0-7])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		},
+		"number-bin": {
+			"name": "constant.numeric.bin.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[bB]) (_?[01])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		},
+		"strings": {
+			"name": "string.quoted.double.rpgle",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.rpgle",
+					"match": "\\\\."
+				}
+			]
+		},
+		"starKeywords": {
+			"name":"constant.language.rpgle",
+			"match": "(?i)[*](ALL|BLANK|BLANKS|CANCL|CURRENT|D|DAY|DAYS|DETC|DETL|DMY|DMY|DMYY|DMYY|DOS|DTAARA|DTS|END|ENTRY|GETIN|H|HIVAL|HOURS|INIT|INZSR|INPUT|ISO|JOB|JOB|JOBRUN|JUL|LDA|LIKE|LOCK|LONGJUL|LONGJUL|LOVAL|M|MDY|MDY|MDYY|MDYY|MINUTES|MN|MONTH|MONTHS|MS|MSECONDS|N|NEXT|NO|NODEBUGIO|NOPASS|NONE|OFF|ON|OFL|OPCODE|OUTPUT|PARMS|PDA|PLACE|PROC|PSSR|ROUTINE|S|SECONDS|SRCSTMT|START|STATUS|SYS|SYSVAL|SYSVAL|TERM|TERMSR|TOTC|TOTL|UPDATE|USA|USRCTL|VARSIZE|Y|YEAR|YEARS|YES|YMD|YMD|YYMD|YYMD|ZERO|ZEROS)\\b",
+			"comment": "keywords that begin with a *"
+		},
+		"numericIndicators": {
+				"name":"constant.language.rpgle",
+				"match": "(?i)[*][i][n][0-9][0-9]",
+			"comment": "number indicators *"
+		},
+		"factor123": {
+			"patterns": [
+				{"include": "#starKeywords"},
+				{"include": "#starKeywords2"},
+				{"include": "#otherStarKeywords"},
+				{"include": "#numericIndicators"},
+				{"include": "#Numerics"},
+				{"include": "#strings"}
+			]
+		},
+		"factor123CONTROL": {
+			"patterns": [
+				{"include": "#starKeywords"},
+				{"include": "#starKeywords2"},
+				{"include": "#otherStarKeywords"},
+				{"include": "#numericIndicators"},
+				{"include": "#Numerics"},
+				{"include": "#CatchAllControl"},
+				{"include": "#strings"}
+			]
+		},
+
+		"GOTO_Tags":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)([c])(..)([n|\\s])(..)(.{14})(tag       )(\\s{41})(.*)",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"invalid"},
+				"6":{"name":"constant.character.escape"},
+				"7":{"name":"invalid"},
+				"8":{"name":"comment"}
+				}
+		},
+		"GOTO_TagsNoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)([c])(..)([n|\\s])(..)(.{14})(tag)",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"invalid"},
+				"6":{"name":"constant.character.escape"},
+				"7":{"name":"invalid"},
+				"8":{"name":"comment"}
+				}
+		},
+		"GOTO_Line":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)([c])(..)([n|\\s])(..)(.{14})(goto      )(.{41})(.*)",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"invalid"},
+				"6":{"name":"constant.character.escape"},
+				"7":{"name":"invalid"},
+				"8":{"name":"comment"}
+				}
+		},
+		"GOTO_LineNoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)([c])(..)([n|\\s])(..)(.{14})(goto      )(.{0,41})",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"invalid"},
+				"6":{"name":"constant.character.escape"},
+				"7":{"name":"invalid"},
+				"8":{"name":"comment"}
+				}
+		},
+
+		"Hspec": {
+			"name": "constant.language",
+			"begin": "(?i)^(.....)([h])",
+			"end": "\\n"
+		},
+
+		"Fspec":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)(\\s{8})(.)(..)(.)(\\s{8})(workstn|disk   )(\\s{6})(.)(.{6})(.{6})(.)(\\s{4})(..)(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"string.quoted",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.rgb-value"},
+				"14":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"strong"},
+				"15":{"name":"constant.rgb-value"},
+				"16":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"17":{"name":"constant.language"},
+				"18":{"name":"variable.language"},
+				"19":{"name":"constant.rgb-value"},
+				"20":{
+					"patterns": [
+						{"include": "#FspecKeys",
+							"name":"constant.rgb-value",
+								"match": ".*"
+						}],
+					"name":"strong"},
+				"21":{"name":"comment"}
+			}
+		},
+		"Fspec_NoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)(\\s{8})(.)(..)(.)(\\s{8})(workstn|disk   )(\\s{6})(.)(.{6})(.{6})(.)(\\s{4})(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"string.quoted",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.rgb-value"},
+				"14":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"strong"},
+				"15":{"name":"constant.rgb-value"},
+
+
+
+				"16":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"17":{"name":"constant.language"},
+				"18":{"name":"variable.language"},
+				"19":{"name":"constant.rgb-value"},
+				"20":{
+					"patterns": [
+						{"include": "#FspecKeys",
+							"name":"constant.rgb-value",
+								"match": ".*"
+						}],
+					"name":"strong"}
+			}
+		},
+		"Fspec_NoU1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)(\\s{8})(.)(..)(.)(\\s{8})(workstn|disk   )(\\s{6})(.)(.{6})(.{6})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"string.quoted",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.rgb-value"},
+				"14":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"strong"},
+				"15":{"name":"constant.rgb-value"},
+
+
+
+				"16":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"17":{"name":"constant.language"},
+				"18":{"name":"variable.language"}
+			}
+		},
+		"Fspec_NoA2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)(\\s{8})(.)(..)(.)(\\s{8})(workstn|disk   )(\\s{6})(.)(.{6})(.{,6})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"string.quoted",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.rgb-value"},
+				"14":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"strong"},
+				"15":{"name":"constant.rgb-value"},
+
+
+
+				"16":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"17":{"name":"constant.language"}
+			}
+		},
+		"Fspec_NoEntry":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)(\\s{8})(.)(..)(.)(\\s{8})(workstn|disk   )(\\s{6})(.)(.{,6})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"string.quoted",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.rgb-value"},
+				"14":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"strong"},
+				"15":{"name":"constant.rgb-value"},
+				"16":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"}
+			}
+		},
+		"Fspec_NoExit":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)(\\s{8})(.)(..)(.)(\\s{8})(workstn|disk   )(\\s{6})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"string.quoted",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.rgb-value"},
+				"14":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"strong"}
+			}
+		},
+		"Fspec_NoK":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)(\\s{8})(.)(..)(.)(\\s{8})(workstn|disk   )",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"string.quoted",
+						"match": "."
+					}],
+					"name":"emphasis"}
+			}
+		},
+		"Fspec_NoI2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)(\\s{8})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"}
+			}
+		},
+		"Fspec_NoL":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"},
+				"9":{"name":"constant.rgb-value"}
+			}
+		},
+		"Fspec_NoF":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"},
+				"8":{"name":"markup.bold"}
+			}
+		},
+		"Fspec_NoA":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"string.jade"}
+			}
+		},
+		"Fspec_NoE":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"},
+				"6":{"name":"constant.regexp"}
+			}
+		},
+		"Fspec_NoP":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{8})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{"name":"constant.character.escape"}
+			}
+		},
+		"Fspec_NoI":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(f)(.{,8})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"}
+			}
+		},
+
+		"Fspec2": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.....)(f)(\\s{12})(.{10})(\\s{18})(.{6})(.)(.{6})(.{8})(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{"name":"punctuation.separator.classes"},
+				"5":{"name":"punctuation.separator.classes"},
+				"6":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"7":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"8":{"name":"keyword.control"},
+				"9":{"name":"punctuation.separator.classes"},
+				"10":{"name":"comment"}
+			}
+		},
+		"Fspec2_NoComment": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.....)(f)(\\s{12})(.{10})(\\s{18})(.{6})(.)(.{6})(.{,8})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{"name":"punctuation.separator.classes"},
+				"5":{"name":"punctuation.separator.classes"},
+				"6":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"7":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"8":{"name":"keyword.control"},
+				"9":{"name":"punctuation.separator.classes"}
+			}
+		},
+		"Fspec2_NoEntry": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.....)(f)(\\s{12})(.{10})(\\s{18})(.{6})(.)(.{,6})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{"name":"punctuation.separator.classes"},
+				"5":{"name":"punctuation.separator.classes"},
+				"6":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"7":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"8":{"name":"keyword.control"}
+			}
+		},
+		"Fspec2_NoOption": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.....)(f)(\\s{12})(.{10})(\\s{18})(.{6})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{"name":"punctuation.separator.classes"},
+				"5":{"name":"punctuation.separator.classes"},
+				"6":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"},
+				"7":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"}
+			}
+		},
+		"Fspec2_NoK": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.....)(f)(\\s{12})(.{10})(\\s{18})(.{,6})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{"name":"punctuation.separator.classes"},
+				"5":{"name":"punctuation.separator.classes"},
+				"6":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"strong"}
+			}
+		},
+		"Fspec2_NoRcdnbr": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.....)(f)(\\s{12})(.{,10})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{"name":"punctuation.separator.classes"}
+			}
+		},
+
+		"Cspec":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{10})(.{6})(.{3})(.)(.)(..)(..)(..)(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"},
+				"19":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"20":{"name":"comment"}
+				}
+		},
+		"Cspec_NoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{10})(.{6})(.{3})(.)(.)(..)(..)(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"},
+				"19":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"}
+				}
+		},
+		"Cspec_NoEq":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{10})(.{6})(.{3})(.)(.)(..)(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		},
+		"Cspec_NoLo":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{10})(.{6})(.{3})(.)(.)(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"}
+				}
+		},
+		"Cspec_NoHi":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{10})(.{6})(.{3})(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"}
+				}
+		},
+		"Cspec_NoH":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{10})(.{6})(.{3})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"}
+				}
+		},
+		"Cspec_NoD":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{10})(.{6})(.{,3})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"}
+			}
+		},
+		"Cspec_NoLen":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{10})(.{,6})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"}
+				}
+		},
+		"Cspec_NoResult":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{5})(.{,10})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"}
+				}
+		},
+		"Cspec_NoFac2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(.{,5})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{
+					"patterns": [{"include": "#keywordsFuncstions"}],
+					"name":"constant.rgb-value"}
+				}
+		},
+		"Cspec_NoOpt":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{,10})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"}
+			}
+		},
+		"Cspec_NoFac1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"}
+				}
+		},
+		"Cspec_No03":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"}
+			}
+		},
+		"Cspec_NoN3":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"}
+			}
+		},
+		"Cspec_No02":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"}
+			}
+		},
+		"Cspec_NoN2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"}
+			}
+		},
+		"Cspec_No01":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"}
+			}
+		},
+		"Cspec_NoN1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"}
+			}
+		},
+		"Cspec_NoL0":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"}
+			}
+		},
+
+		"Cspec_Control":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{10})(.{6})(.{3})(.)(.)(..)(..)(..)(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"},
+				"19":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"20":{"name":"comment"}
+				}
+		},
+		"Cspec_Control_NoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{10})(.{6})(.{3})(.)(.)(..)(..)(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"},
+				"19":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"}
+				}
+		},
+		"Cspec_Control_NoEq":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{10})(.{6})(.{3})(.)(.)(..)(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		},
+		"Cspec_Control_NoLo":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{10})(.{6})(.{3})(.)(.)(..)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		},
+		"Cspec_Control_NoHi":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{10})(.{6})(.{3})(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		},
+		"Cspec_Control_NoH":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{10})(.{6})(.{3})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		},
+		"Cspec_Control_NoD":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{10})(.{6})(.{,3})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		},
+		"Cspec_Control_NoLen":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{10})(.{,6})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		},
+		"Cspec_Control_NoResult":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)(.{,10})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		},
+		"Cspec_Control_NoFac2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(c)(..)([n\\s])(..)([n\\s])(..)([n\\s])(..)(.{10})(do   |dou  |doueq|douge|dougt|doule|doult|doune|dow  |doweq|dowge|dowgt|dowlt|downe|ifeq |ifge |ifgt |ifle |iflt |ifne |begsr|else |endsr|end  |plist|sfile)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"10":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"11":{"name":"keyword.control"},
+				"12":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"13":{
+					"patterns": [{"include": "#factor123"}],
+					"name":"constant.rgb-value"},
+				"14":{"name":"constant.numeric"},
+				"15":{"name":"constant.numeric"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name": "constant.language.rpgle"},
+				"18":{"name": "variable.rpgle"}
+				}
+		}
+
+
+
+
+
+
+
+
+	
+
+
+	},
+	"scopeName": "source.rpg3"
+}

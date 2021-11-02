@@ -1,0 +1,70 @@
+{
+    "name": "rpgle",
+    "displayName": "RRPG",
+    "description": "Visual/LE RPG Support",
+    "version": "0.0.1",
+    "publisher": "SpineNetSystems",
+    "engines": {
+        "vscode": "^1.21.0"
+    },
+    "icon": "./images/rpg.png",
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "rpg",
+                "aliases": ["rpgfree"],
+                "extensions": [".rpgle", "rpg"],
+                "configuration": "./rpg.configuration.json"
+            },
+            {
+                "id": "rpg3",
+                "aliases": ["rpg3"],
+                "extensions": [".rpg3"],
+                "configuration": "./rpg.configuration.json"
+            },
+            {
+                "id": "AVR",
+                "aliases": ["vr", "avr"],
+                "extensions": [".vr"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "rpg",
+                "scopeName": "source.rpgle",
+                "path": "./syntaxes/rpg.tmLanguage.json"
+            },
+            {
+                "language": "rpg3",
+                "scopeName": "source.rpg3",
+                "path": "./syntaxes/rpg3.tmLanguage.json"
+            },
+            {
+                "language": "AVR",
+                "scopeName": "source.avr",
+                "path": "./syntaxes/avr.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "rpg",
+                "path": "./snippets/LECodeCompleation.json",
+                "comment":"Free and structured format edtion of ILE"
+            },
+            {
+                "language": "rpg3",
+                "path": "./snippets/rpg3CodeCompleation.json",
+                "comment":"this covers RPG 2-3"
+            },
+            {
+                "language": "AVR",
+				"path": "./snippets/AVRCodeCompleation.json",
+                "comment":"ASNA visual RPG"
+            }
+        ]
+    }
+}

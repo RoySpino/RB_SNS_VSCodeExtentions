@@ -1,0 +1,83 @@
+{
+    "BegClass": {
+        "prefix": "BegClass",
+        "body": ["BegClass ClassName Access(*Public)\n\n",
+		         "\tBegConstructor Access(*Public)\n\n\tEndConstructor\n\n",
+				 "EndClass"
+				 ],
+        "description": "Build a class for your project",
+		"scope": "source.RPG"
+    },
+	"BegFunc": {
+        "prefix": "BegFunc",
+        "body": ["BegFunc FunctionName Access(*Public)\n\n",
+		         "\t\nDclSrParm FunctionParameter Type(TypeName)\n\n// Function body \n",
+				 "EndFunc"
+				 ],
+        "description": "Build a function for your project",
+		"scope": "source.RPG"
+    },
+	"BegSr": {
+        "prefix": "BegSr",
+        "body": ["BegSr FunctionName Access(*Public)\n\n",
+		         "\t\nDclFld LocalSubroutineVariable Type(TypeName)\n\n// Subroutine (void function) body \n",
+				 "EndFunc"
+				 ],
+        "description": "Build a subroutine for your project",
+		"scope": "source.RPG"
+    },
+	"DclFld": {
+        "prefix": "DclFld",
+        "body": ["DclFld LocalVariable Type(TypeName)"],
+        "description": "Add a local varialbe to a function or subroutine for your project",
+		"scope": "source.RPG"
+    },
+	"DclSrParm": {
+        "prefix": "DclSrParm",
+        "body": ["DclSrParm Parameter Type(TypeName)"],
+        "description": "Add a parameter to a function or subroutine for your project",
+		"scope": "source.RPG"
+    },
+	"do": {
+        "prefix": "do",
+        "body": ["Do fromVal toVal indexVal\n\n\t// loop body\n\nEnddo"],
+        "description": "Add a loop to your project ",
+		"scope": "source.RPG"
+    },
+	"dow": {
+        "prefix": "dow",
+        "body": ["Dow (1 = 1)\n\n\t// loop body\n\tleave\n\nEnddo"],
+        "description": "Add a do while loop to your project ",
+		"scope": "source.RPG"
+    },
+	"DoWhile": {
+        "prefix": "DoWhile",
+        "body": ["DoWhile (1 = 1)\n\n\t// loop body\n\tleave\n\nEnddo"],
+        "description": "Add a do while loop to your project ",
+		"scope": "source.RPG"
+    },
+	"for": {
+        "prefix": "for",
+        "body": ["For index To limit\n\n\t// loop body\n\nEndfor"],
+        "description": "Add a for loop to your project ",
+		"scope": "source.RPG"
+    },
+	"if": {
+        "prefix": "if",
+        "body": ["If 1 = 1\n\n\t// when true do this\n\nElse\n\n\t// otherwise do this\n\nEndif"],
+        "description": "Add a for loop to your project ",
+		"scope": "source.RPG"
+    },
+	"select": {
+        "prefix": "select",
+        "body": ["Select\n\tWhen 1 = 1\n\t// if 1 = 1 do this\n\tOther\n\t// when 1 is not equal to 1 do this\n\nEndsl"],
+        "description": "Add a select (switch) block to free/Visual rpg project ",
+		"scope": "source.RPG"
+    },
+	"try": {
+        "prefix": "try",
+        "body": ["Try\n\n\t// Code to execute\n\nCatch Ex System.Exception\n\n\tSystem.WriteLine(Ex.ToString())\n\nEndtry"],
+        "description": "Add a try catch block to your project ",
+		"scope": "source.RPG"
+    }
+}

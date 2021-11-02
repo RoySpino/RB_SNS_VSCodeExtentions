@@ -1,0 +1,97 @@
+{
+	"cformat": {
+        "prefix": "cformat",
+        "body": ["/*",
+		         "",
+				 ".....CL0N01N02N03Factor1+++OpcdeFactor2+++ResultLenDHHiLoEqComments+++++++...... */"],
+        "description": "Write a verbose format line for C spec",
+		"scope": "source.rpg3"
+	},
+	"cformat-verbose": {
+        "prefix": "cformat",
+        "body": ["/*",
+				 "L0: indicator/bool modifiers an=And, or=Or",
+				 "N01: indecators, do instruction if *in## = *on, N=Not ",
+				 "Factor1+++: input given to command",
+				 "Opcode: command or keyword",
+				 "Factor2+++:  input given to command",
+				 "Result output of computation not used on eval",
+				 "Len: dynamically defines a length of a variable",
+				 "D: dynamiclly defines decimal positions of a variable",
+				 "HiLoEq: indicatior assignment/ bool assignment (>,<,=)",
+				 "        hi Lo Eq  bool",
+				 "        X   X     !=",
+				 "        X      X  >=",
+				 "            X  X  <=",
+				 "               X  ==",
+				 "            X     <",
+				 "        X         >",
+				 "",
+				 ".....CL0N01N02N03Factor1+++OpcdeFactor2+++ResultLenDHHiLoEqComments+++++++...... */"],
+        "description": "Write a verbose format line for C spec",
+		"scope": "source.rpg3"
+    },
+	"dow": {
+        "prefix": "dow",
+		"body": ["C                   Dow       (1 = 1)",
+                 " * loop body",
+                 "C                   Enddo"],
+        "description": "Add a do wile loop to a Free rpg project ",
+		"scope": "source.rpg3"
+	},
+	"eformat":{
+		"prefix":"eformat",
+		"body":["/*",
+			    ".....E....FromfileTofile++Name++N/rN/tbLenPDSArrnamLenPDSComments+++++++++...... */"],
+		"description": "Write a format line for E spec",
+		"scope": "source.rpg3"
+	},
+	"fformat":{
+		"prefix":"fformat",
+		"body":["/*",
+                ".....FFilenameIPEAF........L..I........Device+......KExit++Entry+A....U1........",
+                ".....FFilenameIPEAF....RlenLK1AIOvKlocEDevice+......KExit++Entry+A....U1........ */"],
+		"description": "Write a format line for F spec",
+		"scope": "source.rpg3"
+	},
+	"hformat":{
+		"prefix":"hformat",
+		"body":["/*",
+		    	 ".....H........1..CDYI....S..............1.F..................................... */"],
+		"description": "Write a verbose format line for F spec",
+		"scope": "source.rpg3"
+	},
+	"if": {
+        "prefix": "if",
+		"body": ["C         A         IFEQB",
+                 " * when true do this",
+                 "C                   End"],
+        "description": "Add a if block to a free rpg project ",
+		"scope": "source.rpg3"
+    },
+	"if/else": {
+        "prefix": "if",
+		"body": ["C         A         IFEQB",
+                 " * when true do this",
+                 "C                   Else",
+                 " * otherwise do this",
+                 "C                   End"],
+        "description": "Add a If Else Block to a free rpg project ",
+		"scope": "source.rpg3"
+    },
+	"Iformat":{
+		"prefix":"Iformat",
+		"body":["/*",
+		    	 ".....I....................................PFromTo++DField+L1M1FrPlMnZr.......... */"],
+		"description": "Write a format line for I spec",
+		"scope": "source.rpg3"
+	},
+	"oformat":{
+		"prefix":"oformat",
+		"body":["/*",
+			     ".....O................N01N02N03Field+YBEnd+PConstant/editword+++++++++.......... ", 
+                 ".....OName++++DFBASbSaN01N02N03Excnam........................................... */"],
+		"description": "Write a format line for O spec",
+		"scope": "source.rpg3"
+	}
+}
