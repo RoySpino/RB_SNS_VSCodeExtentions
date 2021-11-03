@@ -2,7 +2,7 @@
     "name": "rpgle",
     "displayName": "RRPG",
     "description": "Visual/LE RPG Support",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "SpineNetSystems",
     "engines": {
         "vscode": "^1.21.0"
