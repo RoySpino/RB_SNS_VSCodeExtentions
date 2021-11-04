@@ -41,8 +41,7 @@ SEU format bar
     * **I** spec: Not currently supported
     * **C** spec: mostly complete but citation needed
     * **O** spec: incomplete documentation needed
-
-    * **E** spec: Not currently supported
+    
     * **T** spec: Not currently supported
     * **U** spec: Not currently supported
     * **L** spec: Not currently supported
