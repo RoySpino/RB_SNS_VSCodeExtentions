@@ -45,6 +45,7 @@ SEU format bar
     * **T** spec: Not currently supported
     * **U** spec: Not currently supported
     * **L** spec: Not currently supported
+    
 + Test Color highlighting with different color themes current tests where done only with default dark and light themes
 + add support for columns 1-6. currently these columns are ignored for RPG4. 
 specifications for fixed format code but are required for RPG3
