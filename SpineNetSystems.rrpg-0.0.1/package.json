@@ -1,34 +1,55 @@
 {
-    "name": "rpgle",
-    "displayName": "RRPG",
-    "description": "Visual/LE RPG Support",
-    "version": "1.0.0",
-    "publisher": "SpineNetSystems",
-    "engines": {
-        "vscode": "^1.21.0"
-    },
-    "icon": "./images/rpg.png",
-    "categories": [
-        "Programming Languages"
-    ],
+	"name": "rpgle",
+	"displayName": "RRPG",
+	"description": "Visual/LE RPG syntax highlighting",
+	"version": "0.0.1",
+	"publisher": "SpineNetSystems",
+	"author": {
+		"name": "Roy Banuelos"
+	},
+	"engines": {
+		"vscode": "^1.21.0"
+	},
+	"icon": "images/RPG.png",
+	"categories": [
+		"Programming Languages"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RoySpino/RB_SNS_VSCodeExtentions"
+	},
     "contributes": {
         "languages": [
             {
                 "id": "rpg",
-                "aliases": ["rpgfree"],
-                "extensions": [".rpgle", "rpg"],
+                "aliases": [
+                    "rpgfree"
+                ],
+                "extensions": [
+                    ".rpgle",
+                    "rpg"
+                ],
                 "configuration": "./rpg.configuration.json"
             },
             {
                 "id": "rpg3",
-                "aliases": ["rpg3"],
-                "extensions": [".rpg3"],
+                "aliases": [
+                    "rpg3"
+                ],
+                "extensions": [
+                    ".rpg3"
+                ],
                 "configuration": "./rpg.configuration.json"
             },
             {
                 "id": "AVR",
-                "aliases": ["vr", "avr"],
-                "extensions": [".vr"],
+                "aliases": [
+                    "vr",
+                    "avr"
+                ],
+                "extensions": [
+                    ".vr"
+                ],
                 "configuration": "./language-configuration.json"
             }
         ],
@@ -53,17 +74,17 @@
             {
                 "language": "rpg",
                 "path": "./snippets/LECodeCompleation.json",
-                "comment":"Free and structured format edtion of ILE"
+                "comment": "Free and structured format edtion of ILE"
             },
             {
                 "language": "rpg3",
                 "path": "./snippets/rpg3CodeCompleation.json",
-                "comment":"this covers RPG 2-3"
+                "comment": "this covers RPG 2-3"
             },
             {
                 "language": "AVR",
-				"path": "./snippets/AVRCodeCompleation.json",
-                "comment":"ASNA visual RPG"
+                "path": "./snippets/AVRCodeCompleation.json",
+                "comment": "ASNA visual RPG"
             }
         ]
     }
