@@ -263,11 +263,11 @@
 		},
 		"freeCatchAllFunctions":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(write|update|unlock|udate|to|testz|testn|testb|test|sub|sqrt|setll|setgt|scan|rolbk|return|reset|rel|realloc|readpe|readp|reade|readc|read|post|out|or|open|on-error|on|not|next|leavesr|leave|iter|in|force|feod|extrct|exsr|exfmt|except|endcs|dump|dsply|delete|define|dealloc|commit|close|clear|chain|callp|callb|call|begsr|and|alloc|add|acq)\\b"
+			"match": "(?i)\\b(write|update|unlock|udate|to|testz|testn|testb|test|sub|sqrt|setll|setgt|scan|rolbk|return|reset|rel|realloc|readpe|readp|reade|readc|read|post|out|or|open|on-error|on|not|next|leavesr|leave|iter|in|force|feod|extrct|exsr|exfmt|except|endcs|dump|dsply|delete|define|dealloc|commit|close|clear|chain|callp|callb|call|and|alloc|add|acq)\\b"
 		},
 		"CatchAllFunctions":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(z-sub|z-add\\(h\\)|z-add|xlate|xfoot|write|update|unlock|udate|to|time|testz|testn|testb|test|tag|subst|subdur|sub|sqrt|sorta|shtdn|seton|setoff|setll|setgt|scan|rolbk|return|reset|rel|realloc|readpe|readp|reade|readc|read|post|plist|parm|out|orne|orlt|orle|orgt|orge|oreq|or|open|on-error|on|occur|not|next|mvr|mult|movel\\(p\\)|movel|movea|move\\(p\\)|move|mllzo|mlhzo|mhlzo|mhhzo|lookup|leavesr|leave|klist|kfld|iter|in|goto|force|feod|extrct|exsr|exfmt|except|evalr|eval\\(h\\)|eval|endcs|dump|dsply|div|delete|define|dealloc|comp|commit|close|clear|checkr|check|chain|cat|casne|caslt|casle|casgt|casge|caseq|case|cas|callp|callb|call|cabne|cablt|cable|cabgt|cabge|cabeq|cab|biton|bitoff|begsr|andne|andlt|andle|andgt|andge|andeq|and|alloc|addne|addlt|addle|addgt|addge|addeq|adddur|add|acq)\\b"
+			"match": "(?i)\\b(z-sub|z-add\\(h\\)|z-add|xlate|xfoot|write|update|unlock|udate|to|time|testz|testn|testb|test|tag|subst|subdur|sub|sqrt|sorta|shtdn|seton|setoff|setll|setgt|scan|rolbk|return|reset|rel|realloc|readpe|readp|reade|readc|read|post|plist|parm|out|orne|orlt|orle|orgt|orge|oreq|or|open|on-error|on|occur|not|next|mvr|mult|movel\\(p\\)|movel|movea|move\\(p\\)|move|mllzo|mlhzo|mhlzo|mhhzo|lookup|leavesr|leave|klist|kfld|iter|in|goto|force|feod|extrct|exsr|exfmt|except|evalr|eval\\(h\\)|eval|endcs|dump|dsply|div|delete|define|dealloc|comp|commit|close|clear|checkr|check|chain|cat|casne|caslt|casle|casgt|casge|caseq|case|cas|callp|callb|call|cabne|cablt|cable|cabgt|cabge|cabeq|cab|biton|bitoff|andne|andlt|andle|andgt|andge|andeq|and|alloc|addne|addlt|addle|addgt|addge|addeq|adddur|add|acq)\\b"
 		},
 		"CatchAllControl":{
 			"name":"variable.rpgle",
