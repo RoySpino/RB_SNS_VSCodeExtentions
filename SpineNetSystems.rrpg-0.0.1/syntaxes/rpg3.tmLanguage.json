@@ -186,13 +186,18 @@
 			]
 		},
 		"starKeywords": {
-			"name":"constant.language",
-			"match": "(?i)[*](in|ALL|BLANKS|BLANK|CANCL|CURRENT|D|DAY|DAYS|DETC|DETL|DMY|DMY|DMYY|DMYY|DOS|DTAARA|DTS|END|ENTRY|GETIN|H|HIVAL|HOURS|INIT|INZSR|INPUT|ISO|JOB|JOB|JOBRUN|JUL|LDA|LIKE|LOCK|LONGJUL|LONGJUL|LOVAL|M|MDY|MDY|MDYY|MDYY|MINUTES|MN|MONTH|MONTHS|MS|MSECONDS|N|NEXT|NO|NODEBUGIO|NOPASS|NONE|OFF|ON|OFL|OPCODE|OUTPUT|PARMS|PDA|PLACE|PROC|PSSR|ROUTINE|S|SECONDS|SRCSTMT|START|STATUS|SYS|SYSVAL|SYSVAL|TERM|TERMSR|TOTC|TOTL|UPDATE|USA|USRCTL|VARSIZE|Y|YEAR|YEARS|YES|YMD|YMD|YYMD|YYMD|ZERO|ZEROS)",
+			"name": "constant.language.rpgle",
+			"match": "(?i)[*](ALL|BLANKS|BLANK|CANCL|CURRENT|D|DAY|DAYS|DELETE|DETC|DETL|DMY|DMY|DMYY|DMYY|DOS|DTAARA|DTS|END|ENTRY|GETIN|H|HIVAL|HOURS|INIT|INZSR|INPUT|ISO|JOB|JOB|JOBRUN|JUL|LDA|LIKE|LOCK|LONGJUL|LONGJUL|LOVAL|M|MDY|MDY|MDYY|MDYY|MINUTES|MN|MONTH|MONTHS|MS|MSECONDS|N|NEXT|NO|NODEBUGIO|NOPASS|NONE|OFF|ON|OFL|OPCODE|OUTPUT|PARMS|PDA|PLACE|PROC|PSSR|ROUTINE|S|SECONDS|SRCSTMT|START|STATUS|SYS|SYSVAL|SYSVAL|TERM|TERMSR|TOTC|TOTL|UPDATE|USA|USRCTL|VARSIZE|Y|YEAR|YEARS|YES|YMD|YMD|YYMD|YYMD|ZERO|ZEROS)",
 			"comment": "keywords that begin with a *"
 		},
+		"starKeywords2": {
+			"name": "constant.language.rpgle",
+			"match": "(?i)[*](inlr|inof|ink[a-y]|inh\\d|inof|inlo|inmr|ino[agv]|inrt|nopass|varSize|inm\\d|inl\\d|inu[1-8])",
+			"comment": "keyboard and special indicators"
+		},
 		"numericIndicators": {
-				"name":"constant.language",
-				"match": "(?i)[*][i][n][0-9][0-9]",
+			"name": "constant.language.rpgle",
+			"match": "(?i)[*][i][n][0-9][0-9]",
 			"comment": "number indicators *"
 		},
 		"cammasInFac123":{
@@ -202,10 +207,10 @@
 		},
 		"factor123": {
 			"patterns": [
+				{"include": "#numericIndicators"},
 				{"include": "#starKeywords"},
 				{"include": "#strings"},
-				{"include": "#Numerics"},
-				{"include": "#numericIndicators"}
+				{"include": "#Numerics"}
 			],
 			"name":"constant.rgb-value"
 		},
