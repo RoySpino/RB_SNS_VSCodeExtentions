@@ -82,7 +82,8 @@
 	"Iformat":{
 		"prefix":"Iformat",
 		"body":["/*",
-		    	 ".....I....................................PFromTo++DField+L1M1FrPlMnZr.......... */"],
+				".....IFilenameSqNORiPos1NCCPos2NCCPos3NCC.................................",
+		    	".....I....................................PFromTo++DField+L1M1FrPlMnZr.... */"],
 		"description": "Write a format line for I spec",
 		"scope": "source.rpg3"
 	},
