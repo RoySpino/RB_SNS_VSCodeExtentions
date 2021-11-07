@@ -33,6 +33,8 @@ SEU format bar
 ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/DFormatLine2.gif)
 ### C-spec
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/CSpecFormatLine.gif)
+### Indicator delineation
+ ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/HiLoEq_higlight.png)
 
 ## TODO
 + add support for RPG 3 specs, current specs and their status are
