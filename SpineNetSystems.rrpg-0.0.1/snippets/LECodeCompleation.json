@@ -311,5 +311,96 @@
 		"body": ["C     startingAt    subst     charLen       string"],
         "description": "get a substring of [charLen] from [string]",
 		"scope": "source.rpgle"
-    }
+    },
+	"comp-verbose": {
+		"prefix": "comp",
+		"body": [
+			"/*",
+			"HiLoEq: indicatior assignment/ bool assignment (>,<,=)",
+			"        hi Lo Eq  bool",
+			"        X   X     !=",
+			"        X      X  >=",
+			"            X  X  <=",
+			"               X  ==",
+			"            X     <",
+			"        X         >",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "provide Indicator discription for COMP key-word",
+		"scope": "source.rpgle"
+	},
+	"read-verbose": {
+		"prefix": "read",
+		"body": [
+			"/*",
+			"Lo: On error set indicator ON",
+			"Eq: On EOF set indicator ON",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "provide Indicator discription for READ key-word",
+		"scope": "source.rpgle"
+	},
+	"write-verbose": {
+		"prefix": "write",
+		"body": [
+			"/*",
+			"Lo: On error set indicator ON",
+			"Eq: On EOF set indicator ON",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "provide Indicator discription for WRITE key-word",
+		"scope": "source.rpgle"
+	},
+	"chain-verbose": {
+		"prefix": "chain",
+		"body": [
+			"/*",
+			"Hi: No records found set indicator ON",
+			"Lo: On error set indicator ON",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "provide Indicator discription for CHAIN key-word",
+		"scope": "source.rpgle"
+	},
+	"occur-verbose": {
+		"prefix": "occur",
+		"body": [
+			"/*",
+			"Factor1: set occurrence index",
+			"Result:  get occurrence value",
+			"Lo: On error set indicator ON",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "provide Indicator discription for OCCUR key-word",
+		"scope": "source.rpgle"
+	},
+	"setll-verbose": {
+		"prefix": "occur",
+		"body": [
+			"/*",
+			"Hi: No records found set indicator ON",
+			"Lo: On error set indicator ON",
+			"Eq: When Equal set indicator ON",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "provide Indicator discription for SETLL key-word",
+		"scope": "source.rpgle"
+	},
+	"test-verbose": {
+		"prefix": "chain",
+		"body": [
+			"/*",
+			"Lo: On error set indicator ON",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "provide Indicator discription for TEST key-word",
+		"scope": "source.rpgle"
+	}
 }
