@@ -1,11 +1,11 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "rpg3",
 	"patterns": [
 		{"include": "#commentBlock"},
 		{"include": "#CommentLine"},
 		{"include": "#CommentLineCol80"},
 		{"include": "#Hspec"},
+		{"include": "#Hspec_NoComment"},
 		{"include": "#GOTO_Tags"},
 		{"include": "#GOTO_TagsNoComment"},
 		{"include": "#GOTO_Line"},
@@ -63,7 +63,65 @@
 		{"include": "#Espec_NoName"},
 		{"include": "#Espec_NoToFile"},
 		{"include": "#Espec_NoFromFile"},
-
+		{"include": "#Ispec2"},
+		{"include": "#Ispec2_NoComment"},
+		{"include": "#Ispec2_NoC3B"},
+		{"include": "#Ispec2_NoC3A"},
+		{"include": "#Ispec2_NoN3"},
+		{"include": "#Ispec2_NoPos3"},
+		{"include": "#Ispec2_NoC2B"},
+		{"include": "#Ispec2_NoC2A"},
+		{"include": "#Ispec2_NoN2"},
+		{"include": "#Ispec2_NoPos2"},
+		{"include": "#Ispec2_NoCb"},
+		{"include": "#Ispec2_NoCa"},
+		{"include": "#Ispec2_NoN"},
+		{"include": "#Ispec2_NoPos"},
+		{"include": "#Ispec2_NoRi"},
+		{"include": "#Ispec2_NoO"},
+		{"include": "#Ispec2_NoN1"},
+		{"include": "#Ispec2_NoSq"},
+		{"include": "#Ispec"},
+		{"include": "#Ispec_NoComment"},
+		{"include": "#Ispec_NoZr"},
+		{"include": "#Ispec_NoMn"},
+		{"include": "#Ispec_NoP1"},
+		{"include": "#Ispec_NoFr"},
+		{"include": "#Ispec_NoM1"},
+		{"include": "#Ispec_NoL1"},
+		{"include": "#Ispec_NoField"},
+		{"include": "#Ispec_NoD"},
+		{"include": "#Ispec_NoTo"},
+		{"include": "#Ispec_NoFrom"},
+		{"include": "#Ispec_No_space"},
+		{"include": "#Ospec2"},
+		{"include": "#Ospec2_NoComment"},
+		{"include": "#Ospec2_NoEditword"},
+		{"include": "#Ospec2_NoP"},
+		{"include": "#Ospec2_NoEnd"},
+		{"include": "#Ospec2_NoB"},
+		{"include": "#Ospec2_NoY"},
+		{"include": "#Ospec2_NoField"},
+		{"include": "#Ospec2_No03"},
+		{"include": "#Ospec2_NoN3"},
+		{"include": "#Ospec2_No02"},
+		{"include": "#Ospec2_NoN2"},
+		{"include": "#Ospec2_No01"},
+		{"include": "#Ospec"},
+		{"include": "#Ospec_NoComment"},
+		{"include": "#Ospec_NoExcnam"},
+		{"include": "#Ospec_No03"},
+		{"include": "#Ospec_NoN3"},
+		{"include": "#Ospec_No02"},
+		{"include": "#Ospec_NoN2"},
+		{"include": "#Ospec_No01"},
+		{"include": "#Ospec_NoN1"},
+		{"include": "#Ospec_NoSa"},
+		{"include": "#Ospec_NoSb"},
+		{"include": "#Ospec_NoA"},
+		{"include": "#Ospec_NoB"},
+		{"include": "#Ospec_NoF"},
+		{"include": "#Ospec_NoD"},
 
 		{"include": "#NOSPEC"}
 	],
@@ -345,9 +403,23 @@
 		},
 
 		"Hspec": {
-			"name": "constant.language",
-			"begin": "(?i)^(.....)([h])",
-			"end": "\\n"
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(h)(.{68})(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.language"},
+				"4":{"name":"comment"}
+			}
+		},
+		"Hspec_NoComment": {
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(h)(.{,68})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.language"}
+			}
 		},
 
 		"Fspec":{
@@ -1902,6 +1974,1237 @@
 				"3":{"name":"constant.rgb-value"}
 			}
 		},
+		"Ispec":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)(.{6})(.{2})(.{2})(.{2})(.{2})(.{2})(.{2})(.{4})(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"},
+				"8":{"name":"constant.rgb-value"},
+				"9":{"name": "constant.language.rpgle"},
+				"10":{"name": "variable.rpgle"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12":{"name": "constant.language.rpgle"},
+				"13":{"name": "variable.rpgle"},
+				"14":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"15":{"name":"constant.rgb-value"},
+				"16":{"name":"comment"}
+			}
+		},
+		"Ispec_NoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)(.{6})(.{2})(.{2})(.{2})(.{2})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"},
+				"8":{"name":"constant.rgb-value"},
+				"9":{"name": "constant.language.rpgle"},
+				"10":{"name": "variable.rpgle"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12":{"name": "constant.language.rpgle"},
+				"13":{"name": "variable.rpgle"},
+				"14":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"emphasis"}
+			}
+		},
+		"Ispec_NoZr":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)(.{6})(.{2})(.{2})(.{2})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"},
+				"8":{"name":"constant.rgb-value"},
+				"9":{"name": "constant.language.rpgle"},
+				"10":{"name": "variable.rpgle"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12":{"name": "constant.language.rpgle"},
+				"13":{"name": "variable.rpgle"}
+			}
+		},
+		"Ispec_NoMn":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)(.{6})(.{2})(.{2})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"},
+				"8":{"name":"constant.rgb-value"},
+				"9":{"name": "constant.language.rpgle"},
+				"10":{"name": "variable.rpgle"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12":{"name": "constant.language.rpgle"}
+			}
+		},
+		"Ispec_NoP1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)(.{6})(.{2})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"},
+				"8":{"name":"constant.rgb-value"},
+				"9":{"name": "constant.language.rpgle"},
+				"10":{"name": "variable.rpgle"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"}
+			}
+		},
+		"Ispec_NoFr":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)(.{6})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"},
+				"8":{"name":"constant.rgb-value"},
+				"9":{"name": "constant.language.rpgle"},
+				"10":{"name": "variable.rpgle"}
+			}
+		},
+		"Ispec_NoM1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)(.{6})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"},
+				"8":{"name":"constant.rgb-value"},
+				"9":{"name": "constant.language.rpgle"}
+			}
+		},
+		"Ispec_NoL1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)(.{,6})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"},
+				"8":{"name":"constant.rgb-value"}
+			}
+		},
+		"Ispec_NoField":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{3}[\\d])(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"7":{"name":"variable.language"}
+			}
+		},
+		"Ispec_NoD":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{3}[\\d])([\\d\\s]{,4})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"},
+				"6":{"name":"emphasis"}
+			}
+		},
+		"Ispec_NoTo":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)([\\d\\s]{,4})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"},
+				"5":{"name":"constant.numeric"}
+			}
+		},
+		"Ispec_NoFrom":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\s{36})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable.language"}
+			}
+		},
+		"Ispec_No_space":{
+			"name":"constant.rgb-value",
+			"match": "(.{5})(i)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"}
+			}
+		},
+		"Ispec2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)(.)(\\s{33})(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"string"},
+				"7":{"patterns": [{
+						"name":"constant.regexp",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"string"},
+				"11":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"},
+				"13":{"name":"variable.language"},
+				"14":{"name":"support.constant"},
+				"15":{"patterns": [{
+						"name": "variable",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"16": {"name": "constant.numeric"},
+				"17":{"name":"variable.language"},
+				"18":{"name":"support.constant"},
+				"19":{"patterns": [{
+						"name": "variable",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"20":{"name":"constant.rgb-value"},
+				"21":{"name":"comment"}
+			}
+		},
+		"Ispec2_NoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"string"},
+				"7":{"patterns": [{
+						"name":"constant.regexp",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"string"},
+				"11":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"},
+				"13":{"name":"variable.language"},
+				"14":{"name":"support.constant"},
+				"15":{"patterns": [{
+						"name": "variable",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"16": {"name": "constant.numeric"},
+				"17":{"name":"variable.language"},
+				"18":{"name":"support.constant"},
+				"19":{"patterns": [{
+						"name": "variable",
+						"match": "."
+					 }],
+			          "name":"emphasis"}
+			}
+		},
+		"Ispec2_NoC3B":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"string"},
+				"7":{"patterns": [{
+						"name":"constant.regexp",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"string"},
+				"11":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"},
+				"13":{"name":"variable.language"},
+				"14":{"name":"support.constant"},
+				"15":{"patterns": [{
+						"name": "variable",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"16": {"name": "constant.numeric"},
+				"17":{"name":"variable.language"},
+				"18":{"name":"support.constant"}
+			}
+		},
+		"Ispec2_NoC3A":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"support.constant"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"},
+				"13":{"name":"variable.language"},
+				"14":{"name":"support.constant"},
+				"15":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"16": {"name": "constant.numeric"},
+				"17":{"name":"variable.language"}
+			}
+		},
+		"Ispec2_NoN3":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{,4})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"support.constant"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"},
+				"13":{"name":"variable.language"},
+				"14":{"name":"support.constant"},
+				"15":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"16": {"name": "constant.numeric"}
+			}
+		},
+		"Ispec2_NoPos3":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"support.constant"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"},
+				"13":{"name":"variable.language"},
+				"14":{"name":"support.constant"},
+				"15":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"}
+			}
+		},
+		"Ispec2_NoC2B":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"support.constant"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"},
+				"13":{"name":"variable.language"},
+				"14":{"name":"support.constant"}
+			}
+		},
+		"Ispec2_NoC2A":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{3}[\\d])(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"support.constant"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"},
+				"13":{"name":"variable.language"}
+			}
+		},
+
+		"Ispec2_NoN2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)([\\d\\s]{,4})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"support.constant"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"12": {"name": "constant.numeric"}
+			}
+		},
+		"Ispec2_NoPos2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"support.constant"},
+				"11":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"}
+			}
+		},
+		"Ispec2_NoCb":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"},
+				"10":{"name":"support.constant"}
+			}
+		},
+		"Ispec2_NoCa":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{3}[\\d])(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"},
+				"9":{"name":"variable.language"}
+			}
+		},
+		"Ispec2_NoN":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{2})([\\d\\s]{,4})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"8": {"name": "constant.numeric"}
+			}
+		},
+		"Ispec2_NoPos":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)([\\d\\s]{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"},
+				"7":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"strong"}
+			}
+		},
+		"Ispec2_NoRi":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"},
+				"6":{"name":"support.constant"}
+			}
+		},
+		"Ispec2_NoO":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{2})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"},
+				"5":{"name":"variable.language"}
+			}
+		},
+		"Ispec2_NoN1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{7})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric"}
+			}
+		},
+		"Ispec2_NoSq":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)(i)(\\S[\\S\\s]{,7})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"}
+			}
+		},
+		"Ospec":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{2})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})(.{6})(.{37})(.*)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"10":{"name":"variable"},
+				"11":{"name":"constant.language"},
+				"12":{"name":"variable"},
+				"13":{"name":"constant.language"},
+				"14":{"name":"variable"},
+				"15":{"name":"constant.language"},
+				"16":{"name":"constant.rgb-value"},
+				"17":{"name":"constant.rgb-value"},
+				"18":{"name":"comment"}
+			}
+		},
+		"Ospec_NoComment":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{2})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})(.{,6})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"10":{"name":"variable"},
+				"11":{"name":"constant.language"},
+				"12":{"name":"variable"},
+				"13":{"name":"constant.language"},
+				"14":{"name":"variable"},
+				"15":{"name":"constant.language"},
+				"16":{"name":"constant.rgb-value"}
+			}
+		},
+		"Ospec_NoExcnam":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{2})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{,2})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"10":{"name":"variable"},
+				"11":{"name":"constant.language"},
+				"12":{"name":"variable"},
+				"13":{"name":"constant.language"},
+				"14":{"name":"variable"},
+				"15":{"name":"constant.language"}
+			}
+		},
+		"Ospec_No03":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{2})([n\\s])(.{2})([n\\s])(.{2})([n\\s])",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"10":{"name":"variable"},
+				"11":{"name":"constant.language"},
+				"12":{"name":"variable"},
+				"13":{"name":"constant.language"},
+				"14":{"name":"variable"}
+			}
+		},
+		"Ospec_NoN3":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{2})([n\\s])(.{2})([n\\s])(.{,2})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"10":{"name":"variable"},
+				"11":{"name":"constant.language"},
+				"12":{"name":"variable"},
+				"13":{"name":"constant.language"}
+			}
+		},
+		"Ospec_No02":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{2})([n\\s])(.{2})([n\\s])",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"10":{"name":"variable"},
+				"11":{"name":"constant.language"},
+				"12":{"name":"variable"}
+			}
+		},
+		"Ospec_NoN2":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{2})([n\\s])(.{,2})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"10":{"name":"variable"},
+				"11":{"name":"constant.language"}
+			}
+		},
+		"Ospec_No01":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{2})([n\\s])",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"},
+				"10":{"name":"variable"}
+			}
+		},
+		"Ospec_NoN1":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{2})(.{,2})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"},
+				"9":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					 }],
+			          "name":"emphasis"}
+			}
+		},
+		"Ospec_NoSa":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)(.{,2})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"},
+				"8":{"patterns": [{
+						"name":"variable",
+						"match": "."
+					 }],
+			          "name":"strong"}
+			}
+		},
+		"Ospec_NoSb":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)(.)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"},
+				"7":{"name":"constant.character.escape"}
+			}
+		},
+		"Ospec_NoA":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)(.)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"string"}
+			}
+		},
+		"Ospec_NoB":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)(.)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"}
+			}
+		},
+		"Ospec_NoF":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{7})(.)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"}
+			}
+		},
+		"Ospec_NoD":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\S[\\S\\s]{,7})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"}
+			}
+		},
+		"Ospec2":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})(\\S[\\S\\s]{5})(.)(.)([\\d\\s]{3}[\\d])(.)(.{26})(.*)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"},
+				"9":{"name":"constant.language"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"constant.regexp"},
+				"12":{"name":"string"},
+				"13":{"name":"constant.numeric"},
+				"14":{"name":"constant.character.escape"},
+				"15":{"name":"constant.rgb-value"},
+				"16":{"name":"comment"}
+			}
+		},
+		"Ospec2_NoComment":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})(\\S[\\S\\s]{5})(.)(.)([\\d\\s]{3}[\\d])(.)(.{,26})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"},
+				"9":{"name":"constant.language"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"constant.regexp"},
+				"12":{"name":"string"},
+				"13":{"name":"constant.numeric"},
+				"14":{"name":"constant.character.escape"},
+				"15":{"name":"constant.rgb-value"}
+			}
+		},
+		"Ospec2_NoEditword":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})(\\S[\\S\\s]{5})(.)(.)([\\d\\s]{3}[\\d])(.)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"},
+				"9":{"name":"constant.language"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"constant.regexp"},
+				"12":{"name":"string"},
+				"13":{"name":"constant.numeric"},
+				"14":{"name":"constant.character.escape"}
+			}
+		},
+		"Ospec2_NoP":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})(\\S[\\S\\s]{5})(.)(.)([\\d\\s]{3}[\\d])",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"},
+				"9":{"name":"constant.language"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"constant.regexp"},
+				"12":{"name":"string"},
+				"13":{"name":"constant.numeric"}
+			}
+		},
+		"Ospec2_NoEnd":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})({\\S[\\S\\s]{5})(.)(.)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"},
+				"9":{"name":"constant.language"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"constant.regexp"},
+				"12":{"name":"string"}
+			}
+		},
+		"Ospec2_NoB":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})(\\S[\\S\\s]{5})(.)",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"},
+				"9":{"name":"constant.language"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"constant.regexp"}
+			}
+		},
+		"Ospec2_NoY":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{2})(\\S[\\S\\s]{,5})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"},
+				"9":{"name":"constant.language"},
+				"10":{"name":"constant.rgb-value"}
+			}
+		},
+		"Ospec2_NoField":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])(.{,2})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"},
+				"9":{"name":"constant.language"}
+			}
+		},
+		"Ospec2_No03":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{2})([n\\s])",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"},
+				"8":{"name":"variable"}
+			}
+		},
+		"Ospec2_NoN3":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])(.{,2})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"},
+				"7":{"name":"constant.language"}
+			}
+		},
+		"Ospec2_No02":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{2})([n\\s])",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"},
+				"6":{"name":"variable"}
+			}
+		},
+		"Ospec2_NoN2":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])(.{,2})",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"},
+				"5":{"name":"constant.language"}
+			}
+		},
+		"Ospec2_No01":{
+			"name":"constant.rgb-value",
+			"match":"(?i)^(.....)(o)(\\s{16})([n\\s])",
+			"captures":{
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"variable"}
+			}
+		},
+
+
 
 
 
