@@ -1,5 +1,4 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "rpgle",
 	"patterns": [
 		{"include": "#freeBlock"},
@@ -94,6 +93,14 @@
 		{"include": "#Ospec2_NoSpace"},
 		{"include": "#Ospec2_NoF"},
 		{"include": "#Ospec2_NoD"},
+		{"include": "#Ispec2"},
+		{"include": "#Ispec2_NoComment"},
+		{"include": "#Ispec2_NoZr"},
+		{"include": "#Ispec2_NoMn"},
+		{"include": "#Ispec2_NoPl"},
+		{"include": "#Ispec2_NoM1"},
+		{"include": "#Ispec2_NoL1"},
+		{"include": "#Ispec2_NoExField"},
 		{"include": "#Ispec1"},
 		{"include": "#Ispec1_NoComment"},
 		{"include": "#Ispec1_NoC32"},
@@ -108,16 +115,7 @@
 		{"include": "#Ispec1_NoPos1"},
 		{"include": "#Ispec1_NoRi"},
 		{"include": "#Ispec1_NoO"},
-		{"include": "#Ispec1_NoSQ"},
-		{"include": "#Ispec2"},
-		{"include": "#Ispec2_NoComment"},
-		{"include": "#Ispec2_NoZr"},
-		{"include": "#Ispec2_NoMn"},
-		{"include": "#Ispec2_NoPl"},
-		{"include": "#Ispec2_NoM1"},
-		{"include": "#Ispec2_NoL1"},
-		{"include": "#Ispec2_NoField"},
-		{"include": "#Ispec2_NoExField"}
+		{"include": "#Ispec1_NoSQ"}
 	],
 	"repository": {
 		"commentsclike": {
@@ -212,7 +210,7 @@
 		},
 		"starKeywords2": {
 			"name":"constant.language.rpgle",
-			"match": "(?i)[*](inlr|inof|ink[a-y]|inh\\d|inof|inlo|inmr|ino[agv]|inrt|nopass|varSize|inm\\d|inl\\d|inu[1-8])\\b",
+			"match": "(?i)[*](inlr|inof|ink[a-y]|inh\\d|inof|inlo|inmr|ino[agv]|inrt|nopass|varsize|inm\\d|inl\\d|inu[1-8]|hms[\\d]?|iso[\\d]?|cursym|astfil)\\b",
 			"comment": "keyboard and special indicators"
 		},
 		"numericIndicators": {
@@ -244,7 +242,7 @@
 		},
 		"keywordsFuncstions":{
 			"name":"variable.rpgle",
-			"match": "(?i)(z-sub     |z-add\\(h\\)|z-add     |xlate     |xfoot     |writee    |write     |update    |unlock    |time      |testz     |testn     |testb     |test\\(d\\)   |test      |tag       |subst     |subdur    |sub       |sqrt      |sorta     |shtdn     |seton     |setoff    |setll     |setgt     |scan      |rolbk     |return    |reset     |rel       |realloc   |readpe    |readp     |reade\\(n\\)  |reade     |readc     |read\\(n\\)   |read      |post      |parm      |out       |orne      |orlt      |orle      |orgt      |orge      |oreq      |or        |open      |on-error  |on        |occur     |not       |next      |mvr       |mult\\(h\\)   |mult      |movel\\(p\\)  |movel     |movea     |move\\(p\\)   |move      |mllzo     |mlhzo     |mhlzo     |mhhzo     |lookup    |leavesr   |leave     |klist     |kfld      |iter      |in        |goto      |force     |feod      |extrct    |exsr      |exfmt     |except    |endcs     |dump      |dsply     |div       |delete    |define    |dealloc   |comp      |commit    |close     |clear     |checkr    |check     |chain\\(n\\)     |chain     |cat       |casne     |caslt     |casle     |casgt     |casge     |caseq     |case      |cas       |cabne     |cablt     |cable     |cabgt     |cabge     |cabeq     |cab       |biton     |bitoff    |andne     |andlt     |andle     |andgt     |andge     |andeq     |and       |alloc     |addne     |addlt     |addle     |addgt     |addge     |addeq     |adddur    |add       |acq       )"
+			"match": "(?i)(z-sub     |z-add\\(h\\)|z-add     |xlate     |xfoot     |writee    |write     |update    |unlock    |time      |test\\s{,3}\\([dtze]\\)|test      |tag       |subst     |subdur    |sub       |sqrt      |sorta     |shtdn     |seton     |setoff    |setll     |setgt     |scan      |rolbk     |return    |reset     |rel       |realloc   |reade\\([ne]\\)  |read\\([ne]\\)   |readp[e\\s]   |read[cpe\\s]     |post      |parm      |out       |orne      |orlt      |orle      |orgt      |orge      |oreq      |open      |on-error  |on        |occur     |not       |next      |mvr       |mult\\(h\\)   |mult      |movel\\(p\\)  |movel     |movea     |move\\(p\\)   |move      |mllzo     |mlhzo     |mhlzo     |mhhzo     |lookup    |leavesr   |leave     |klist     |kfld      |iter      |in        |goto      |force     |feod      |extrct    |exsr      |exfmt     |except    |endcs     |dump      |dsply     |div       |delete    |define    |dealloc   |comp      |commit    |close     |clear     |checkr    |check     |chain\\(n\\)     |chain     |cat       |casne     |caslt     |casle     |casgt     |casge     |caseq     |case      |cas       |cabne     |cablt     |cable     |cabgt     |cabge     |cabeq     |cab       |biton     |bitoff    |andne     |andlt     |andle     |andgt     |andge     |andeq     |and       |alloc     |addne     |addlt     |addle     |addgt     |addge     |addeq     |adddur    |add       |acq       )"
 		},
 		"freeHSpec":{
 			"name":"constant.language",
@@ -263,16 +261,15 @@
 		},
 		"freeCatchAllFunctions":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(write|update|unlock|udate|to|testz|testn|testb|test|sub|sqrt|setll|setgt|scan|rolbk|return|reset|rel|realloc|readpe|readp|reade|readc|read|post|out|or|open|on-error|on|not|next|leavesr|leave|iter|in|force|feod|extrct|exsr|exfmt|except|endcs|dump|dsply|delete|define|dealloc|commit|close|clear|chain|callp|callb|call|and|alloc|add|acq)\\b"
+			"match": "(?i)\\b(write|update|unlock|udate|to|testz|testn|testb|test|sub|sqrt|setll|setgt|scan|rolbk|return|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|out|or|open|on-error|on|not|next|leavesr|leave|iter|in|force|feod|extrct|exsr|exfmt|except|endcs|dump|dsply|delete|define|dealloc|commit|close|clear|chain|callp|callb|call|and|alloc|add|acq)\\b"
 		},
 		"CatchAllFunctions":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(z-sub|z-add\\(h\\)|z-add|xlate|xfoot|write|update|unlock|udate|to|time|testz|testn|testb|test|tag|subst|subdur|sub|sqrt|sorta|shtdn|seton|setoff|setll|setgt|scan|rolbk|return|reset|rel|realloc|readpe|readp|reade|readc|read|post|plist|parm|out|orne|orlt|orle|orgt|orge|oreq|or|open|on-error|on|occur|not|next|mvr|mult|movel\\(p\\)|movel|movea|move\\(p\\)|move|mllzo|mlhzo|mhlzo|mhhzo|lookup|leavesr|leave|klist|kfld|iter|in|goto|force|feod|extrct|exsr|exfmt|except|evalr|eval\\(h\\)|eval|endcs|dump|dsply|div|delete|define|dealloc|comp|commit|close|clear|checkr|check|chain|cat|casne|caslt|casle|casgt|casge|caseq|case|cas|callp|callb|call|cabne|cablt|cable|cabgt|cabge|cabeq|cab|biton|bitoff|andne|andlt|andle|andgt|andge|andeq|and|alloc|addne|addlt|addle|addgt|addge|addeq|adddur|add|acq)\\b"
+			"match": "(?i)\\b(z-sub|z-add\\(h\\)|z-add|xlate|xfoot|write|update|unlock|udate|to|time|test\\s{,3}\\([dtze]\\)|test|tag|subst|subdur|sub|sqrt|sorta|shtdn|seton|setoff|setll|setgt|scan|rolbk|return|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|plist|parm|out|orne|orlt|orle|orgt|orge|oreq|open|on-error|on|occur|not|next|mvr|mult|movel\\(p\\)|movel|movea|move\\(p\\)|move|mllzo|mlhzo|mhlzo|mhhzo|lookup|leavesr|leave|klist|kfld|iter|in|goto|force|feod|extrct|exsr|exfmt|except|evalr|eval\\(h\\)|eval|endcs|dump|dsply|div|delete|define|dealloc|comp|commit|close|clear|checkr|check|chain|cat|casne|caslt|casle|casgt|casge|caseq|case|cas|callp|callb|call|cabne|cablt|cable|cabgt|cabge|cabeq|cab|biton|bitoff|andne|andlt|andle|andgt|andge|andeq|and|alloc|addne|addlt|addle|addgt|addge|addeq|adddur|add|acq)\\b"
 		},
 		"CatchAllControl":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(and|or|not|to)\\b"
-
+			"match": "(?i)\\b(to|or|not|and)\\b"
 		},
 		"sql_struc":{
 			"name": "invalid.illegal.rpg",
@@ -430,7 +427,7 @@
 		},
 		"Cspec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d|\\s]{5})([\\d|\\s]{2})(..)(..)(.{0,2})(.*)",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(..)(..)(.{0,2})(.*)",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"constant.character.escape"},
@@ -471,7 +468,7 @@
 		},
 		"Cspec_NoEq":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d|\\s]{5})([\\d|\\s]{2})(..)(.{0,2})",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(..)(.{0,2})",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"constant.character.escape"},
@@ -510,7 +507,7 @@
 		},
 		"Cspec_NoLo":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d|\\s]{5})([\\d|\\s]{2})(.{0,2})",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(.{0,2})",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"constant.character.escape"},
@@ -544,7 +541,7 @@
 		},
 		"Cspec_NoHi":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d|\\s]{5})([\\d|\\s]{0,2})",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{0,2})",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"constant.character.escape"},
@@ -577,7 +574,7 @@
 		},
 		"Cspec_NoDec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d|\\s]{0,5})",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{0,5})",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"constant.character.escape"},
@@ -882,7 +879,7 @@
 
 		"Dspec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d|\\s]{7})([\\d|\\s]{7})(.)(\\d|\\s){2}(.)(.{37})(.*)",
+			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{37})(.*)",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"punctuation.separator.classes"},
@@ -902,7 +899,7 @@
 		},
 		"Dspec_NoComments":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d|\\s]{7})([\\d|\\s]{7})(.)(\\d|\\s){2}(.)(.{0,37})\\b",
+			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{0,37})\\b",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"punctuation.separator.classes"},
@@ -921,7 +918,7 @@
 		},
 		"Dspec_NoKeywords":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d|\\s]{7})([\\d|\\s]{7})(.)(\\d|\\s){2}\\b",
+			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}\\b",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"punctuation.separator.classes"},
@@ -936,7 +933,7 @@
 		},
 		"Dspec_NoDecimal":{
 				"name":"constant.rgb-value",
-				"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d|\\s]{7})([\\d|\\s]{7})(.)\\b",
+				"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)\\b",
 				"captures": {
 					"1":{"name":"support.type.rpgle"},
 					"2":{"name":"punctuation.separator.classes"},
@@ -950,7 +947,7 @@
 		},
 		"Dspec_NoType":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d|\\s]{7})([\\d|\\s]{0,7})",
+			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{0,7})",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"punctuation.separator.classes"},
@@ -963,7 +960,7 @@
 		},
 		"Dspec_NoLen":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d|\\s]{0,7})\\b",
+			"match": "(?i)^([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{0,7})\\b",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"punctuation.separator.classes"},
@@ -1537,7 +1534,7 @@
 
 		"Pspec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d|\\s]{4})(.)([\\d|\\s]{2})(.{33})(.*)",
+			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{2})(.{33})(.*)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -1560,7 +1557,7 @@
 		},
 		"Pspec_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d|\\s]{4})(.)([\\d|\\s]{2})(.{0,33})",
+			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{2})(.{0,33})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -1582,7 +1579,7 @@
 		},
 		"Pspec_NoKeywords":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d|\\s]{4})(.)([\\d|\\s]{0,2})",
+			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{0,2})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -1596,7 +1593,7 @@
 		},
 		"Pspec_NoDecimals":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d|\\s]{4})(.)",
+			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -1614,7 +1611,7 @@
 		},
 		"Pspec_NoI":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d|\\s]{0,4})",
+			"match": "(?i)^([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{0,4})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2140,7 +2137,7 @@
 		
 		"Ispec1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)(.)(\\s{34})(.*)",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)(\\s{34})(.*)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2174,7 +2171,7 @@
 		},
 		"Ispec1_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)(.)",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2205,7 +2202,7 @@
 		},
 		"Ispec1_NoC32":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2235,7 +2232,7 @@
 		},
 		"Ispec1_NoC31":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2264,7 +2261,7 @@
 		},
 		"Ispec1_NoN31":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)(.)(.{0,5})",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)(.{0,5})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2291,7 +2288,7 @@
 		},
 		"Ispec1_NoC22":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)(.)",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2317,7 +2314,7 @@
 		},
 		"Ispec1_NoC21":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)(.)([\\d|\\s]{5})(.)",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2342,7 +2339,7 @@
 		},
 		"Ispec1_NoN21":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)(.)(.{0,5})",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)(.{0,5})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2364,7 +2361,7 @@
 		},
 		"Ispec1_NoPos2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)(.)",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2384,7 +2381,7 @@
 		},
 		"Ispec1_NoC11":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d|\\s]{5})(.)",
+			"match": "(?i)^([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2463,7 +2460,7 @@
 		},
 		"Ispec2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(.{14})(..)(..)(\\s\\s)(..)(..)(..)(\\s{6})(.*)",
+			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(..)(..)(\\s{6})(.*)",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2488,7 +2485,7 @@
 		},
 		"Ispec2_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(.{14})(..)(..)(\\s\\s)(..)(..)(.{0,2})",
+			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(..)(.{,2})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2511,7 +2508,7 @@
 		},
 		"Ispec2_NoZr":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(.{14})(..)(..)(\\s\\s)(..)(.{0,2})",
+			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(.{,2})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2531,7 +2528,7 @@
 		},
 		"Ispec2_NoMn":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(.{14})(..)(..)(\\s\\s)(.{0,2})",
+			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(.{,2})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2548,7 +2545,7 @@
 		},
 		"Ispec2_NoPl":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(.{14})(..)(..)(.{0,2})",
+			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(.{,2})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2562,7 +2559,7 @@
 		},
 		"Ispec2_NoM1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(.{14})(.{0,2})",
+			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(.{,2})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2576,21 +2573,7 @@
 		},
 		"Ispec2_NoL1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(.{0,14})",
-			"captures": {
-				"1":{"name":"support.type"},
-				"2":{"name":"constant.rgb-value"},
-				"3":{"name":"constant.rgb-value"},
-				"4":{"name":"constant.rgb-value"},
-				"5":{"name":"constant.rgb-value"},
-				"6":{"name":"storage.type"},
-				"7":{"name":"constant.language"},
-				"8":{"name":"constant.rgb-value"}
-			}
-		},
-		"Ispec2_NoField":{
-			"name":"constant.rgb-value",
-			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(.{0,14})",
+			"match": "(?i)^([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{,14})",
 			"captures": {
 				"1":{"name":"support.type"},
 				"2":{"name":"constant.rgb-value"},
@@ -2604,7 +2587,7 @@
 		},
 		"Ispec2_NoExField":{
 				"name":"constant.rgb-value",
-				"match": "(?i)^([i])(\\s{14})(.{0,10})",
+				"match": "(?i)^([i])(\\s{14})(.{,10})",
 				"captures": {
 					"1":{"name":"support.type"},
 					"2":{"name":"constant.rgb-value"},
@@ -2644,6 +2627,7 @@
 				{"include": "#starKeywords"},
 				{"include": "#starKeywords2"},
 				{"include": "#otherStarKeywords"},
+				{"include": "#CatchAllControl"},
 				{"include": "#numericIndicators"},
 				{"include": "#Numerics"},
 				{"include": "#BIF"},
@@ -2655,10 +2639,10 @@
 				{"include": "#starKeywords"},
 				{"include": "#starKeywords2"},
 				{"include": "#otherStarKeywords"},
+				{"include": "#CatchAllControl"},
 				{"include": "#numericIndicators"},
 				{"include": "#Numerics"},
 				{"include": "#BIF"},
-				{"include": "#CatchAllControl"},
 				{"include": "#strings"}
 			]
 		},
