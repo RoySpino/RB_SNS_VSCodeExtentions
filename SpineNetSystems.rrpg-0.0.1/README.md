@@ -23,7 +23,7 @@ These are the supported file extensions for RPG 4 and 3
 | .rpg, .rpgle        | RPG4 and SQLRPGL |
 | .rpg3               | RPG/400  |
 
-## tools for fixed format RPG
+## Tools for fixed format RPG
 SEU format bar
 ### F-spec
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/FSpecFormatLine.gif)
