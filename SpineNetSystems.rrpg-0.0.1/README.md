@@ -8,7 +8,7 @@ This is only an editor. The extension will in no way connect to an external AS40
 ## What is it useful for?
 Quick viewing and editing of RPG source code without being limited to a 5250 editor. 
 features incudes:
-+ Support for structured RPG 4
++ Support for fixed-format RPG 4
 + Support for free-format syntax both with full free and imbedded
 + Support for ASNA Visual RPG
 + Includes IBM format lines to help position structured code
