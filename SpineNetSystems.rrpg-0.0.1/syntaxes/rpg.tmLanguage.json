@@ -341,7 +341,7 @@
 		},
 		"BIF":{
 			"name":"constant.language",
-			"match": "(?i)\\%(abs|addr|alloc|bitand|bitnot|bitor|workstn|usropn|inz|bitxor|char|check|checkr|date|days|dec|dech|decpos|diff|div|editc|editflt|editw|elem|eof|equal|error|fields|float|found|graph|hours|int|inth|kds|len|lookup|minutes|months|mseconds|nullind|occur|open|paddr|paddr|parms|realloc|rem|replace|scan|scanrpl|seconds|shtdn|size|sqrt|status|str|str|str|subarr|subdt|subst|time|timestamp|tlookup|trim|triml|trimr|ucs2|uns|unsh|xfoot|xlate|years)\\b"
+			"match": "(?i)\\%(years|xlate|xfoot|workstn|usropn|unsh|uns|ucs2|trimr|triml|trim|tlookup|timestamp|time|subst|subdt|subarr|str|str|str|status|sqrt|size|shtdn|seconds|scanrpl|scan|replace|rem|realloc|proc|parms|ParmNum|paddr|paddr|open|occur|nullind|mseconds|months|minutes|lookup|len|kds|inz|inth|int|hours|graph|found|float|fields|error|equal|eof|elem|editw|editflt|editc|div|diff|decpos|dech|dec|days|date|checkr|check|char|bitxor|bitor|bitnot|bitand|alloc|addr|abs)\\b"
 		},
 		"compilerConst":{
 			"name": "constant.rgb-value",
