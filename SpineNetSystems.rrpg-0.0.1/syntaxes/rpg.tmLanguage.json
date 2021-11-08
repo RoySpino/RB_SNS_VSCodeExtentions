@@ -9,6 +9,7 @@
 		{"include": "#sql_struc"},
 		{"include": "#DateLiteral"},
 		{"include": "#TimeLiteral"},
+		{"include": "#compilerConst"},
 		{"include": "#BIF"},
 		{"include": "#starKeywords"},
 		{"include": "#numericIndicators"},
@@ -341,6 +342,20 @@
 		"BIF":{
 			"name":"constant.language",
 			"match": "(?i)\\%(abs|addr|alloc|bitand|bitnot|bitor|workstn|usropn|inz|bitxor|char|check|checkr|date|days|dec|dech|decpos|diff|div|editc|editflt|editw|elem|eof|equal|error|fields|float|found|graph|hours|int|inth|kds|len|lookup|minutes|months|mseconds|nullind|occur|open|paddr|paddr|parms|realloc|rem|replace|scan|scanrpl|seconds|shtdn|size|sqrt|status|str|str|str|subarr|subdt|subst|time|timestamp|tlookup|trim|triml|trimr|ucs2|uns|unsh|xfoot|xlate|years)\\b"
+		},
+		"compilerConst":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{0,})(\\/space|\\/if|\\/endif|\/define)(.*)",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"3":{"name":"variable"}
+			}
 		},
 
 		"Hspecs": {
@@ -2815,6 +2830,18 @@
 				{"include": "#strings"}
 			]
 		},
+		"DatastrucBlock_NoNaturalEnd":{
+			"name":"constant.rgb-value",
+			"match": "(?i)(\\s{0,})(dcl-ds)(\\s{1,})(\\S{1,})(\\s{1,})(likerec|like)",
+			"captures":{
+				"1":{"name": "constant.rgb-value"},
+				"2":{"name": "constant.language"},
+				"3":{"name": "constant.rgb-value"},
+				"4":{"name": "constant.rgb-value"},
+				"5":{"name": "constant.rgb-value"},
+				"6":{"name": "keyword.control"}
+			}
+		},
 		"DatastrucBlock2":{
 			"begin": "(?i)(\\s{0,})(dcl-ds)(\\s{1,})(\\S{1,})(\\s{0,})(\\w{0,})",
 			"end": "(?i)(\\s{0,})(end-ds)",
@@ -3108,6 +3135,7 @@
 					}
 			},
 			"patterns": [
+				{"include": "#compilerConst"},
 				{"include": "#starKeywords"},
 				{"include": "#numericIndicators"},
 				{"include": "#LIndicators"},
@@ -3137,6 +3165,8 @@
 					}
 			},
 			"patterns": [
+				{"include": "#compilerConst"},
+				{"include": "#DatastrucBlock_NoNaturalEnd"},
 				{"include": "#DatastrucBlock3"},
 				{"include": "#DatastrucBlock2"},
 				{"include": "#DatastrucBlock"},
