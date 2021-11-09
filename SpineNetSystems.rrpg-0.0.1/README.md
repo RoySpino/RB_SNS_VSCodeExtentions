@@ -40,7 +40,7 @@ SEU format bar
 + add support for RPG 3 specs, current specs and their status are
     * **H** spec: completed
     * **F** spec: incomplete documentation needed
-    * **I** spec: Not currently supported
+    * **I** spec: mostly complete but citation needed
     * **C** spec: mostly complete but citation needed
     * **O** spec: incomplete documentation needed
     
