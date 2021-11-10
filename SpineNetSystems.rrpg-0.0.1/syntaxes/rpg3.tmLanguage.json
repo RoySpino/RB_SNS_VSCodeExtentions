@@ -138,11 +138,11 @@
 		},
 		"keywordControl":{
 			"name":"keyword.control",
-			"match": "(?i)(do   |sfile|plist|ifne |iflt |ifle |ifgt |ifge |ifeq |endsr|end  |else |downe|dowlt|dowgt|dowge|doweq|dow  |doune|doult|doule|dougt|douge|doueq|dou  |begsr)"
+			"match": "(?i)(sfile|plist|ifne |iflt |ifle |ifgt |ifge |ifeq |endsr|end  |else |downe|dowlt|dowle|dowgt|dowge|doweq|dow  |doune|doult|doule|dougt|douge|doueq|dou  |do   |begsr)"
 		},
 		"keywordControl2":{
 			"name":"keyword.control",
-			"match": "(?i)(sfile|plist|ifne|iflt|ifle|ifgt|ifge|ifeq|endsr|end|else|downe|dowlt|dowgt|dowge|doweq|dow|doune|doult|doule|dougt|douge|doueq|dou|do|begsr)"
+			"match": "(?i)(sfile|plist|ifne|iflt|ifle|ifgt|ifge|ifeq|endsr|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|dow|doune|doult|doule|dougt|douge|doueq|dou|do|begsr)"
 		},
 		"keywordsFuncstions":{
 			"name":"variable",
