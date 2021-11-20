@@ -1,317 +1,376 @@
 {
 	"cformat": {
-        "prefix": "cformat",
-        "body": ["/*",
-		         "",
-				 "CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"],
-        "description": "Write a verbose format line for C spec",
+		"prefix": "cformat",
+		"body": [
+			"/*",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "Write a verbose format line for C spec",
 		"scope": "source.rpgle"
 	},
 	"cformat-verbose": {
-        "prefix": "cformat",
-        "body": ["/*",
-				 "L0: indicator/bool modifiers an=And, or=Or",
-				 "N01: indecators, do instruction if *in## = *on, N=Not ",
-				 "Factor1+++++++: input given to command",
-				 "Opcode&Ext: command RPG4 uses all 10 RPG1-3 only 6 chars",
-				 "Factor2+++++++:  input given to command",
-				 "Result++++++++: output of computation not used on eval",
-				 "Len++: dynamically defines a length of a variable",
-				 "D+: dynamiclly defines decimal positions of a variable",
-				 "HiLoEq: indicatior assignment/ bool assignment (>,<,=)",
-				 "        hi Lo Eq  bool",
-				 "        X   X     !=",
-				 "        X      X  >=",
-				 "            X  X  <=",
-				 "               X  ==",
-				 "            X     <",
-				 "        X         >",
-				 "",
-				 "CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"],
-        "description": "Write a verbose format line for C spec",
+		"prefix": "cformat",
+		"body": [
+			"/*",
+			"L0: indicator/bool modifiers an=And, or=Or",
+			"N01: indecators, do instruction if *in## = *on, N=Not ",
+			"Factor1+++++++: input given to command",
+			"Opcode&Ext: command RPG4 uses all 10 RPG1-3 only 6 chars",
+			"Factor2+++++++:  input given to command",
+			"Result++++++++: output of computation not used on eval",
+			"Len++: dynamically defines a length of a variable",
+			"D+: dynamiclly defines decimal positions of a variable",
+			"HiLoEq: indicatior assignment/ bool assignment (>,<,=)",
+			"        hi Lo Eq  bool",
+			"        X   X     !=",
+			"        X      X  >=",
+			"            X  X  <=",
+			"               X  ==",
+			"            X     <",
+			"        X         >",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+		],
+		"description": "Write a verbose format line for C spec",
 		"scope": "source.rpgle"
-    },
-	"dformat":{
-		"prefix":"dformat",
-		"body":["/*",
-		    	 "DName+++++++++++ETDsFrom+++To/L+++IDc.Keywords+++++++++++++++++++++++++ */"],
+	},
+	"dformat": {
+		"prefix": "dformat",
+		"body": [
+			"/*",
+			"DName+++++++++++ETDsFrom+++To/L+++IDc.Keywords+++++++++++++++++++++++++ */"
+		],
 		"description": "Write a format line for D spec",
 		"scope": "source.rpgle"
 	},
-	"dformat-verbose":{
-		"prefix":"dformat",
-		"body":["/*",
-				 " Ds: S= standalone variable (start at D)",
-				 "     Ds= Data Structure",
-				 " L+++: number char/decimal in variable (start at last +)",
-				 " I: variable type ",
-				 "    S: zoned decimal",
-				 "    D: date",
-				 "    T: time",
-				 "    Z: date time",
-				 "    N: indicator",
-				 "    F: floating point num",
-				 "    A: char",
-				 "    P: Packed decimal",
-				 " Dc:  number of decimal digets (start at C)",
-		         "",
-		    	 "DName+++++++++++ETDsFrom+++To/L+++IDc.Keywords+++++++++++++++++++++++++ */"],
+	"dformat-verbose": {
+		"prefix": "dformat",
+		"body": [
+			"/*",
+			" Ds: S= standalone variable (start at D)",
+			"     Ds= Data Structure",
+			" L+++: number char/decimal in variable (start at last +)",
+			" I: variable type ",
+			"    S: zoned decimal",
+			"    D: date",
+			"    T: time",
+			"    Z: date time",
+			"    N: indicator",
+			"    F: floating point num",
+			"    A: char",
+			"    P: Packed decimal",
+			" Dc:  number of decimal digets (start at C)",
+			"",
+			"DName+++++++++++ETDsFrom+++To/L+++IDc.Keywords+++++++++++++++++++++++++ */"
+		],
 		"description": "Write a verbose format line for D spec",
 		"scope": "source.rpgle"
 	},
 	"dow": {
-        "prefix": "dow",
-		"body": ["C                   Dow       (1 = 1)",
-                 " * loop body",
-                 "C                   Enddo"],
-        "description": "Add a do wile loop to a Free rpg project ",
+		"prefix": "dow",
+		"body": [
+			"C                   Dow       (1 = 1)",
+			" * loop body",
+			"C                   Enddo"
+		],
+		"description": "Add a do wile loop to a Free rpg project ",
 		"scope": "source.rpgle"
 	},
-	"eformat":{
-		"prefix":"eformat",
-		"body":["/*",
-			    "E....FromfileTofile++Name++N/rN/tbLenPDSArrnamLenPDSComments+++++++++ */"],
+	"eformat": {
+		"prefix": "eformat",
+		"body": [
+			"/*",
+			"E....FromfileTofile++Name++N/rN/tbLenPDSArrnamLenPDSComments+++++++++ */"
+		],
 		"description": "Write a format line for E spec",
 		"scope": "source.rpgle"
 	},
-	"fformat":{
-		"prefix":"fformat",
-		"body":["/*",
-		    	"FFilename++IPEASF.....L.....A.Device+.Keywords+++++++++++++++++++++++++ */"],
+	"fformat": {
+		"prefix": "fformat",
+		"body": [
+			"/*",
+			"FFilename++IPEASF.....L.....A.Device+.Keywords+++++++++++++++++++++++++ */"
+		],
 		"description": "Write a format line for F spec",
 		"scope": "source.rpgle"
 	},
-	"fformat-verbose":{
-		"prefix":"fformat",
-		"body":["/*",
-		         " I:  I= INPUT, O=OUTPUT, U=UPDATE, C=COMBINED",
-		         " P:  P=PRIMARY,S=SECONDARY,F=FULL PROCEDURAL",
-				 " A:  A=update file",
-				 " F:  E=externally described",
-				 " K:  K if the file is a keyed, blank for sequential access",
-				 " Device: DISK, PRINTER or WORKSTN",
-				 " ",
-		    	 "FFilename++IPEASF.....L.....A.Device+.Keywords+++++++++++++++++++++++++ */"],
+	"fformat-verbose": {
+		"prefix": "fformat",
+		"body": [
+			"/*",
+			" I:  I= INPUT, O=OUTPUT, U=UPDATE, C=COMBINED",
+			" P:  P=PRIMARY,S=SECONDARY,F=FULL PROCEDURAL",
+			" A:  A=update file",
+			" F:  E=externally described",
+			" K:  K if the file is a keyed, blank for sequential access",
+			" Device: DISK, PRINTER or WORKSTN",
+			" ",
+			"FFilename++IPEASF.....L.....A.Device+.Keywords+++++++++++++++++++++++++ */"
+		],
 		"description": "Write a verbose format line for F spec",
 		"scope": "source.rpgle"
 	},
 	"for": {
-        "prefix": "for",
-		"body": ["C                   for       index = 1 to limit",
-                 " * loop body",
-                 "C                   endfor"],
-        "description": "Add a for loop to a free rpg project ",
+		"prefix": "for",
+		"body": [
+			"C                   for       index = 1 to limit",
+			" * loop body",
+			"C                   endfor"
+		],
+		"description": "Add a for loop to a free rpg project ",
 		"scope": "source.rpgle"
-    },
-	"hformat":{
-		"prefix":"hformat",
-		"body":["/*",
-		    	 "HKeywords++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */"],
+	},
+	"hformat": {
+		"prefix": "hformat",
+		"body": [
+			"/*",
+			"HKeywords++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */"
+		],
 		"description": "Write a verbose format line for F spec",
 		"scope": "source.rpgle"
 	},
 	"if": {
-        "prefix": "if",
-		"body": ["C                   If 1 = 1",
-                 " * when true do this",
-                 "C                   Endif"],
-        "description": "Add a if block to a free rpg project ",
+		"prefix": "if",
+		"body": [
+			"C                   if        1 = 1",
+			" * when true do this",
+			"C                   Endif"
+		],
+		"description": "Add a if block to a free rpg project ",
 		"scope": "source.rpgle"
-    },
+	},
 	"if/else": {
-        "prefix": "if",
-		"body": ["C                   If 1 = 1",
-                 " * when true do this",
-                 "C                   Else",
-                 " * otherwise do this",
-                 "C                   Endif"],
-        "description": "Add a If Else Block to a free rpg project ",
+		"prefix": "if",
+		"body": [
+			"C                   if        1 = 1",
+			" * when true do this",
+			"C                   Else",
+			" * otherwise do this",
+			"C                   Endif"
+		],
+		"description": "Add a If Else Block to a free rpg project ",
 		"scope": "source.rpgle"
-    },
-	"Iformat":{
-		"prefix":"Iformat",
-		"body":["/*",
-				 "IFilename++SqNORiPos1+NCCPos2+NCCPos3+NCC..................................Comments++++++++++++ ",
-				 "I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"],
+	},
+	"Iformat": {
+		"prefix": "Iformat",
+		"body": [
+			"/*",
+			"IFilename++SqNORiPos1+NCCPos2+NCCPos3+NCC..................................Comments++++++++++++ ",
+			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
+		],
 		"description": "Write a format line for Program Described I spec",
 		"scope": "source.rpgle"
 	},
-	"IformatEx":{
-		"prefix":"Iformat",
+	"IformatEx": {
+		"prefix": "Iformat",
 		"description": "Write a format line for Externally Described I spec",
-		"body":["/*",
-			   "IRcdname+++....Ri..........................................................Comments++++++++++++",
-			   "I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"]
+		"body": [
+			"/*",
+			"IRcdname+++....Ri..........................................................Comments++++++++++++",
+			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
+		]
 	},
-	"Iformat-verbose":{
-		"prefix":"Iformat",
-		"body":["/*",
-			     "Filename++: printer file name (Qsysprt for general printing)",
-		         " Ri: rec id indicator 0-99,l1-l9,lr,h1-h9,u1-u8,rt",
-		         "",
-				 "IFilename++SqNORiPos1+NCCPos2+NCCPos3+NCC..................................Comments++++++++++++ ",
-				 "I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"],
+	"Iformat-verbose": {
+		"prefix": "Iformat",
+		"body": [
+			"/*",
+			"Filename++: printer file name (Qsysprt for general printing)",
+			" Ri: rec id indicator 0-99,l1-l9,lr,h1-h9,u1-u8,rt",
+			"",
+			"IFilename++SqNORiPos1+NCCPos2+NCCPos3+NCC..................................Comments++++++++++++ ",
+			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
+		],
 		"description": "Write a verbose format line for Program Described I spec",
 		"scope": "source.rpgle"
 	},
-	"IformatEx-verbose":{
-		"prefix":"Iformat",
-		"body":["/*",
-			     "  Filename++: printer file name (Qsysprt for general printing)",
-				 "  Ri: rec id indicator 0-99,l1-l9,lr,h1-h9,u1-u8,rt",
-				 "  Ext-Field+: if an external field name is the same as a interal",
-				 "              write the DB field name here and the rename on Field",
-				 "  Field: the name of the field or the rename of a DB field",
-				 "  L1: used to identify if field is used for control. use L1-L9",
-				 "  L1: used to identify if field is used for Matching. use M1-M9",
-				 "  PlMnZr field indicators use 01-99,H1-H9, U1-U9, RT",
-		         "",
-				 "IRcdname+++....Ri..........................................................Comments++++++++++++",
-				 "I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"],
+	"IformatEx-verbose": {
+		"prefix": "Iformat",
+		"body": [
+			"/*",
+			"  Filename++: printer file name (Qsysprt for general printing)",
+			"  Ri: rec id indicator 0-99,l1-l9,lr,h1-h9,u1-u8,rt",
+			"  Ext-Field+: if an external field name is the same as a interal",
+			"              write the DB field name here and the rename on Field",
+			"  Field: the name of the field or the rename of a DB field",
+			"  L1: used to identify if field is used for control. use L1-L9",
+			"  L1: used to identify if field is used for Matching. use M1-M9",
+			"  PlMnZr field indicators use 01-99,H1-H9, U1-U9, RT",
+			"",
+			"IRcdname+++....Ri..........................................................Comments++++++++++++",
+			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
+		],
 		"description": "Write a verbose format line for Program Described I spec",
 		"scope": "source.rpgle"
 	},
-	"oformat":{
-		"prefix":"oformat",
-		"body":["/*",
-			     "OFilename++DF..N01N02N03Excnam++++B++A++Sb+Sa+.............................",
-		    	 "O..............N01N02N03Field+++++++++YB.End++PConstant/editword/DTform */"],
+	"oformat": {
+		"prefix": "oformat",
+		"body": [
+			"/*",
+			"OFilename++DF..N01N02N03Excnam++++B++A++Sb+Sa+.............................",
+			"O..............N01N02N03Field+++++++++YB.End++PConstant/editword/DTform */"
+		],
 		"description": "Write a format line for O spec",
 		"scope": "source.rpgle"
 	},
-	"pformat":{
-		"prefix":"pformat",
-		"body":["/*",
-		         "  T: B=begin, E=end",
-				 "  L+++IDc: return value (only on B lines)",
-		         "",
-		    	 "PName+++++++++++..T...........L+++IDc.Keywords+++++++++++++++++++++++++ */"],
+	"pformat": {
+		"prefix": "pformat",
+		"body": [
+			"/*",
+			"  T: B=begin, E=end",
+			"  L+++IDc: return value (only on B lines)",
+			"",
+			"PName+++++++++++..T...........L+++IDc.Keywords+++++++++++++++++++++++++ */"
+		],
 		"description": "Write a verbose format line for P spec",
 		"scope": "source.rpgle"
 	},
 	"Strucselect": {
-        "prefix": "select",
-		"body": ["C                   Select",
-                 "C                   When 1 = 1",
-                 " * if 1 = 1 do this",
-                 "C                   Other",
-                 " * when 1 is not equal to 1 do this",
-                 "C                   EndSl"],
-        "description": "SRUCTURED: Add a select (switch) block to the project ",
+		"prefix": "select",
+		"body": [
+			"C                   Select",
+			"C                   When      1 = 1",
+			" * if 1 = 1 do this",
+			"C                   Other",
+			" * when 1 is not equal to 1 do this",
+			"C                   EndSl"
+		],
+		"description": "SRUCTURED: Add a select (switch) block to the project ",
 		"scope": "source.rpgle"
-    },
+	},
 	"StrucMonitor": {
-        "prefix": "monitor",
-		"body": ["C                   Monitor",
-                 " * Code to execute",
-                 "C                   On-Error",
-                 " * Code to execute on error",
-                 "C                   EndMon"],
-        "description": "SRUCTURED:Add a try catch block to the project ",
+		"prefix": "monitor",
+		"body": [
+			"C                   Monitor",
+			" * Code to execute",
+			"C                   On-Error",
+			" * Code to execute on error",
+			"C                   EndMon"
+		],
+		"description": "SRUCTURED:Add a try catch block to the project ",
 		"scope": "source.rpgle"
 	},
 	"do": {
-        "prefix": "do",
-		"body": ["Do fromVal toVal indexVal;",
-				 "\t// loop body",
-				 "Enddo;"],
-        "description": "Add a loop to a Free rpg project ",
-		"scope": "source.RPG"
-    },
-	"dow": {
-        "prefix": "dow",
-		"body": ["Dow (1 = 1);",
-				 "\t// loop body",
-				 "\tleave",
-				 "Enddo;"],
-        "description": "Add a do wile loop to a Free rpg project ",
+		"prefix": "do",
+		"body": [
+			"/*",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"C                   DO",
+			"C                   Enddo"
+		],
+		"description": "Add a DO block to source",
 		"scope": "source.RPG"
 	},
-	"for": {
-        "prefix": "for",
-		"body": ["For index To limit;",
-				 "\t// loop body",
-				 "EndFor;"],
-        "description": "Add a for loop to a free rpg project ",
+	"do_verbose": {
+		"prefix": "do",
+		"body": [
+			"/*",
+			"N:  N or blank, used only if the do block is a IF block",
+			"01: indecators, used only if the do block is a IF block",
+			"Factor2+++++++: number of times to loop, do block is treated as a FOR loop",
+			"Result++++++++: loop counter, do block is treated as a FOR loop",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"C                   DO",
+			"C                   Enddo"
+		],
+		"description": "Add a DO block with discription to source",
 		"scope": "source.RPG"
-    },
-	"if": {
-        "prefix": "if",
-		"body": ["If 1 = 1;",
-				 "\t// when true do this",
-				 "Endif;"],
-        "description": "Add a if block to a free rpg project ",
+	},
+	"for_free": {
+		"prefix": "for",
+		"body": [
+			"For index To limit;",
+			"\t// loop body",
+			"EndFor;"
+		],
+		"description": "Add a for loop to a free rpg project ",
 		"scope": "source.RPG"
-    },
-	"if/else": {
-        "prefix": "if",
-		"body": ["If 1 = 1;",
-				 "\t// when true do this",
-				 "Else;",
-				 "\t// otherwise do this",
-				 "Endif;"],
-        "description": "Add a If Else Block to a free rpg project ",
-		"scope": "source.RPG"
-    },
+	},
 	"select": {
-        "prefix": "select",
-		"body": ["Select;",
-				 "\tWhen 1 = 1;",
-				 "\t// if 1 = 1 do this",
-				 "\tOther;",
-				 "\t// when 1 is not equal to 1 do this",
-				 "EndSl;"],
-        "description": "Add a select (switch) block to free rpg project ",
+		"prefix": "select",
+		"body": [
+			"Select;",
+			"\tWhen 1 = 1;",
+			"\t// if 1 = 1 do this",
+			"\tOther;",
+			"\t// when 1 is not equal to 1 do this",
+			"EndSl;"
+		],
+		"description": "Add a select (switch) block to free rpg project ",
 		"scope": "source.RPG"
-    },
+	},
 	"monitor": {
-        "prefix": "monitor",
-		"body": ["Monitor;",
-				 "\t// Code to execute",
-				 "On-Error;",
-				 "\t// Code to execute on error",
-				 "EndMon;"],
-        "description": "Add a try catch block to a  rpg project ",
+		"prefix": "monitor",
+		"body": [
+			"Monitor;",
+			"\t// Code to execute",
+			"On-Error;",
+			"\t// Code to execute on error",
+			"EndMon;"
+		],
+		"description": "Add a try catch block to a  rpg project ",
 		"scope": "source.RPG"
-    },
+	},
 	"BIFlookup": {
-        "prefix": "%lookup",
-		"body": ["%lookup(whatToLookFor: ArrayToSearch);"],
-        "description": "Add a freeformat lookup (RETURNS *On if found) ",
+		"prefix": "%lookup",
+		"body": [
+			"%lookup(whatToLookFor: ArrayToSearch);"
+		],
+		"description": "Add a freeformat lookup (RETURNS *On if found) ",
 		"scope": "source.rpgle"
-    },
+	},
 	"Struclookup": {
 		"prefix": "lookup",
-		"body": ["/*",
-			     "CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
-			     "C     whatToLookFor Lookup    ArrayToSearch                          25"],
-        "description": "Search for items in an array or table ",
+		"body": [
+			"/*",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"C     whatToLookFor Lookup    ArrayToSearch                          25"
+		],
+		"description": "Search for items in an array or table ",
 		"scope": "source.rpgle"
-    },
+	},
 	"BIFxlate": {
-        "prefix": "%xlate",
-		"body": ["string = %xlate('*':'#': string)"],
-        "description": "replace characters in a strin with another * -> #",
+		"prefix": "%xlate",
+		"body": [
+			"string = %xlate('*':'#': string)"
+		],
+		"description": "replace characters in a strin with another * -> #",
 		"scope": "source.rpgle"
-    },
+	},
 	"StrucXlate": {
 		"prefix": "xlate",
-		"body": ["C     '*':'#'       xlate     string        string"],
-        "description": "replace characters in a strin with another * -> #",
+		"body": [
+			"C     '*':'#'       xlate     string        string"
+		],
+		"description": "replace characters in a strin with another * -> #",
 		"scope": "source.rpgle"
-    },
+	},
 	"BIFsubst": {
-        "prefix": "%subst",
-		"body": ["string = %subst(string: startingAt: charLen)"],
-        "description": "get a substring of [charLen] from [string]",
+		"prefix": "%subst",
+		"body": [
+			"string = %subst(string: startingAt: charLen)"
+		],
+		"description": "get a substring of [charLen] from [string]",
 		"scope": "source.rpgle"
-    },
+	},
 	"StrucSubst": {
-		"prefix": "subst",
-		"body": ["C     startingAt    subst     charLen       string"],
-        "description": "get a substring of [charLen] from [string]",
+		"prefix": "substring",
+		"body": [
+			"/*",
+			"Factor1+++++++: Length of sub-string",
+			"sorceStr:       Source string",
+			"idx:            Index to start sub-string",
+			"returnVal       Result of sub string",
+			"Lo:             Error indicator",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"",
+			"C     lenOfSubStr   subst     sorceStr:idx  returnVal"
+		],
+		"description": "Add a structured substring to RPG soruce",
 		"scope": "source.rpgle"
-    },
+	},
 	"comp-verbose": {
 		"prefix": "comp",
 		"body": [
@@ -393,14 +452,139 @@
 		"scope": "source.rpgle"
 	},
 	"test-verbose": {
-		"prefix": "chain",
+		"prefix": "testX",
 		"body": [
 			"/*",
-			"Lo: On error set indicator ON",
+			"-- For Test(X)--",
+			"(D,T,Z,E):  Date time & timestamp use Lo for error",
+			"Lo:         On error set indicator ON",
 			"",
-			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */"
+			"-- For TestX --",
+			"B:  Test Bit data",
+			"N:  Test numeric data",
+			"Z:  Test Time data",
+			"          B     N      Z",
+			"      Hi  xor   num    Positv",
+			"      Lo  mix   mix    Negativ",
+			"      Eq  eq    blank  Other",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"C                   TestN                                        01"
 		],
 		"description": "provide Indicator discription for TEST key-word",
 		"scope": "source.rpgle"
+	},
+	"check-verbose": {
+		"prefix": "check",
+		"body": [
+			"/*",
+			"Lo:  Error, some error occured while checking",
+			"Eq:  Found, some other character not in Factor2 found",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"C     StringToCheck Scan      Values:start  IndexFoundAt"
+		],
+		"description": "Add a CHECK operation to RPG source",
+		"scope": "source.RPG"
+	},
+	"check": {
+		"prefix": "check",
+		"body": [
+			"C     StringToCheck Scan      Values:start  IndexFoundAt"
+		],
+		"description": "Add a CHECK operation to RPG source",
+		"scope": "source.RPG"
+	},
+	"checkr-verbose": {
+		"prefix": "checkr",
+		"body": [
+			"/*",
+			"Lo:  Error, some error occured while checking",
+			"Eq:  Found, some other character not in Factor2 found",
+			"",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"C     StringToFInd  ScanR     SourceStr     IndexFoundAt"
+		],
+		"description": "Add a CheckR (check from right) operation to RPG source",
+		"scope": "source.RPG"
+	},
+	"cas": {
+		"prefix": "casXX",
+		"body": [
+			"C     val1          CasEQ     Val2          subroutine"
+		],
+		"description": "Add CAS (conditionally invoke subroutine) to RPG sorce ",
+		"scope": "source.RPG"
+	},
+	"cab": {
+		"prefix": "cabXX",
+		"body": [
+			"C     val1          CabEQ     Val2          GOTO_Tag"
+		],
+		"description": "Add CAS (conditionally invoke subroutine) to RPG sorce ",
+		"scope": "source.RPG"
+	},
+	"cat": {
+		"prefix": "Concatenate",
+		"body": [
+			"C     val1          Cat       Val2          newString"
+		],
+		"description": "Add structured Concatenate to RPG source",
+		"scope": "source.RPG"
+	},
+	"scan": {
+		"prefix": "scan",
+		"body": [
+			"C     StringToFInd  Scan      SourceStr     IndexFoundAt"
+		],
+		"description": "Add Scan to RPG sorce",
+		"scope": "source.RPG"
+	},
+	"scanr": {
+		"prefix": "scanr",
+		"body": [
+			"C     StringToFInd  ScanR     SourceStr     IndexFoundAt"
+		],
+		"description": "Add ScanR to RPG sorce",
+		"scope": "source.RPG"
+	},
+	"scan-verbose": {
+		"prefix": "scan",
+		"body": [
+			"  Factor1: optinal starting index can be placed here",
+			"           StringToFInd: StartIndex",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"C     StringToFInd  Scan      SourceStr     IndexFoundAt"
+		],
+		"description": "Add Scan with discription to RPG sorce",
+		"scope": "source.RPG"
+	},
+	"scanR-verbose": {
+		"prefix": "scan",
+		"body": [
+			"/*",
+			"  Factor1: optinal starting index can be placed here",
+			"  StringToFInd: StartIndex",
+			"CL0N01Factor1+++++++Opcode&ExtFactor2+++++++Result++++++++Len++D+HiLoEq */",
+			"C     StringToFInd  ScanR     SourceStr     IndexFoundAt"
+		],
+		"description": "Add ScanR with discription to RPG sorce",
+		"scope": "source.RPG"
+	},
+	"scan-free": {
+		"prefix": "%scan",
+		"body": [
+			"%Scan(WhatToFind: SourceString: optional_StartingIndex);"
+		],
+		"description": "Add the Built in Function %Scan ",
+		"scope": "source.RPG"
+	},
+	"scanR-free": {
+		"prefix": "%scanr",
+		"body": [
+			"%Scanr(WhatToFind: SourceString: optional_StartingIndex);"
+		],
+		"description": "Add the Built in Function %Scanr ",
+		"scope": "source.RPG"
 	}
 }
