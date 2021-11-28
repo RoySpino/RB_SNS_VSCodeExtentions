@@ -14,7 +14,6 @@
 		{"include": "#starKeywords"},
 		{"include": "#numericIndicators"},
 		{"include": "#LIndicators"},
-		{"include": "#CatchAllControl"},
 		{"include": "#CompilerDirectives"},
 		{"include": "#GOTO_Tags"},
 		{"include": "#GOTO_TagsNoComment"},
@@ -52,6 +51,13 @@
 		{"include": "#Cspec_evalComment"},
 		{"include": "#Cspec_eval"},
 		{"include": "#Cspec_eval2"},
+		{"include": "#Cspec_control_rpg3Comment"},
+		{"include": "#Cspec_control_rpg3NoComment"},
+		{"include": "#Cspec_control_rpg3NoResult"},
+		{"include": "#Cspec_control_rpg3"},
+		{"include": "#Cspec_controlComment"},
+		{"include": "#Cspec_control"},
+		{"include": "#Cspec_controlNoFac2"},
 		{"include": "#Cspec"},
 		{"include": "#Cspec_NoEq"},
 		{"include": "#Cspec_NoLo"},
@@ -61,10 +67,9 @@
 		{"include": "#Cspec_NoResult"},
 		{"include": "#Cspec_NoFac2"},
 		{"include": "#Cspec_NoFac1"},
+		{"include": "#Cspec_NoCLInd"},
+		{"include": "#Cspec_NoCLIN"},
 		{"include": "#Cspec_controlContinued"},
-		{"include": "#Cspec_controlComment"},
-		{"include": "#Cspec_control"},
-		{"include": "#Cspec_control_2"},
 		{"include": "#Pspec"},
 		{"include": "#Pspec_NoComment"},
 		{"include": "#Pspec_NoKeywords"},
@@ -258,15 +263,15 @@
 
 		"freeControl":{
 			"name":"keyword.control",
-			"match": "(?i)\\b(when|usage|sfile|select|other|on-error|monitor|keyed|if|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|else|dow|dou|begsr)\\b"
+			"match": "(?i)\\b(when|usage|sfile|select|return|other|on-error|monitor|keyed|if|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|else|dow|dou|begsr)\\b"
 		},
 		"freeCatchAllFunctions":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(write|update|unlock|udate|to|testz|testn|testb|test|sub|sqrt|setll|setgt|scan|rolbk|return|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|out|or|open|on-error|on|not|next|leavesr|leave|iter|in|force|feod|extrct|exsr|exfmt|except|endcs|dump|dsply|delete|define|dealloc|commit|close|clear|chain|callp|callb|call|and|alloc|add|acq)\\b"
+			"match": "(?i)\\b(write|update|unlock|udate|to|testz|testn|testb|test|sub|sqrt|setll|setgt|scan|rolbk|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|out|or|open|on-error|on|not|next|leavesr|leave|iter|in|force|feod|extrct|exsr|exfmt|except|endcs|dump|dsply|delete|define|dealloc|commit|close|clear|chain|callp|callb|call|and|alloc|add|acq)\\b"
 		},
 		"CatchAllFunctions":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(z-sub|z-add\\(h\\)|z-add|xlate|xfoot|write|update|unlock|udate|to|time|test\\s{,3}\\([dtze]\\)|test|tag|subst|subdur|sub|sqrt|sorta|shtdn|seton|setoff|setll|setgt|scan|rolbk|return|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|plist|parm|out|orne|orlt|orle|orgt|orge|oreq|open|on-error|on|occur|not|next|mvr|mult|movel\\(p\\)|movel|movea|move\\(p\\)|move|mllzo|mlhzo|mhlzo|mhhzo|lookup|leavesr|leave|klist|kfld|iter|in|goto|force|feod|extrct|exsr|exfmt|except|evalr|eval\\(h\\)|eval|endcs|dump|dsply|div|delete|define|dealloc|comp|commit|close|clear|checkr|check|chain|cat|casne|caslt|casle|casgt|casge|caseq|case|cas|callp|callb|call|cabne|cablt|cable|cabgt|cabge|cabeq|cab|biton|bitoff|andne|andlt|andle|andgt|andge|andeq|and|alloc|addne|addlt|addle|addgt|addge|addeq|adddur|add|acq)\\b"
+			"match": "(?i)\\b(z-sub|z-add\\(h\\)|z-add|xlate|xfoot|write|update|unlock|udate|to|time|test\\s{,3}\\([dtze]\\)|test|tag|subst|subdur|sub|sqrt|sorta|shtdn|seton|setoff|setll|setgt|scan|rolbk|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|plist|parm|out|orne|orlt|orle|orgt|orge|oreq|open|on-error|on|occur|not|next|mvr|mult|movel\\(p\\)|movel|movea|move\\(p\\)|move|mllzo|mlhzo|mhlzo|mhhzo|lookup|leavesr|leave|klist|kfld|iter|in|goto|force|feod|extrct|exsr|exfmt|except|evalr|eval\\(h\\)|eval|endcs|dump|dsply|div|delete|define|dealloc|comp|commit|close|clear|checkr|check|chain|cat|casne|caslt|casle|casgt|casge|caseq|case|cas|callp|callb|call|cabne|cablt|cable|cabgt|cabge|cabeq|cab|biton|bitoff|andne|andlt|andle|andgt|andge|andeq|and|alloc|addne|addlt|addle|addgt|addge|addeq|adddur|add|acq)\\b"
 		},
 		"CatchAllControl":{
 			"name":"variable.rpgle",
@@ -459,9 +464,7 @@
 				"6":{
 					"patterns": [
 						{"include": "#keywordsFuncstions"},
-						{"include": "#CatchAllFunctions"},
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+						{"include": "#CatchAllFunctions"}],
 					"name":"constant.rgb-value"},
 				"7":{
 					"patterns": [{"include": "#factor123"}],
@@ -500,9 +503,7 @@
 				"6":{
 					"patterns": [
 						{"include": "#keywordsFuncstions"},
-						{"include": "#CatchAllFunctions"},
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+						{"include": "#CatchAllFunctions"}],
 					"name":"constant.rgb-value"},
 				"7":{
 					"patterns": [{"include": "#factor123"}],
@@ -539,9 +540,7 @@
 				"6":{
 					"patterns": [
 						{"include": "#keywordsFuncstions"},
-						{"include": "#CatchAllFunctions"},
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+						{"include": "#CatchAllFunctions"}],
 					"name":"constant.rgb-value"},
 				"7":{
 					"patterns": [{"include": "#factor123"}],
@@ -573,9 +572,7 @@
 				"6":{
 					"patterns": [
 						{"include": "#keywordsFuncstions"},
-						{"include": "#CatchAllFunctions"},
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+						{"include": "#CatchAllFunctions"}],
 					"name":"constant.rgb-value"},
 				"7":{
 					"patterns": [{"include": "#factor123"}],
@@ -606,9 +603,7 @@
 				"6":{
 					"patterns": [
 						{"include": "#keywordsFuncstions"},
-						{"include": "#CatchAllFunctions"},
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+						{"include": "#CatchAllFunctions"}],
 					"name":"constant.rgb-value"},
 				"7":{
 					"patterns": [{"include": "#factor123"}],
@@ -638,9 +633,7 @@
 				"6":{
 					"patterns": [
 						{"include": "#keywordsFuncstions"},
-						{"include": "#CatchAllFunctions"},
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+						{"include": "#CatchAllFunctions"}],
 					"name":"constant.rgb-value"},
 				"7":{
 					"patterns": [{"include": "#factor123"}],
@@ -669,9 +662,7 @@
 				"6":{
 					"patterns": [
 						{"include": "#keywordsFuncstions"},
-						{"include": "#CatchAllFunctions"},
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+						{"include": "#CatchAllFunctions"}],
 					"name":"constant.rgb-value"},
 				"7":{
 					"patterns": [{"include": "#factor123"}],
@@ -697,9 +688,7 @@
 				"6":{
 					"patterns": [
 						{"include": "#keywordsFuncstions"},
-						{"include": "#CatchAllFunctions"},
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+						{"include": "#CatchAllFunctions"}],
 					"name":"constant.rgb-value"}
 				}
 		},
@@ -717,6 +706,24 @@
 					}],
 					"name":"strong"}
 				}
+		},
+		"Cspec_NoCLInd":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^([c])(..)([n|\\s])",
+			"captures": {
+				"1":{"name":"support.type.rpg3"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"}
+			}
+		},
+		"Cspec_NoCLIN":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^([c])(.{,2})",
+			"captures": {
+				"1":{"name":"support.type.rpg3"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"}
+			}
 		},
 		"Cspec_evalComment":{
 			"name":"constant.rgb-value",
@@ -788,7 +795,7 @@
 		},
 		"Cspec_controlComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{45})(.*)",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(when\\s{,6}|select\\s{,4}|return\\s{,4}|other\\s{,5}|on-error\\{,2}|monitor\\{,3}|if\\s{,8}|for\\s{,7}|endsr\\s{,5}|endsl\\s{,5}|endmon\\s{,4}|endif\\s{,5}|endfor\\s{,4}|enddo\\s{,5}|end\\s{,7}|elseif\\s{,4}|else\\s{,6}|dow\\s{,7}|dou\\s{,7}|begsr\\s{,5})(.{45})(.*)",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"constant.character.escape"},
@@ -802,11 +809,7 @@
 				"5":{
 					"patterns": [{"include": "#factor123CONTROL"}],
 					"name":"constant.rgb-value"},
-				"6":{
-					"patterns": [
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
-					"name":"constant.rgb-value"},
+				"6":{"name":"keyword.control"},
 				"7":{
 					"patterns": [{"include": "#factor123CONTROL"}],
 					"name":"constant.rgb-value"},
@@ -815,7 +818,7 @@
 		},
 		"Cspec_control":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{10})(.{0,45})",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(when\\s{,6}|select\\s{,4}|return\\s{,4}|other\\s{,5}|on-error\\{,2}|monitor\\{,3}|if\\s{,8}|for\\s{,7}|endsr\\s{,5}|endsl\\s{,5}|endmon\\s{,4}|endif\\s{,5}|endfor\\s{,4}|enddo\\s{,5}|end\\s{,7}|elseif\\s{,4}|else\\s{,6}|dow\\s{,7}|dou\\s{,7}|begsr\\s{,5})(.{,45})",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"constant.character.escape"},
@@ -829,15 +832,30 @@
 				"5":{
 					"patterns": [{"include": "#factor123CONTROL"}],
 					"name":"constant.rgb-value"},
-				"6":{
-					"patterns": [
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
-					"name":"constant.rgb-value"},
+				"6":{"name":"keyword.control"},
 				"7":{
 					"patterns": [{"include": "#factor123CONTROL"}],
 					"name":"constant.rgb-value"}
 				}
+		},
+		"Cspec_controlNoFac2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(whenne\\s{,4}|whenlt\\s{,4}|whengt\\s{,4}|wheneq\\s{,4}|when\\s{,6}|sfile\\s{,5}|select\\s{,4}|return\\s{,4}|plist\\s{,5}|other\\s{,5}|on-error\\{,2}|monitor\\{,3}|keyed\\s{,5}|ifne\\s{,6}|iflt\\s{,6}|ifle\\s{,6}|ifgt\\s{,6}|ifge\\s{,6}|ifeq\\s{,6}|if\\s{,8}|for\\s{,7}|extpgm\\s{,4}|endsr\\s{,5}|endsl\\s{,5}|endmon\\s{,4}|endif\\s{,5}|endfor\\s{,4}|enddo\\s{,5}|end\\s{,7}|else\\s{,6}|downe\\s{,5}|dowlt\\s{,5}|dowle\\s{,5}|dowgt\\s{,5}|dowge\\s{,5}|doweq\\s{,5}|doweq\\s{,5}|dow\\s{,7}|doune\\s{,5}|doult\\s{,5}|doule\\s{,5}|dougt\\s{,5}|douge\\s{,5}|doueq\\s{,5}|dou\\s{,7}|do\\s{,8}|begsr\\s{,5})",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"},
+				"6":{"name":"keyword.control"}
+			}
 		},
 		"Cspec_controlContinued":{
 			"name":"constant.rgb-value",
@@ -851,9 +869,9 @@
 				"4":{"name":"comment"}
 				}
 		},
-		"Cspec_control_2":{
+		"Cspec_control_rpg3":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(.{0,10})",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(whenne\\s{,4}|whenlt\\s{,4}|whengt\\s{,4}|wheneq\\s{,4}|ifne\\s{,6}|iflt\\s{,6}|ifle\\s{,6}|ifgt\\s{,6}|ifge\\s{,6}|ifeq\\s{,6}|downe\\s{,5}|dowlt\\s{,5}|dowle\\s{,5}|dowgt\\s{,5}|dowge\\s{,5}|doweq\\s{,5}|doweq\\s{,5}|doune\\s{,5}|doult\\s{,5}|doule\\s{,5}|dougt\\s{,5}|douge\\s{,5}|doueq\\s{,5}|do\\s{,8})(.{,14})",
 			"captures": {
 				"1":{"name":"support.type.rpgle"},
 				"2":{"name":"constant.character.escape"},
@@ -867,10 +885,83 @@
 				"5":{
 					"patterns": [{"include": "#factor123CONTROL"}],
 					"name":"constant.rgb-value"},
-				"6":{
-					"patterns": [
-						{"include": "#keywordControl"},
-						{"include": "#keywordControl2"}],
+				"6":{"name":"keyword.control"},
+				"7":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"}
+				}
+		},
+		"Cspec_control_rpg3Comment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(whenne\\s{,4}|whenlt\\s{,4}|whengt\\s{,4}|wheneq\\s{,4}|ifne\\s{,6}|iflt\\s{,6}|ifle\\s{,6}|ifgt\\s{,6}|ifge\\s{,6}|ifeq\\s{,6}|downe\\s{,5}|dowlt\\s{,5}|dowle\\s{,5}|dowgt\\s{,5}|dowge\\s{,5}|doweq\\s{,5}|doweq\\s{,5}|doune\\s{,5}|doult\\s{,5}|doule\\s{,5}|dougt\\s{,5}|douge\\s{,5}|doueq\\s{,5}|do\\s{,8})(.*)",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"},
+				"6":{"name":"keyword.control"},
+				"7":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"}
+				},
+				"8":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"},
+				"9":{"name":"constant.rgb-value"},
+				"10":{"name":"comment"}
+		},
+		"Cspec_control_rpg3NoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(whenne\\s{,4}|whenlt\\s{,4}|whengt\\s{,4}|wheneq\\s{,4}|ifne\\s{,6}|iflt\\s{,6}|ifle\\s{,6}|ifgt\\s{,6}|ifge\\s{,6}|ifeq\\s{,6}|downe\\s{,5}|dowlt\\s{,5}|dowle\\s{,5}|dowgt\\s{,5}|dowge\\s{,5}|doweq\\s{,5}|doweq\\s{,5}|doune\\s{,5}|doult\\s{,5}|doule\\s{,5}|dougt\\s{,5}|douge\\s{,5}|doueq\\s{,5}|do\\s{,8})(.{,14})",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"},
+				"6":{"name":"keyword.control"},
+				"7":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"}
+				},
+				"8":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"}
+		},
+		"Cspec_control_rpg3NoResult":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^([c])(..)([n|\\s])(..)(.{14})(whenne\\s{,4}|whenlt\\s{,4}|whengt\\s{,4}|wheneq\\s{,4}|ifne\\s{,6}|iflt\\s{,6}|ifle\\s{,6}|ifgt\\s{,6}|ifge\\s{,6}|ifeq\\s{,6}|downe\\s{,5}|dowlt\\s{,5}|dowle\\s{,5}|dowgt\\s{,5}|dowge\\s{,5}|doweq\\s{,5}|doweq\\s{,5}|doune\\s{,5}|doult\\s{,5}|doule\\s{,5}|dougt\\s{,5}|douge\\s{,5}|doueq\\s{,5}|do\\s{,8})(.{,14})",
+			"captures": {
+				"1":{"name":"support.type.rpgle"},
+				"2":{"name":"constant.character.escape"},
+				"3":{"name":"variable.rpgle"},
+				"4":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"5":{
+					"patterns": [{"include": "#factor123CONTROL"}],
+					"name":"constant.rgb-value"},
+				"6":{"name":"keyword.control"},
+				"7":{
+					"patterns": [{"include": "#factor123CONTROL"}],
 					"name":"constant.rgb-value"}
 				}
 		},
