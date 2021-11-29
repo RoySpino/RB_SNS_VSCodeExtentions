@@ -267,7 +267,7 @@
 		},
 		"freeCatchAllFunctions":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(write|update|unlock|udate|to|testz|testn|testb|test|sub|sqrt|setll|setgt|scan|rolbk|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|out|or|open|on-error|on|not|next|leavesr|leave|iter|in|force|feod|extrct|exsr|exfmt|except|endcs|dump|dsply|delete|define|dealloc|commit|close|clear|chain|callp|callb|call|and|alloc|add|acq)\\b"
+			"match": "(?i)\\b(write|uyear|update|unlock|umonth|uday|udate|to|testz|testn|testb|test|sub|sqrt|setll|setgt|scan|rolbk|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|out|or|open|on-error|on|not|next|leavesr|leave|iter|in|force|feod|extrct|exsr|exfmt|except|endcs|dump|dsply|delete|define|dealloc|commit|close|clear|chain|callp|callb|call|and|alloc|add|acq)\\b"
 		},
 		"CatchAllFunctions":{
 			"name":"variable.rpgle",
