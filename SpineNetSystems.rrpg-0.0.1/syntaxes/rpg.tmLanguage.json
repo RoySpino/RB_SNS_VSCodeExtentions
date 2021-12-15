@@ -3284,29 +3284,12 @@
 
 
 
-
-
-
-
-
-
-		
-
-
-
-
-
-
-
-
-
-
-
 		"freeBlock":{
-			"begin": "(?i)^.(\/free)\\b",
-			"end": "(?i)^.(\/end-free)\\b",
+			"begin": "(?i)^(|.{5}).(\/free)\\b",
+			"end": "(?i)^(|.{5}).(\/end-free)\\b",
 			"beginCaptures": {
-				"1":{
+				"1":{"name":"comment"},
+				"2":{
 					"patterns": [{
 						"match":"(?i)(\/free)\\b",
 						"name":"constant.language"
@@ -3315,7 +3298,8 @@
 					}
 			},
 			"endCaptures": {
-				"1":{
+				"1":{"name":"comment"},
+				"2":{
 					"patterns": [{
 						"match": "(?i)(\/end-free)\\b",
 						"name":"constant.language"
