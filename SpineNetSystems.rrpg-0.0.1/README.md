@@ -41,6 +41,7 @@ SEU format bar
 + add support for RPG 3 specs, current specs and their status are
     * **H** spec: completed
     * **F** spec: incomplete documentation needed
+    * **E** spec: incomplete documentation needed
     * **I** spec: mostly complete but citation needed
     * **C** spec: mostly complete but citation needed
     * **O** spec: incomplete documentation needed
@@ -50,8 +51,6 @@ SEU format bar
     * **L** spec: Not currently supported
     
 + Test Color highlighting with different color themes current tests where done only with default dark and light themes
-+ add support for columns 1-6. currently these columns are ignored for RPG4. 
-specifications for fixed format code but are required for RPG3
 
 # What does it look like?
 ### structured syntax
