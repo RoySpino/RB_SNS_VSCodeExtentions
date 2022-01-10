@@ -126,13 +126,11 @@
 	"repository": {
 		"commentsclike": {
 			"name":"comment.line.rpgle",
-			"begin": "^.*[/][/].*$",
-			"end": "\n"
+			"match": "^.[/][/].*$"
 		},
 		"commentsclike2": {
 			"name":"comment.line.rpgle",
-			"begin": "[/][/]",
-			"end": "\\n"
+			"match": "[/][/].*$"
 		},
 		"commentBlock":{
 			"name":"comment.line.rpgle",
@@ -240,7 +238,7 @@
 		},
 		"keywordControl":{
 			"name":"keyword.control.rpgle",
-			"match": "(?i)(whenne    |whenlt    |whengt    |wheneq    |when      |sfile     |select    |return    |plist     |other     |on-error  |monitor   |keyed     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |dow       |doune     |doult     |doule     |dougt     |douge     |doueq     |dou       |do        |begsr     )"
+			"match": "(?i)(whenne    |whenlt    |whengt    |wheneq    |when      |sfile     |select    |return    |plist     |other     |on-error  |monitor   |keyed     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |dow       |doune     |doult     |doule     |dougt     |douge     |doueq     |dou       |do        |begsr     )"
 		},
 		"keywordControl2":{
 			"name":"keyword.control.rpgle",
