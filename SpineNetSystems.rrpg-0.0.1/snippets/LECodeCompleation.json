@@ -155,7 +155,8 @@
 	"Iformat": {
 		"prefix": "Iformat",
 		"body": [
-			"/*",
+			"/*                      Program Described I spec",
+			"",
 			"IFilename++SqNORiPos1+NCCPos2+NCCPos3+NCC..................................Comments++++++++++++ ",
 			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
 		],
@@ -166,7 +167,8 @@
 		"prefix": "Iformat",
 		"description": "Write a format line for Externally Described I spec",
 		"body": [
-			"/*",
+			"/*                      Externally Described I spec",
+			"",
 			"IRcdname+++....Ri..........................................................Comments++++++++++++",
 			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
 		]
@@ -174,8 +176,9 @@
 	"Iformat-verbose": {
 		"prefix": "Iformat",
 		"body": [
-			"/*",
-			"Filename++: printer file name (Qsysprt for general printing)",
+			"/*                      Program Described I spec",
+			"",
+			"Filename++: Name of Physical/Database file in the system",
 			" Ri: rec id indicator 0-99,l1-l9,lr,h1-h9,u1-u8,rt",
 			"",
 			"IFilename++SqNORiPos1+NCCPos2+NCCPos3+NCC..................................Comments++++++++++++ ",
@@ -187,8 +190,9 @@
 	"IformatEx-verbose": {
 		"prefix": "Iformat",
 		"body": [
-			"/*",
-			"  Filename++: printer file name (Qsysprt for general printing)",
+			"/*                      Externally Described I spec",
+			"",
+			"  Filename++: Name of Physical/Database file in the system",
 			"  Ri: record identity indicator TR, DS",
 			"  Ext-Field+: if an external field name is the same as a interal",
 			"              write the DB field name here and the rename on Field",
@@ -205,7 +209,7 @@
 			"IRcdname+++....Ri..........................................................Comments++++++++++++",
 			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
 		],
-		"description": "Write a verbose format line for Program Described I spec",
+		"description": "Write a verbose format line for Externally Described I spec",
 		"scope": "source.rpgle"
 	},
 	"oformat": {
