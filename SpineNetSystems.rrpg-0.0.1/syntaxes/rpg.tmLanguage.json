@@ -238,7 +238,7 @@
 		},
 		"keywordControl":{
 			"name":"keyword.control.rpgle",
-			"match": "(?i)(whenne    |whenlt    |whengt    |wheneq    |when      |sfile     |select    |return    |plist     |other     |on-error  |monitor   |keyed     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |dow       |doune     |doult     |doule     |dougt     |douge     |doueq     |dou       |do        |begsr     )"
+			"match": "(?i)(whenne\\s{4}|whenlt\\s{4}|whengt\\s{4}|wheneq\\s{4}|when\\s{6}|sfile\\s{5}|select\\s{4}|return\\s{4}|plist\\s{5}|other\\s{5}|on-error\\s{2}|monitor\\s{3}|keyed\\s{5}|ifne\\s{6}|iflt\\s{6}|ifle\\s{6}|ifgt\\s{6}|ifge\\s{6}|ifeq\\s{6}|if\\s{8}|for\\s{7}|extpgm\\s{4}|endsr\\s{5}|endsl\\s{5}|endmon\\s{4}|endif\\s{5}|endfor\\s{4}|enddo\\s{5}|end\\s{7}|else\\s{6}|downe\\s{5}|dowlt\\s{5}|dowle\\s{5}|dowgt\\s{5}|dowge\\s{5}|doweq\\s{5}|doweq\\s{5}|dow\\s{7}|doune\\s{5}|doult\\s{5}|doule\\s{5}|dougt\\s{5}|douge\\s{5}|doueq\\s{5}|dou\\s{7}|do\\s{8}|begsr\\s{5})"
 		},
 		"keywordControl2":{
 			"name":"keyword.control.rpgle",
@@ -246,7 +246,7 @@
 		},
 		"keywordsFuncstions":{
 			"name":"variable.rpgle",
-			"match": "(?i)(z-sub     |z-add\\(h\\)|z-add     |xlate     |xfoot     |writee    |write     |update    |unlock    |time      |test\\s{,3}\\([dtze]\\)|test      |tag       |subst     |subdur    |sub       |sqrt      |sorta     |shtdn     |seton     |setoff    |setll     |setgt     |scan      |rolbk     |return    |reset     |rel       |read\\([ne]\\)   |realloc   |reade\\([ne]\\)  |readp[e\\s]   |read[cpe\\s]     |post      |parm      |out       |orne      |orlt      |orle      |orgt      |orge      |oreq      |open      |on-error  |on        |occur     |not       |next      |mvr       |mult\\(h\\)   |mult      |movel\\(p\\)  |movel     |movea     |move\\(p\\)   |move      |mllzo     |mlhzo     |mhlzo     |mhhzo     |lookup    |leavesr   |leave     |klist     |kfld      |iter      |in        |goto      |force     |feod      |extrct    |exsr      |exfmt     |except    |endcs     |dump      |dsply     |div       |delete    |define    |dealloc   |comp      |commit    |close     |clear     |checkr    |check     |chain\\(n\\)     |chain     |cat       |casne     |caslt     |casle     |casgt     |casge     |caseq     |case      |cas       |cabne     |cablt     |cable     |cabgt     |cabge     |cabeq     |cab       |biton     |bitoff    |andne     |andlt     |andle     |andgt     |andge     |andeq     |and       |alloc     |addne     |addlt     |addle     |addgt     |addge     |addeq     |adddur    |add       |acq       )"
+			"match": "(?i)(z-sub[(]h[)]\\s{2}|z-sub\\s{2}[(]h[)]|z-sub\\s[(]h[)]\\s|z-sub\\s{5}|z-add[(]h[)]\\s{2}|z-add\\s{2}[(]h[)]|z-add\\s[(]h[)]\\s|z-add\\s{5}|xlate\\s{5}|xfoot\\s{5}|writee\\s{4}|write\\s{5}|update\\s{4}|unlock\\s{4}|time\\s{6}|test\\s{3}[(][dtze][)]|test\\s{2}[(][dtze][)]\\s|test\\s[(][dtze][)]\\s{2}|test\\s{6}|tag\\s{7}|subst\\s{5}|subdur\\s{4}|sub\\s{7}|sub[(]h[)]\\s{4}|sub\\s{4}[(]h[)]|sub\\s[(]h[)]\\s{3}|sub\\s{2}[(]h[)]\\s{2}|sub\\s{3}[(]h[)]\\s|sqrt\\s{6}|sorta\\s{5}|shtdn\\s{5}|seton\\s{5}|setoff\\s{4}|setll\\s{5}|setgt\\s{5}|scan\\s{6}|rolbk\\s{5}|return\\s{4}|reset\\s{5}|rel\\s{7}|read[(][ne][)]\\s{3}|read\\s{2}[(][ne][)]\\s|read\\s[(][ne][)]\\s{2}|realloc\\s{3}|reade[(][ne][)]\\s{2}|reade\\s{2}[(][ne][)]|reade\\s[(][ne][)]\\s|readp[e\\s]\\s{4}|read[cpe\\s]\\s{5}|post\\s{6}|parm\\s{6}|out\\s{7}|orne\\s{6}|orlt\\s{6}|orle\\s{6}|orgt\\s{6}|orge\\s{6}|oreq\\s{6}|open\\s{6}|on-error\\s{2}|on\\s{8}|occur\\s{5}|not\\s{7}|next\\s{6}|mvr\\s{7}|mult[(]h[)]\\s{3}|mult\\s{3}[(]h[)]|mult\\s{2}[(]h[)]\\s|mult\\s[(]h[)]\\s{2}|mult\\s{6}|movel[(]p[)]\\s{2}|movel\\s{2}[(]p[)]|movel\\s[(]p[)]\\s|movel\\s{5}|movea\\s{5}|move[(]p[)]\\s{3}|move\\s{3}[(]p[)]|move\\s{2}[(]p[)]\\s|move\\s[(]p[)]\\s{2}|move\\s{6}|mllzo\\s{5}|mlhzo\\s{5}|mhlzo\\s{5}|mhhzo\\s{5}|lookup\\s{4}|leavesr\\s{3}|leave\\s{5}|klist\\s{5}|kfld\\s{6}|iter\\s{6}|in\\s{8}|goto\\s{6}|force\\s{5}|feod\\s{6}|extrct\\s{4}|exsr\\s{6}|exfmt\\s{5}|except\\s{4}|endcs\\s{5}|dump\\s{6}|dsply\\s{5}|div[(]h[)]\\s{4}|div\\s{4}[(]h[)]|div\\s{3}[(]h[)]\\s|div\\s{2}[(]h[)]\\s{2}|div\\s[(]h[)]\\s{3}|div\\s{7}|delete\\s{4}|define\\s{4}|dealloc\\s{3}|comp\\s{6}|commit\\s{4}|close\\s{5}|clear\\s{5}|checkr\\s{4}|check\\s{5}|chain[(]h[)]\\s{2}|chain\\s{2}[(]h[)]|chain\\s[(]h[)]\\s|chain\\s{5}|cat\\s{7}|casne\\s{5}|caslt\\s{5}|casle\\s{5}|casgt\\s{5}|casge\\s{5}|caseq\\s{5}|case\\s{6}|cas\\s{7}|cabne\\s{5}|cablt\\s{5}|cable\\s{5}|cabgt\\s{5}|cabge\\s{5}|cabeq\\s{5}|cab\\s{7}|biton\\s{5}|bitoff\\s{4}|andne\\s{5}|andlt\\s{5}|andle\\s{5}|andgt\\s{5}|andge\\s{5}|andeq\\s{5}|and\\s{7}|alloc\\s{5}|addne\\s{5}|addlt\\s{5}|addle\\s{5}|addgt\\s{5}|addge\\s{5}|addeq\\s{5}|adddur\\s{4}|add[(]h[)]\\s{4}|add\\s{4}[(]h[)]|add\\s[(]h[)]\\s{3}|add\\s{2}[(]h[)]\\s{2}|add\\s{3}[(]h[)]\\s|add\\s{7}|acq\\s{7})"
 		},
 		"freeHSpec":{
 			"name":"constant.language",
@@ -269,7 +269,7 @@
 		},
 		"CatchAllFunctions":{
 			"name":"variable.rpgle",
-			"match": "(?i)\\b(z-sub|z-add\\(h\\)|z-add|xlate|xfoot|write|update|unlock|udate|to|time|test\\s{,3}\\([dtze]\\)|test|tag|subst|subdur|sub|sqrt|sorta|shtdn|seton|setoff|setll|setgt|scan|rolbk|reset|rel|realloc|read[cep]\\s{,2}\\([ne]\\)|read\\s{,3}\\([ne]\\)|read[cep]?|post|plist|parm|out|orne|orlt|orle|orgt|orge|oreq|open|on-error|on|occur|not|next|mvr|mult|movel\\(p\\)|movel|movea|move\\(p\\)|move|mllzo|mlhzo|mhlzo|mhhzo|lookup|leavesr|leave|klist|kfld|iter|in|goto|force|feod|extrct|exsr|exfmt|except|evalr|eval\\(h\\)|eval|endcs|dump|dsply|div|delete|define|dealloc|comp|commit|close|clear|checkr|check|chain|cat|casne|caslt|casle|casgt|casge|caseq|case|cas|callp|callb|call|cabne|cablt|cable|cabgt|cabge|cabeq|cab|biton|bitoff|andne|andlt|andle|andgt|andge|andeq|and|alloc|addne|addlt|addle|addgt|addge|addeq|adddur|add|acq)\\b"
+			"match": "(?i)\\b(z-sub|z-add[(]h[)]|z-add|xlate|xfoot|write|update|unlock|udate|to|time|test\\s{,3}[(][dtze][)]|test|tag|subst|subdur|sub\\{,4}[(][h][)]|sub|sqrt|sorta|shtdn|seton|setoff|setll|setgt|scan|rolbk|reset|rel|realloc|read[cep]\\s{,2}[(][ne][)]|read\\s{,3}[(][ne][)]|read[cep]?|post|plist|parm|out|orne|orlt|orle|orgt|orge|oreq|open|on-error|on|occur|not|next|mvr|mult\\s{,3}[(][h][)]|mult|movel\\s{,2}[(][p][)]|movel|movea|move\\s{,3}[(]p][)]|move|mllzo|mlhzo|mhlzo|mhhzo|lookup|leavesr|leave|klist|kfld|iter|in|goto|force|feod|extrct|exsr|exfmt|except|evalr|eval\\s{,3}[(][h][)]|eval|endcs|dump|dsply|div\\s{,4}[(][h][)]|div|delete|define|dealloc|comp|commit|close|clear|checkr|check|chain|cat|casne|caslt|casle|casgt|casge|caseq|case|cas|callp|callb|call|cabne|cablt|cable|cabgt|cabge|cabeq|cab|biton|bitoff|andne|andlt|andle|andgt|andge|andeq|and|alloc|addne|addlt|addle|addgt|addge|addeq|adddur|add\\s{,4}[(][h][)]|add|acq)\\b"
 		},
 		"CatchAllControl":{
 			"name":"variable.rpgle",
@@ -277,8 +277,8 @@
 		},
 		"sql_struc":{
 			"name": "invalid.illegal.rpg",
-			"begin": "(?i)^(|.{5}).(/exec Sql)\\b",
-			"end":"(?i)^(|.{5}).(/end-exec)\\b"
+			"begin": "(?i)^(|\\s{5}).(/exec Sql)\\b",
+			"end":"(?i)^(|\\s{5}).(/end-exec)\\b"
 
 		},
 		"OspecOddNumerics":{
@@ -363,13 +363,13 @@
 
 		"Hspecs": {
 			"name":"constant.language.rpgle",
-			"match": "^(?i)^(|.{5})([h].*$)",
+			"match": "^(?i)^(|\\s{5})([h].*$)",
 			"comment": "comments lines with * on column 2"
 		},
 
 		"GOTO_Tags":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(tag       )(\\s{41})(.*)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(tag\\s{7})(\\s{41})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -389,7 +389,7 @@
 		},
 		"GOTO_TagsNoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(tag)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(tag)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -409,7 +409,7 @@
 		},
 		"GOTO_Line":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(goto      )(.{41})(.*)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(goto      )(.{41})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -429,7 +429,7 @@
 		},
 		"GOTO_LineNoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(goto      )(.{0,41})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(goto      )(.{0,41})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -449,7 +449,7 @@
 		},
 		"Cspec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(..)(..)(.{0,2})(.*)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(..)(..)(.{0,2})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -489,7 +489,7 @@
 		},
 		"Cspec_NoEq":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(..)(.{0,2})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(..)(.{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -527,7 +527,7 @@
 		},
 		"Cspec_NoLo":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(.{0,2})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{2})(.{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -560,7 +560,7 @@
 		},
 		"Cspec_NoHi":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{0,2})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{5})([\\d\\s]{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -592,7 +592,7 @@
 		},
 		"Cspec_NoDec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{0,5})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{14})([\\d\\s]{0,5})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -623,7 +623,7 @@
 		},
 		"Cspec_NoLen":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{0,14})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{14})(.{0,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -653,7 +653,7 @@
 		},
 		"Cspec_NoResult":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{0,14})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(.{10})(.{0,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -680,7 +680,7 @@
 		},
 		"Cspec_NoFac2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(.{0,10})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(.{0,10})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -704,7 +704,7 @@
 		},
 		"Cspec_NoFac1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpg3"},
@@ -720,7 +720,7 @@
 		},
 		"Cspec_NoCLInd":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpg3"},
@@ -730,7 +730,7 @@
 		},
 		"Cspec_NoCLIN":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(.{,2})",
+			"match": "(?i)^(|\\s{5})([c])(.{,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpg3"},
@@ -740,7 +740,7 @@
 		},
 		"Cspec_evalComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(evalr     |eval\\(h\\)   |eval      |callb     |callp     |call      )(.{45})(.*)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(evalr     |eval\\(h\\)   |eval      |callb     |callp     |call      )(.{45})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpg3"},
@@ -764,7 +764,7 @@
 		},
 		"Cspec_eval":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(evalr     |eval\\(h\\)   |eval      |callb     |callp     |call      )(.{0,45})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(evalr     |eval\\(h\\)   |eval      |callb     |callp     |call      )(.{0,45})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpg3"},
@@ -788,7 +788,7 @@
 		},
 		"Cspec_eval2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(evalr|eval\\(h\\)|eval|callb|callp|call)(.{0,45})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(evalr|eval\\(h\\)|eval|callb|callp|call)(.{0,45})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpg3"},
@@ -811,7 +811,7 @@
 		},
 		"Cspec_controlComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{45})(.*)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{45})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -835,7 +835,7 @@
 		},
 		"Cspec_control":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{,45})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{,45})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -858,7 +858,7 @@
 		},
 		"Cspec_controlNoFac2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(\\s{14})(when|select|return|plist|other|on-error|monitor|if|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|endcs|end|else|dow|dou)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(\\s{14})(when|select|return|plist|other|on-error|monitor|if|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|endcs|end|else|dow|dou)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -878,7 +878,7 @@
 		},
 		"Cspec_controlContinued":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(\\s{29})(.{0,45})(.*)",
+			"match": "(?i)^(|\\s{5})([c])(\\s{29})(.{0,45})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -891,7 +891,7 @@
 		},
 		"Cspec_control_rpg3":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|ifne|iflt|ifle|ifgt|ifge|ifeq|endsr|endsl|endif|endfor|enddo|endcs|end|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq|do)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|ifne|iflt|ifle|ifgt|ifge|ifeq|endsr|endsl|endif|endfor|enddo|endcs|end|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq|do)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -911,7 +911,7 @@
 		},
 		"Cspec_control_rpg3Comment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |plist     |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |do        |begsr     )(.{14})(\\s{14})(.*)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |plist     |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |do        |begsr     )(.{14})(\\s{14})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -939,7 +939,7 @@
 		},
 		"Cspec_control_rpg3NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |endcs     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |do        |begsr     )(.{,14})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |endcs     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |do        |begsr     )(.{,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -962,7 +962,7 @@
 		},
 		"Cspec_control_rpg3NoFactor2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|sfile|return|other|ifne|iflt|ifle|ifgt|ifge|ifeq|extpgm|endsr|endsl|endmon|endif|endfor|enddo|endcs|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq|do|begsr)(.{,14})",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|sfile|return|other|ifne|iflt|ifle|ifgt|ifge|ifeq|extpgm|endsr|endsl|endmon|endif|endfor|enddo|endcs|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq|do|begsr)(.{,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -982,7 +982,7 @@
 		},
 		"Cspec_NoFac1Comment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(..)([n|\\s])(..)(\\s{72})(.*)",
+			"match": "(?i)^(|\\s{5})([c])(..)([n|\\s])(..)(\\s{72})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1001,7 +1001,7 @@
 
 		"Dspec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{37})(.*)",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{37})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1022,7 +1022,7 @@
 		},
 		"Dspec_NoComments":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{0,37})\\b",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{0,37})\\b",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1042,7 +1042,7 @@
 		},
 		"Dspec_NoKeywords":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}\\b",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}\\b",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1058,7 +1058,7 @@
 		},
 		"Dspec_NoDecimal":{
 				"name":"constant.rgb-value",
-				"match": "(?i)^(|.{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)\\b",
+				"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)\\b",
 				"captures": {
 					"1":{"name":"comment"},
 					"2":{"name":"support.type.rpgle"},
@@ -1073,7 +1073,7 @@
 		},
 		"Dspec_NoType":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{0,7})",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{0,7})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1087,7 +1087,7 @@
 		},
 		"Dspec_NoLen":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{0,7})\\b",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{0,7})\\b",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1100,7 +1100,7 @@
 		},
 		"Dspec_DSConst":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(\\s{4})(\\*proc|\\*status|\\*routine|\\*parms|\\*init|\\*delt|\\*getin|\\*totc|\\*totl|\\*detc|\\*ofl|\\*term)",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(\\s{4})(\\*proc|\\*status|\\*routine|\\*parms|\\*init|\\*delt|\\*getin|\\*totc|\\*totl|\\*detc|\\*ofl|\\*term)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1111,7 +1111,7 @@
 		},
 		"Dspec_NoFrom":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)\\b",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)(s |pi|ds|ps|pr|\\s\\s)\\b",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1123,7 +1123,7 @@
 		},
 		"Dspec_NoVarType":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(.)(.)\\b",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)\\b",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1134,7 +1134,7 @@
 		},
 		"Dspec_NoUsage":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([d])(.{15})(.)(.)\\b",
+			"match": "(?i)^(|\\s{5})([d])(.{15})(.)(.)\\b",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1146,7 +1146,7 @@
 
 		"Fspec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])(.)(disk   |workstn|printer)(.{37})(.*)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])(.)(disk   |workstn|printer)(.{37})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1204,7 +1204,7 @@
 		},
 		"Fspec_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])(.)(disk   |workstn|printer)(.{0,37})",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])(.)(disk   |workstn|printer)(.{0,37})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1261,7 +1261,7 @@
 		},
 		"Fspec_NoKeyWords":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])(.)(disk|workstn|printer)\\b",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])(.)(disk|workstn|printer)\\b",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1311,7 +1311,7 @@
 		},
 		"Fspec_NoDevice":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1359,7 +1359,7 @@
 		},
 		"Fspec_NoKey":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{0,4})",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{0,4})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1400,7 +1400,7 @@
 		},
 		"Fspec_NoLen2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)\\b",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)\\b",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1439,7 +1439,7 @@
 		},
 		"Fspec_NoK2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1472,7 +1472,7 @@
 		},
 		"Fspec_NoL":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{0,4})",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{0,4})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1503,7 +1503,7 @@
 		},
 		"Fspec_NoLen1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1530,7 +1530,7 @@
 		},
 		"Fspec_NoF":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)(.)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1551,7 +1551,7 @@
 		},
 		"Fspec_NoS":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)(.)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1571,7 +1571,7 @@
 		},
 		"Fspec_NoA":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)(.)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1590,7 +1590,7 @@
 		},
 		"Fspec_NoE":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)(.)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1608,7 +1608,7 @@
 		},
 		"Fspec_NoF1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)(.)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1625,7 +1625,7 @@
 		},
 		"Fspec_NoI":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{10})(.)",
+			"match": "(?i)^(|\\s{5})([f])(.{10})(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1641,7 +1641,7 @@
 		},
 		"Fspec_NoI2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(.{0,10})",
+			"match": "(?i)^(|\\s{5})([f])(.{0,10})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1650,7 +1650,7 @@
 		},
 		"Fspec_Continued":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(\\s{37})(.{0,37})(.*)",
+			"match": "(?i)^(|\\s{5})([f])(\\s{37})(.{0,37})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1667,7 +1667,7 @@
 		},
 		"Fspec_ContinuedNoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([f])(\\s{37})(.{0,37})",
+			"match": "(?i)^(|\\s{5})([f])(\\s{37})(.{0,37})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1684,7 +1684,7 @@
 
 		"Pspec":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{2})(.{33})(.*)",
+			"match": "(?i)^(|\\s{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{2})(.{33})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1708,7 +1708,7 @@
 		},
 		"Pspec_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{2})(.{0,33})",
+			"match": "(?i)^(|\\s{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{2})(.{0,33})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1731,7 +1731,7 @@
 		},
 		"Pspec_NoKeywords":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{0,2})",
+			"match": "(?i)^(|\\s{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)([\\d\\s]{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1746,7 +1746,7 @@
 		},
 		"Pspec_NoDecimals":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)",
+			"match": "(?i)^(|\\s{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{4})(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1765,7 +1765,7 @@
 		},
 		"Pspec_NoI":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{0,4})",
+			"match": "(?i)^(|\\s{5})([p])(.{15})(\\s\\s)([b])(.{11})([\\d\\s]{0,4})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1783,7 +1783,7 @@
 		},
 		"Pspec_NoLen":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([p])(.{15})(\\s\\s)([b])",
+			"match": "(?i)^(|\\s{5})([p])(.{15})(\\s\\s)([b])",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1799,7 +1799,7 @@
 		},
 		"Pspec_NoBegin":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([p])(.{0,15})",
+			"match": "(?i)^(|\\s{5})([p])(.{0,15})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1815,7 +1815,7 @@
 		},
 		"Pspec_End":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([p])(.{17})([e])",
+			"match": "(?i)^(|\\s{5})([p])(.{17})([e])",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1831,7 +1831,7 @@
 
 		"Ospec1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)(.{14})(.)(.{2})(.{5})(.)(.{28})(.*)",
+			"match": "(?i)^(|\\s{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)(.{14})(.)(.{2})(.{5})(.)(.{28})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1869,7 +1869,7 @@
 		},
 		"Ospec1_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)(.{14})(.)(.{2})(.{5})(.)(.{0,28})",
+			"match": "(?i)^(|\\s{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)(.{14})(.)(.{2})(.{5})(.)(.{0,28})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1906,7 +1906,7 @@
 		},
 		"Ospec1_NoKeyWord":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)(.{14})(.)(.{2})(.{0,5})",
+			"match": "(?i)^(|\\s{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)(.{14})(.)(.{2})(.{0,5})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1934,7 +1934,7 @@
 		},
 		"Ospec1_NoEnd":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)(.{14})(.)(.{0,2})",
+			"match": "(?i)^(|\\s{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)(.{14})(.)(.{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1959,7 +1959,7 @@
 		},
 		"Ospec1_NoField":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)",
+			"match": "(?i)^(|\\s{5})([o])(\\s{14})(.)(..)(.)(..)(.)(..)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1973,7 +1973,7 @@
 		},
 		"Ospec1_No03":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(\\s{14})(.)(..)(.)(..)(.)",
+			"match": "(?i)^(|\\s{5})([o])(\\s{14})(.)(..)(.)(..)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1985,7 +1985,7 @@
 		},
 		"Ospec1_No02":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(\\s{14})(.)(..)(.)",
+			"match": "(?i)^(|\\s{5})([o])(\\s{14})(.)(..)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1996,7 +1996,7 @@
 		},
 		"Ospec1_No01":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(\\s{14})(.)",
+			"match": "(?i)^(|\\s{5})([o])(\\s{14})(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2007,7 +2007,7 @@
 
 		"Ospec2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{3})(.{3})(.{3})(.{3})(.{29})(.*)",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{3})(.{3})(.{3})(.{3})(.{29})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2047,7 +2047,7 @@
 		},
 		"Ospec2_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{3})(.{3})(.{3})(.{0,3})",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{3})(.{3})(.{3})(.{0,3})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2085,7 +2085,7 @@
 		},
 		"Ospec2_NoSA":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{3})(.{3})(.{0,3})",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{3})(.{3})(.{0,3})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2120,7 +2120,7 @@
 		},
 		"Ospec2_NoSB":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{3})(.{0,3})",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{3})(.{0,3})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2152,7 +2152,7 @@
 		},
 		"Ospec2_NoA":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{0,3})",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{10})(.{0,3})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2181,7 +2181,7 @@
 		},
 		"Ospec2_NoB":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{0,10})",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(..)(.{0,10})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2216,7 +2216,7 @@
 		},
 		"Ospec2_NoExName":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(.{0,2})",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)(.{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2235,7 +2235,7 @@
 		},
 		"Ospec2_No03":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(..)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2253,7 +2253,7 @@
 		},
 		"Ospec2_No02":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(.{0,2})",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(..)(.)(.{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2270,7 +2270,7 @@
 		},
 		"Ospec2_No01":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)(\\s\\s)(.)(.{0,2})",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)(\\s\\s)(.)(.{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2285,7 +2285,7 @@
 		},
 		"Ospec2_NoSpace":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])(.)",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2296,7 +2296,7 @@
 		},
 		"Ospec2_NoF":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{10})([e])",
+			"match": "(?i)^(|\\s{5})([o])(.{10})([e])",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2306,7 +2306,7 @@
 		},
 		"Ospec2_NoD":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([o])(.{0,10})",
+			"match": "(?i)^(|\\s{5})([o])(.{0,10})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2316,7 +2316,7 @@
 		
 		"Ispec1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)(\\s{34})(.*)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)(\\s{34})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2351,7 +2351,7 @@
 		},
 		"Ispec1_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2383,7 +2383,7 @@
 		},
 		"Ispec1_NoC32":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2414,7 +2414,7 @@
 		},
 		"Ispec1_NoC31":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2444,7 +2444,7 @@
 		},
 		"Ispec1_NoN31":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)(.{0,5})",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)(.)(.{0,5})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2472,7 +2472,7 @@
 		},
 		"Ispec1_NoC22":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2499,7 +2499,7 @@
 		},
 		"Ispec1_NoC21":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)([\\d\\s]{5})(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2525,7 +2525,7 @@
 		},
 		"Ispec1_NoN21":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)(.{0,5})",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)(.)(.{0,5})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2548,7 +2548,7 @@
 		},
 		"Ispec1_NoPos2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2569,7 +2569,7 @@
 		},
 		"Ispec1_NoC11":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)([\\d\\s]{5})(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2589,7 +2589,7 @@
 		},
 		"Ispec1_NoN11":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(..)(.{0,5})",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(..)(.{0,5})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2607,7 +2607,7 @@
 		},
 		"Ispec1_NoPos1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)(.)(.{0,2})",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)(.)(.{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2624,7 +2624,7 @@
 		},
 		"Ispec1_NoRi":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(..)(.)",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(..)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2635,7 +2635,7 @@
 		},
 		"Ispec1_NoO":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{10})(.{0,2})",
+			"match": "(?i)^(|\\s{5})([i])(.{10})(.{0,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2645,7 +2645,7 @@
 		},
 		"Ispec1_NoSQ":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(.{0,10})",
+			"match": "(?i)^(|\\s{5})([i])(.{0,10})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2654,7 +2654,7 @@
 		},
 		"Ispec2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(..)(..)(\\s{6})(.*)",
+			"match": "(?i)^(|\\s{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(..)(..)(\\s{6})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2680,7 +2680,7 @@
 		},
 		"Ispec2_NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(..)(.{,2})",
+			"match": "(?i)^(|\\s{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(..)(.{,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2704,7 +2704,7 @@
 		},
 		"Ispec2_NoZr":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(.{,2})",
+			"match": "(?i)^(|\\s{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(..)(.{,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2725,7 +2725,7 @@
 		},
 		"Ispec2_NoMn":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(.{,2})",
+			"match": "(?i)^(|\\s{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(\\s\\s)(.{,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2743,7 +2743,7 @@
 		},
 		"Ispec2_NoPl":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(.{,2})",
+			"match": "(?i)^(|\\s{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(..)(..)(.{,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2758,7 +2758,7 @@
 		},
 		"Ispec2_NoM1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(.{,2})",
+			"match": "(?i)^(|\\s{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{13})(.{,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2773,7 +2773,7 @@
 		},
 		"Ispec2_NoL1":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{,14})",
+			"match": "(?i)^(|\\s{5})([i])(\\s{14})(.{10})(\\s{18})(\\w[\\S\\s]{,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2788,7 +2788,7 @@
 		},
 		"Ispec2_NoExField":{
 				"name":"constant.rgb-value",
-				"match": "(?i)^(|.{5})([i])(\\s{14})(.{,10})",
+				"match": "(?i)^(|\\s{5})([i])(\\s{14})(.{,10})",
 				"captures": {
 					"1":{"name":"comment"},
 					"2":{"name":"support.type"},
@@ -3283,8 +3283,8 @@
 
 
 		"freeBlock":{
-			"begin": "(?i)^(|.{5}).(\/free)\\b",
-			"end": "(?i)^(|.{5}).(\/end-free)\\b",
+			"begin": "(?i)^(|\\s{5}).(\/free)\\b",
+			"end": "(?i)^(|\\s{5}).(\/end-free)\\b",
 			"beginCaptures": {
 				"1":{"name":"comment"},
 				"2":{
