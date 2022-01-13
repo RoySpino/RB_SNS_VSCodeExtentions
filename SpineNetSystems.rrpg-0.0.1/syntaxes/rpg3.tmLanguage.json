@@ -128,25 +128,25 @@
 	"repository": {
 		"CommentLine": {
 			"name": "comment.line",
-			"begin": "^......\\*",
+			"begin": "^......[*]",
 			"end": "\\n"
 		},
 		"commentBlock":{
 			"name":"comment.line",
-			"begin": "\/\\*",
-			"end": "\\*\/"
+			"begin": "[/][*]",
+			"end": "[*][/]"
 		},
 		"keywordControl":{
 			"name":"keyword.control",
-			"match": "(?i)(sfile|plist|ifne |iflt |ifle |ifgt |ifge |ifeq |endsr|end  |else |downe|dowlt|dowle|dowgt|dowge|doweq|dow  |doune|doult|doule|dougt|douge|doueq|dou  |do   |begsr)"
+			"match": "(?i)(sfile|plist|ifne\\s|iflt\\s|ifle\\s|ifgt\\s|ifge\\s|ifeq\\s|endsr|endif|enddo|end\\s{2}|else\\s|downe|dowlt|dowle|dowgt|dowge|doweq|dow\\s{2}|doune|doult|doule|dougt|douge|doueq|dou\\s{2}|do\\s{3}|begsr)"
 		},
 		"keywordControl2":{
 			"name":"keyword.control",
-			"match": "(?i)(sfile|plist|ifne|iflt|ifle|ifgt|ifge|ifeq|endsr|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|dow|doune|doult|doule|dougt|douge|doueq|dou|do|begsr)"
+			"match": "(?i)(sfile|plist|ifne|iflt|ifle|ifgt|ifge|ifeq|endsr|endif|enddo|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|dow|doune|doult|doule|dougt|douge|doueq|dou|do|begsr)"
 		},
 		"keywordsFuncstions":{
 			"name":"variable",
-			"match": "(?i)(z-sub|z-add|xlate|xfoot|write|updat|time |testz|testn|testb|test |subst|sub  |sqrt |sorta|shtdn|seton|setof|setll|setgt|scan |rolbk|reset|rel  |readp|reade|readc|read |post |parm |out  |orne |orlt |orle |orgt |orge |oreq |or   |open |on   |occur|not  |next |mvr  |mult |movel|movea|move |mllzo|mlhzo|mhlzo|mhhzo|lokup|klist|kfld |in   |force|feod |exsr |exfmt|excpt|dump |dsply|div  |delet|defn |comp |close|clear|check|chain|cat  |casne|caslt|casle|casgt|casge|caseq|case |cas  |call |cabne|cablt|cable|cabgt|cabge|cabeq|cab  |biton|bitof|andne|andlt|andle|andgt|andge|andeq|and  |addne|addlt|addle|addgt|addge|addeq|add  |acq  )"
+			"match": "(?i)(z-sub|z-add|xlate|xfoot|write|updat|time\\s|testz|testn|testb|test\\s|subst|sub\\s{2}|sqrt\\s|sorta|shtdn|seton|setof|setll|setgt|scan\\s|rolbk|reset|rel\\s{2}|readp|reade|readc|read |post |parm |out\\s{2}|orne\\s|orlt\\s|orle\\s|orgt\\s|orge\\s|oreq\\s|or\\s{3}|open\\s|on\\s{3}|occur|not\\s{2}|next\\s|mvr\\s{2}|mult\\s|movel|movea|move\\s|mllzo|mlhzo|mhlzo|mhhzo|lokup|klist|kfld\\s|in\\s{3}|force|feod\\s|exsr\\s|exfmt|excpt|dump\\s|dsply|div\\s{2}|delet|defn\\s|comp\\s|close|clear|check|chain|cat\\s{2}|casne|caslt|casle|casgt|casge|caseq|case\\s|cas\\s{2}|call\\s|cabne|cablt|cable|cabgt|cabge|cabeq|cab\\s{2}|biton|bitof|andne|andlt|andle|andgt|andge|andeq|and\\s{2}|addne|addlt|addle|addgt|addge|addeq|add\\s{2}|acq\\s{2})"
 		},
 		"keywordsFuncstions2":{
 			"name":"variable",
@@ -260,7 +260,7 @@
 		},
 		"cammasInFac123":{
 			"name": "invalid",
-			"match": "[\\,]",
+			"match": "[,]",
 			"comment": "Highlight cammas in factor 1 2 and result"
 		},
 		"factor123": {
