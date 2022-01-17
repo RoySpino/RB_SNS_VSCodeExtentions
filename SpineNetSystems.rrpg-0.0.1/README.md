@@ -27,7 +27,7 @@ These are the supported file extensions for RPG 4 and 3
 ## Tools for fixed format RPG
 SEU format bar
 
-called by typing in the source code _(spec)format_. Examples are shown below
+called by typing in the source code _(spec)format_. Examples and demos are shown below
 
 |  |Spec| Command | Note |
 |--|--|---------|-------------|
