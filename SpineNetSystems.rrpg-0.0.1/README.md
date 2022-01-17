@@ -27,13 +27,13 @@ These are the supported file extensions for RPG 4 and 3
 ## Tools for fixed format RPG
 SEU format bar
 
-called by typing in the source code (spec)format
+called by typing in the source code _(spec)format_. Examples are shown below
 
 |  |Spec| Command | Note |
 |--|--|---------|-------------|
 |RPG 4 /3 | F | **f**format| 
 |RPG 4 | D | **d**format|
-|RPG 4 /3 | I | **i**format| Niscription only for external files |
+|RPG 4 /3 | I | **i**format| Discripton only for external files |
 |RPG 4 /3 | C | **c**format| 
 |RPG 4 /3 | O | **o**format| No discripton just SEU bar
 |RPG 4 | P | **p**format|
