@@ -3066,7 +3066,7 @@
 			]
 		},
 		"DatastrucBlock3":{
-			"begin": "(?i)(\\s{0,})(dcl-ds)(\\s{1,})(\\*n)(\\s{0,})(\\w{0,})",
+			"begin": "(?i)(\\s{0,})(dcl-ds)(\\s{1,})([*]n)(\\s{0,})(\\w{0,})",
 			"end": "(?i)(\\s{0,})(end-ds)",
 			"beginCaptures": {
 				"1":{"name": "constant.rgb-value"},
@@ -3138,7 +3138,7 @@
 			]
 		},
 		"ProcInterfaceBlock2":{
-			"begin": "(?i)(\\s{0,})(dcl-pi)(\\s{1,})(\\*n)(\\s{1,})(\\w{1,})",
+			"begin": "(?i)(\\s{0,})(dcl-pi)(\\s{1,})([*]n)(\\s{1,})(\\w{1,})",
 			"end": "(?i)(\\s{0,})(end-pi)",
 			"beginCaptures": {
 				"1":{"name": "constant.rgb-value"},
@@ -3173,7 +3173,7 @@
 			]
 		},
 		"ProcInterfaceBlock3":{
-			"begin": "(?i)(\\s{0,})(dcl-pi)(\\s{1,})(\\*n)",
+			"begin": "(?i)(\\s{0,})(dcl-pi)(\\s{1,})([*]n)",
 			"end": "(?i)(\\s{0,})(end-pi)",
 			"beginCaptures": {
 				"1":{"name": "constant.rgb-value"},
@@ -3264,7 +3264,22 @@
 				{"include": "#keywordSuport"}
 			]
 		},
-
+		"exportProcedure":{
+			"name":"constant.rgb-value",
+			"match":"(?i)(dcl-proc)(\\s*)(.*)(\\s*)(export)",
+			"captures": {
+				"1":{"name":"keyword.control"},
+				"2":{"name":"constant.rgb-value"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": ".*"
+					}],
+					"name":"strong"}
+			}
+		},
 
 
 
@@ -3338,6 +3353,7 @@
 			"patterns": [
 				{"include": "#commentsclike2"},
 				{"include": "#commentBlock" },
+				{"include": "#exportProcedure"},
 				{"include": "#compilerConst"},
 				{"include": "#DatastrucBlock_NoNaturalEnd"},
 				{"include": "#DatastrucBlock3"},
