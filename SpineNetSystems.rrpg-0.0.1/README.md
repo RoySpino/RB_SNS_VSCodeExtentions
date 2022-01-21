@@ -17,12 +17,13 @@ features incudes:
 * Block matching for both structured and free-format 
 
 ## File Types (case insensitive)
-These are the supported file extensions for RPG 4 and 3
+These are the supported file extensions for RPG 4 and 3 
 
 | Extension(s)        | Description        |
 | --------------------| ------------------ |
 | .rpg, .rpgle        | RPG4 and SQLRPGL |
 | .rpg3               | RPG/400  |
+| .vr                 | ASNA Visual RPG |
 
 ## Tools for fixed format RPG
 SEU format bar
@@ -33,11 +34,11 @@ Called by typing in the source code _(spec)format_. Examples and demos are shown
 |--|--|---------|-------------|
 |RPG 4 /3 | F | **f**format| 
 |RPG 4 | D | **d**format|
-|RPG 4 /3 | I | **i**format| Discripton only for external files |
+|RPG 4 /3 | I | **i**format| Description only for external files |
 |RPG 4 /3 | C | **c**format| 
-|RPG 4 /3 | O | **o**format| No discripton just SEU bar
+|RPG 4 /3 | O | **o**format| No Description just SEU bar
 |RPG 4 | P | **p**format|
-|RPG 3 | E | **e**format| No discripton just SEU bar
+|RPG 3 | E | **e**format| No Description just SEU bar
 
 ### F-spec
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/FSpecFormatLine.gif)
@@ -53,12 +54,12 @@ Called by typing in the source code _(spec)format_. Examples and demos are shown
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/HiLoEq_higlight.png)
 
 ## TODO
-+ add support for RPG 3 specs, current specs and their status are
++ Add support for RPG 3 specs, current specs and their status are
     * **H** spec: completed
     * **F** spec: incomplete documentation needed
     * **E** spec: incomplete documentation needed
     * **I** spec: mostly complete but citation needed
-    * **C** spec: mostly complete but citation needed
+    * **C** spec: mostly complete
     * **O** spec: incomplete documentation needed
     
     * **T** spec: Not currently supported
@@ -66,16 +67,17 @@ Called by typing in the source code _(spec)format_. Examples and demos are shown
     * **L** spec: Not currently supported
     
 + Test Color highlighting with different color themes current tests where done only with default dark and light themes
++ Support for ASNA code is not complete. You can still make classes subroutines and procedures but any special operations are not included. I will need to see more examples.
 
 # What does it look like?
-### structured syntax
+### Fixed Format Syntax
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/StructRPG.png)
 
 ### RPG/400
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/RPG3.png)
 
-### free tags
+### Free Tags
  ![freeTags.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/freeTags.png)
 
-### fully free
+### Fully Free
  ![fullFree](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/FreeFormat.png)
