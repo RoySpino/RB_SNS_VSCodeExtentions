@@ -99,6 +99,21 @@
 		{"include": "#Ospec2_NoSpace"},
 		{"include": "#Ospec2_NoF"},
 		{"include": "#Ospec2_NoD"},
+		{"include": "#Ispec3"},
+		{"include": "#Ispec3_NoComment"},
+		{"include": "#Ispec3_NoZr"},
+		{"include": "#Ispec3_NoMn"},
+		{"include": "#Ispec3_NoPl"},
+		{"include": "#Ispec3_NoFr"},
+		{"include": "#Ispec3_NoM1"},
+		{"include": "#Ispec3_NoL1"},
+		{"include": "#Ispec3_NoField"},
+		{"include": "#Ispec3_NoDc"},
+		{"include": "#Ispec3_NoTo"},
+		{"include": "#Ispec3_NoFrom"},
+		{"include": "#Ispec3_NoP"},
+		{"include": "#Ispec3_NoS"},
+		{"include": "#Ispec3_NoFmt"},
 		{"include": "#Ispec2"},
 		{"include": "#Ispec2_NoComment"},
 		{"include": "#Ispec2_NoZr"},
@@ -2800,6 +2815,337 @@
 					"8":{"name":"constant.language"},
 					"9":{"name":"constant.rgb-value"}
 				}
+		},
+		"Ispec3":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{2})(.{14})(.{2})(.{2})(.{2})(.{2})(.{2})(.{2})(\\s{6})(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"variable.language"},
+				"12":{"name":"constant.language"},
+				
+				"13":{"name":"string.jade"},
+				"14":{"name":"variable.language"},
+				"15":{"name":"constant.language"},
+				"16":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."}],
+					"name":"strong"},
+
+				"17":{"name":"constant.rgb-value"},
+				"18":{"name":"comment"}
+			}
+		},
+		"Ispec3_NoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{2})(.{14})(.{2})(.{2})(.{2})(.{2})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"variable.language"},
+				"12":{"name":"constant.language"},
+				
+				"13":{"name":"string.jade"},
+				"14":{"name":"variable.language"},
+				"15":{"name":"constant.language"},
+				"16":{
+					"patterns": [{
+						"name":"constant.language",
+						"match": "."}],
+					"name":"strong"}
+			}
+		},
+		"Ispec3_NoZr":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{2})(.{14})(.{2})(.{2})(.{2})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"variable.language"},
+				"12":{"name":"constant.language"},
+				
+				"13":{"name":"string.jade"},
+				"14":{"name":"variable.language"},
+				"15":{"name":"constant.language"}
+			}
+		},
+		"Ispec3_NoMn":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{2})(.{14})(.{2})(.{2})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"variable.language"},
+				"12":{"name":"constant.language"},
+				
+				"13":{"name":"string.jade"},
+				"14":{"name":"variable.language"}
+			}
+		},
+		"Ispec3_NoPl":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{2})(.{14})(.{2})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"variable.language"},
+				"12":{"name":"constant.language"},
+				
+				"13":{"name":"string.jade"}
+			}
+		},
+		"Ispec3_NoFr":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{2})(.{14})(.{2})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"variable.language"},
+				"12":{"name":"constant.language"}
+			}
+		},
+		"Ispec3_NoM1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{2})(.{14})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"},
+				"10":{"name":"constant.rgb-value"},
+				"11":{"name":"variable.language"}
+			}
+		},
+		"Ispec3_NoL1":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{2})(.{,14})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"},
+				"10":{"name":"constant.rgb-value"}
+			}
+		},
+		"Ispec3_NoField":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{5})(.{,2})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"},
+				
+				"9":{"name":"string.jade"}
+			}
+		},
+		"Ispec3_NoDc":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{5})(.{,5})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"},
+				"8":{"name":"constant.numeric"}
+			}
+		},
+		"Ispec3_NoTo":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)(.{,5})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"},
+
+				"7":{"name":"constant.numeric"}
+			}
+		},
+		"Ispec3_NoFrom":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"},
+				"6":{"name":"constant.language"}
+			}
+		},
+		"Ispec3_NoP":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"},
+				"5":{"name":"invalid.illegal"}
+			}
+		},
+		"Ispec3_NoS":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{4})(.)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."}],
+					"name":"emphasis"}
+			}
+		},
+		"Ispec3_NoFmt":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([i])(\\s{24})(.{,4})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"}
+			}
 		},
 
 		"freeProc":{
