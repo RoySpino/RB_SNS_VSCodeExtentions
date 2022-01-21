@@ -158,7 +158,8 @@
 			"/*                      Program Described I spec",
 			"",
 			"IFilename++SqNORiPos1+NCCPos2+NCCPos3+NCC..................................Comments++++++++++++ ",
-			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
+			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ ",
+			"I........................Fmt+SPFrom+To+++DcField+++++++++L1M1FrPlMnZr......Comments++++++++++++ */"
 		],
 		"description": "Write a format line for Program Described I spec",
 		"scope": "source.rpgle"
@@ -170,7 +171,8 @@
 			"/*                      Externally Described I spec",
 			"",
 			"IRcdname+++....Ri..........................................................Comments++++++++++++",
-			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
+			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ ",
+			"I........................Fmt+SPFrom+To+++DcField+++++++++L1M1FrPlMnZr......Comments++++++++++++ */"
 		]
 	},
 	"Iformat-verbose": {
@@ -182,7 +184,8 @@
 			" Ri: rec id indicator 0-99,l1-l9,lr,h1-h9,u1-u8,rt",
 			"",
 			"IFilename++SqNORiPos1+NCCPos2+NCCPos3+NCC..................................Comments++++++++++++ ",
-			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
+			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ ",
+			"I........................Fmt+SPFrom+To+++DcField+++++++++L1M1FrPlMnZr......Comments++++++++++++ */"
 		],
 		"description": "Write a verbose format line for Program Described I spec",
 		"scope": "source.rpgle"
@@ -207,7 +210,8 @@
 			"  Zr: Zero/Blank field check indicator",
 			"",
 			"IRcdname+++....Ri..........................................................Comments++++++++++++",
-			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ */"
+			"I..............Ext-field+..................Field+++++++++L1M1..PlMnZr......Comments++++++++++++ ",
+			"I........................Fmt+SPFrom+To+++DcField+++++++++L1M1FrPlMnZr......Comments++++++++++++ */"
 		],
 		"description": "Write a verbose format line for Externally Described I spec",
 		"scope": "source.rpgle"
