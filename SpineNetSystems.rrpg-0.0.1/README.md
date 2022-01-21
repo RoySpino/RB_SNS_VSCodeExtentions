@@ -71,6 +71,9 @@ Called by typing in the source code _(spec)format_. Examples and demos are shown
 ### structured syntax
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/StructRPG.png)
 
+### RPG/400
+ ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/RPG3.png)
+
 ### free tags
  ![freeTags.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/freeTags.png)
 
