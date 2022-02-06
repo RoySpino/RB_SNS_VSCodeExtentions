@@ -21,7 +21,7 @@ features incudes:
 + fix-format RPG4 code begins on either column 6 (IBM standard) or colomn 1. You will not need to make any setting changes this is an automatic feature dependent on your coding style.
 * Block matching for both structured and free-format 
 
-## File Types (case insensitive)
+## File Types
 These are the supported file extensions for RPG 4 and 3 
 
 | Extension(s)        | Description        |
