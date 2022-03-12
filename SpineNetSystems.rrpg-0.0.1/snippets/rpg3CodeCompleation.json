@@ -126,5 +126,19 @@
                  ".....OName++++DFBASbSaN01N02N03Excnam........................................... */"],
 		"description": "Write a format line for O spec",
 		"scope": "source.rpg3"
+	},
+	"lformat":{
+		"prefix":"lformat",
+		"body":["/*",
+                 ".....LFilename066Fl060Ol........................................................ */"],
+		"description": "Write a format line for L spec",
+		"scope": "source.rpg3"
+	},
+	"uformat":{
+		"prefix":"uformat",
+		"body":["/*",
+                 ".....U....................NN.................................................... */"],
+		"description": "Write a format line for U spec",
+		"scope": "source.rpg3"
 	}
 }
