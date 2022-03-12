@@ -68,8 +68,8 @@ Called by typing in the source code _(spec)format_. Examples and demos are shown
     * **O** spec: incomplete documentation needed
     
     * **T** spec: Not currently supported
-    * **U** spec: Not currently supported
-    * **L** spec: Not currently supported
+    * **U** spec: Only format line
+    * **L** spec: Only format line
     
 + Test Color highlighting with different color themes current tests where done only with default dark and light themes
 + Support for ASNA code is not complete. You can still make classes subroutines and procedures but any special operations are not included. I will need to see more examples.
