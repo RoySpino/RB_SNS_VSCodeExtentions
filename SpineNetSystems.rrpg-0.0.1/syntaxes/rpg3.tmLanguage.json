@@ -63,6 +63,7 @@
 		{"include": "#Espec_NoName"},
 		{"include": "#Espec_NoToFile"},
 		{"include": "#Espec_NoFromFile"},
+		{"include": "#Ispec_DataStruct"},
 		{"include": "#Ispec2"},
 		{"include": "#Ispec2_NoComment"},
 		{"include": "#Ispec2_NoC3B"},
@@ -154,7 +155,6 @@
 		},
 		"Numerics": {
 			"patterns": [
-				{"include": "#basicNumbers"},
 				{
 					"include": "#number-float"
 				},
@@ -169,20 +169,19 @@
 				},
 				{
 					"include": "#number-bin"
-				}
+				},
+				{"include": "#basicNumbers"}
 			]
 		},
 		"basicNumbers":{
-			"name": "constant.numeric.float",
-			"match": "([\\s|\\d]{0,10})",
+			"name": "constant.numeric",
+			"match": "(?x)(-?[.]?\\d{1,10})",
 			"captures": {
-				"1": {
-					"name": "constant.numeric"
-				}
+				"1": {"name": "constant.numeric"}
 			}
 		},
 		"number-float": {
-			"name": "constant.numeric.float.dspf",
+			"name": "constant.numeric.float",
 			"match": "(?x)\n  (?<! \\w)(?:\n    (?:\n      \\.[0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\. [0-9](?: _?[0-9] )*\n      |[+0-9](?: _?[0-9] )*|\n      [0-9](?: _?[0-9] )* \\.\n    ) (?: [eE][+-]?[0-9](?: _?[0-9] )* )?\n    |\n    [0-9](?: _?[0-9] )* (?: [eE][+-]?[0-9](?: _?[0-9] )* )\n  )([jJ])?\\b\n",
 			"captures": {
 				"1": {
@@ -191,7 +190,7 @@
 			}
 		},
 		"number-dec": {
-			"name": "constant.numeric.dec.dspf",
+			"name": "constant.numeric.dec",
 			"match": "(?x)\n  (?<![\\w\\.])(?:\n      [1-9](?: _?[0-9] )*\n      |\n      0+\n      |\n      [0-9](?: _?[0-9] )* ([jJ])\n      |\n      0 ([0-9]+)(?![eE\\.])\n  )\\b\n",
 			"captures": {
 				"1": {
@@ -206,7 +205,7 @@
 			}
 		},
 		"number-hex": {
-			"name": "constant.numeric.hex.dspf",
+			"name": "constant.numeric.hex",
 			"match": "(?x)\n  (?<![\\w\\.])\n    (0[xX]) (_?[0-9a-fA-F])+\n  \\b\n",
 			"captures": {
 				"1": {
@@ -215,7 +214,7 @@
 			}
 		},
 		"number-oct": {
-			"name": "constant.numeric.oct.dspf",
+			"name": "constant.numeric.oct",
 			"match": "(?x)\n  (?<![\\w\\.])\n    (0[oO]) (_?[0-7])+\n  \\b\n",
 			"captures": {
 				"1": {
@@ -224,7 +223,7 @@
 			}
 		},
 		"number-bin": {
-			"name": "constant.numeric.bin.dspf",
+			"name": "constant.numeric.bin",
 			"match": "(?x)\n  (?<![\\w\\.])\n    (0[bB]) (_?[01])+\n  \\b\n",
 			"captures": {
 				"1": {
@@ -255,7 +254,7 @@
 		},
 		"numericIndicators": {
 			"name": "constant.language.rpgle",
-			"match": "(?i)[*][i][n][0-9][0-9]",
+			"match": "(?i)([*]in\\d\\d)",
 			"comment": "number indicators *"
 		},
 		"cammasInFac123":{
@@ -265,10 +264,10 @@
 		},
 		"factor123": {
 			"patterns": [
+				{"include": "#Numerics"},
 				{"include": "#numericIndicators"},
 				{"include": "#starKeywords"},
-				{"include": "#strings"},
-				{"include": "#Numerics"}
+				{"include": "#strings"}
 			],
 			"name":"constant.rgb-value"
 		},
@@ -1098,7 +1097,11 @@
 					"patterns": [{"include": "#factor123"}],
 					"name":"constant.rgb-value"},
 				"14":{"name":"constant.numeric"},
-				"15":{"name":"constant.numeric"},
+				"15":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					}],
+					"name":"emphasis"},
 				"16":{"name":"constant.character.escape"},
 				"17":{"name": "constant.language"},
 				"18":{"name": "variable"},
@@ -1155,7 +1158,11 @@
 					"patterns": [{"include": "#factor123"}],
 					"name":"constant.rgb-value"},
 				"14":{"name":"constant.numeric"},
-				"15":{"name":"constant.numeric"},
+				"15":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					}],
+					"name":"emphasis"},
 				"16":{"name":"constant.character.escape"},
 				"17":{"name": "constant.language"},
 				"18":{"name": "variable"},
@@ -1211,7 +1218,11 @@
 					"patterns": [{"include": "#factor123"}],
 					"name":"constant.rgb-value"},
 				"14":{"name":"constant.numeric"},
-				"15":{"name":"constant.numeric"},
+				"15":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					}],
+					"name":"emphasis"},
 				"16":{"name":"constant.character.escape"},
 				"17":{"name": "constant.language"},
 				"18":{"name": "variable"}
@@ -1262,7 +1273,11 @@
 					"patterns": [{"include": "#factor123"}],
 					"name":"constant.rgb-value"},
 				"14":{"name":"constant.numeric"},
-				"15":{"name":"constant.numeric"},
+				"15":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					}],
+					"name":"emphasis"},
 				"16":{"name":"constant.character.escape"},
 				"17":{"name": "constant.language"}
 				}
@@ -1312,7 +1327,11 @@
 					"patterns": [{"include": "#factor123"}],
 					"name":"constant.rgb-value"},
 				"14":{"name":"constant.numeric"},
-				"15":{"name":"constant.numeric"},
+				"15":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					}],
+					"name":"emphasis"},
 				"16":{"name":"constant.character.escape"}
 				}
 		},
@@ -1361,7 +1380,11 @@
 					"patterns": [{"include": "#factor123"}],
 					"name":"constant.rgb-value"},
 				"14":{"name":"constant.numeric"},
-				"15":{"name":"constant.numeric"}
+				"15":{"patterns": [{
+						"name":"constant.numeric",
+						"match": "."
+					}],
+					"name":"emphasis"}
 				}
 		},
 		"Cspec_NoD":{
@@ -2227,10 +2250,24 @@
 		},
 		"Ispec_No_space":{
 			"name":"constant.rgb-value",
-			"match": "(.{5})(i)",
+			"match": "(?i)^(.{5})(i)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"}
+			}
+		},
+		"Ispec_DataStruct":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(i)(.{12})(ds)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"patterns": [{
+						"name":"constant.character.escape",
+						"match": "."
+					}],
+					"name":"strong"}
 			}
 		},
 		"Ispec2":{
