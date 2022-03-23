@@ -4,6 +4,7 @@
 		{"include": "#commentBlock"},
 		{"include": "#freeBlock"},
 		{"include": "#commentsclike"},
+		{"include": "#commentsclikeIBM"},
 		{"include": "#freeTotal"},
 		{"include": "#commentsRPGRampage"},
 		{"include": "#sql_struc"},
@@ -146,6 +147,10 @@
 		"commentsclike": {
 			"name":"comment.line.rpgle",
 			"match": "^.[/][/].*$"
+		},
+		"commentsclikeIBM": {
+			"name":"comment.line.rpgle",
+			"match": "^......[/][/].*$"
 		},
 		"commentsclike2": {
 			"name":"comment.line.rpgle",
