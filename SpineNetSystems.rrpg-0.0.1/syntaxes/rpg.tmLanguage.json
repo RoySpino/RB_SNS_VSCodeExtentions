@@ -8,7 +8,6 @@
 		{"include": "#freeTotal"},
 		{"include": "#commentsRPGRampage"},
 		{"include": "#sql_struc"},
-		{"include": "#DateLiteral"},
 		{"include": "#TimeLiteral"},
 		{"include": "#compilerConst"},
 		{"include": "#BIF"},
@@ -185,7 +184,23 @@
 		},
 		"DateLiteral":{
 			"name":"constant.language",
-			"match": "(?i)(d')(\\d{4})(-)(\\d{2})(-)(\\d{2})(')"
+			"match": "(?i)([dzt])(['])(\\d{2}[\\/-]\\d{2}[\\/-]\\d{4}|\\d{4}[\\/-]\\d{2}[\\/-]\\d{2})(\\s\\d{2}[:]\\d{2}[:]\\d{2})?(['])",
+			"captures": {
+				"1":{"name":"constant.language"},
+				"2":{"name":"string.quoted"},
+				"3":{"name":"string.quoted"},
+				"4":{"name":"string.quoted"},
+				"5":{"name":"string.quoted"}
+			}
+		},
+		"DateAndTimeInit": {
+			"name":"string.quoted",
+			"match": "(?i)(.)(['].*['])",
+			"captures": {
+				"1":{"name":"constant.language"},
+				"2":{"name":"string.quoted"}
+			},
+			"comment": "colorize the D/z/t on literal dates"
 		},
 		"TimeLiteral":{
 			"name":"constant.language",
@@ -202,15 +217,6 @@
 		"FreeCompDirec2":{
 			"name":"constant.language",
 			"match": "(?i)\\b(\\/TITLE|\\/eject|\\/space|\\/copy|\\/include|\\/if|\\/else|\\/elseif|\\/endif|\\/eof)\\b"
-		},
-		"DateAndTimeInit": {
-			"name":"string.quoted",
-			"match": "(?i)(.)(['].*['])",
-			"captures": {
-				"1":{"name":"constant.language"},
-				"2":{"name":"string.quoted"}
-			},
-			"comment": "colorize the D/z/t on literal dates"
 		},
 		"FreeEndDeclare":{
 			"name":"constant.language.rpgle",
@@ -1123,7 +1129,7 @@
 		},
 		"Dspec_NoComments":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{0,37})\\b",
+			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{,37})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1143,7 +1149,7 @@
 		},
 		"Dspec_NoKeywords":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}\\b",
+			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1159,7 +1165,7 @@
 		},
 		"Dspec_NoDecimal":{
 				"name":"constant.rgb-value",
-				"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)\\b",
+				"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)",
 				"captures": {
 					"1":{"name":"comment"},
 					"2":{"name":"support.type.rpgle"},
@@ -1188,7 +1194,7 @@
 		},
 		"Dspec_NoLen":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{0,7})\\b",
+			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{0,7})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1212,7 +1218,7 @@
 		},
 		"Dspec_NoFrom":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)\\b",
+			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1224,7 +1230,7 @@
 		},
 		"Dspec_NoVarType":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)\\b",
+			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1235,7 +1241,7 @@
 		},
 		"Dspec_NoUsage":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)\\b",
+			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1362,7 +1368,7 @@
 		},
 		"Fspec_NoKeyWords":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([f])([^*].{9})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])(.)(disk|workstn|printer)\\b",
+			"match": "(?i)^(|\\s{5})([f])([^*].{9})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)([\\d\\s]{4})([a-z\\s])(.)(disk|workstn|printer)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1501,7 +1507,7 @@
 		},
 		"Fspec_NoLen2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([f])([^*].{9})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)\\b",
+			"match": "(?i)^(|\\s{5})([f])([^*].{9})(.)(.)(.)(.)(.)(.)(.)([\\d\\s]{4})(.)(.)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -3258,6 +3264,7 @@
 		},
 		"factor123": {
 			"patterns": [
+				{"include": "#DateLiteral"},
 				{"include": "#starKeywords"},
 				{"include": "#starKeywords2"},
 				{"include": "#otherStarKeywords"},
@@ -3270,6 +3277,7 @@
 		},
 		"factor123CONTROL": {
 			"patterns": [
+				{"include": "#DateLiteral"},
 				{"include": "#starKeywords"},
 				{"include": "#starKeywords2"},
 				{"include": "#otherStarKeywords"},
@@ -3282,9 +3290,9 @@
 		},
 		"DspecKeys":{
 			"patterns": [
+				{"include": "#DateLiteral"},
 				{"include": "#keywordSuport"},
 				{"include": "#Numerics"},
-				{"include": "#DateAndTimeInit"},
 				{"include": "#starKeywords"},
 				{"include": "#starKeywords2"},
 				{"include": "#strings"}
@@ -3730,13 +3738,13 @@
 
 
 		"freeBlock":{
-			"begin": "(?i)^(|\\s{5}).(\/free)\\b",
-			"end": "(?i)^(|\\s{5}).(\/end-free)\\b",
+			"begin": "(?i)^(|\\s{5}).(\/free)",
+			"end": "(?i)^(|\\s{5}).(\/end-free)",
 			"beginCaptures": {
 				"1":{"name":"comment"},
 				"2":{
 					"patterns": [{
-						"match":"(?i)(\/free)\\b",
+						"match":"(?i)(\/free)",
 						"name":"constant.language"
 					}],
 					"name":"emphasis"
@@ -3746,13 +3754,14 @@
 				"1":{"name":"comment"},
 				"2":{
 					"patterns": [{
-						"match": "(?i)(\/end-free)\\b",
+						"match": "(?i)(\/end-free)",
 						"name":"constant.language"
 					}],
 					"name":"emphasis"
 					}
 			},
 			"patterns": [
+				{"include": "#DateLiteral"},
 				{"include": "#commentsclike2"},
 				{"include": "#commentBlock" },
 				{"include": "#compilerConst"},
@@ -3771,12 +3780,12 @@
 			]
 		},
 		"freeTotal":{
-			"begin": "(?i)(^\\*\\*free)\\b",
+			"begin": "(?i)(^\\*\\*free)",
 			"end":"¶",
 			"beginCaptures": {
 				"1":{
 					"patterns": [{
-						"match": "(?i)(^\\*\\*free)\\b",
+						"match": "(?i)(^\\*\\*free)",
 						"name":"constant.language"
 					}],
 					"name":"strong"
@@ -3785,6 +3794,7 @@
 			"patterns": [
 				{"include": "#commentsclike2"},
 				{"include": "#commentBlock" },
+				{"include": "#DateLiteral"},
 				{"include": "#exportProcedure"},
 				{"include": "#compilerConst"},
 				{"include": "#DatastrucBlock_NoNaturalEnd"},
