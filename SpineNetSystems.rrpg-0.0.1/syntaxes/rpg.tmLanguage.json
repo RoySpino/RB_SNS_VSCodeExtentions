@@ -3447,6 +3447,7 @@
 					"match": "(?i)(dcl-subf)",
 					"name":"constant.language"
 					}]},
+				{"include": "#commentsclike2"},
 				{"include": "#DS_free_ValuesWithDecimals"},
 				{"include": "#DS_free_ValuesWithNoDecimals"},
 				{"include": "#DS_free_ValuesWithNoSize"},
@@ -3495,6 +3496,7 @@
 					"match": "(?i)(dcl-subf)",
 					"name":"constant.language"
 					}]},
+				{"include": "#commentsclike2"},
 				{"include": "#DS_free_ValuesWithDecimals"},
 				{"include": "#DS_free_ValuesWithNoDecimals"},
 				{"include": "#DS_free_ValuesWithNoSize"},
@@ -3531,6 +3533,7 @@
 					"match": "(?i)(dcl-subf)",
 					"name":"constant.language"
 					}]},
+				{"include": "#commentsclike2"},
 				{"include": "#DS_free_ValuesWithDecimals"},
 				{"include": "#DS_free_ValuesWithNoDecimals"},
 				{"include": "#DS_free_ValuesWithNoSize"},
@@ -3567,6 +3570,7 @@
 					"match": "(?i)(dcl-subf)",
 					"name":"constant.language"
 					}]},
+				{"include": "#commentsclike2"},
 				{"include": "#PI_free_DeclareTypesWithDecimals"},
 				{"include": "#PI_free_DeclareTypesNoDecimals"},
 				{"include": "#DS_free_ValuesWithNoSize"},
@@ -3602,6 +3606,7 @@
 					"match": "(?i)(dcl-subf)",
 					"name":"constant.language"
 					}]},
+				{"include": "#commentsclike2"},
 				{"include": "#PI_free_DeclareTypesWithDecimals"},
 				{"include": "#PI_free_DeclareTypesNoDecimals"},
 				{"include": "#DS_free_ValuesWithNoSize"},
@@ -3630,6 +3635,7 @@
 					"match": "(?i)(dcl-subf)",
 					"name":"constant.language"
 					}]},
+				{"include": "#commentsclike2"},
 				{"include": "#PI_free_DeclareTypesWithDecimals"},
 				{"include": "#PI_free_DeclareTypesNoDecimals"},
 				{"include": "#DS_free_ValuesWithNoSize"},
@@ -3664,6 +3670,7 @@
 					"match": "(?i)(dcl-subf)",
 					"name":"constant.language"
 					}]},
+				{"include": "#commentsclike2"},
 				{"include": "#PI_free_DeclareTypesWithDecimals"},
 				{"include": "#PI_free_DeclareTypesNoDecimals"},
 				{"include": "#DS_free_ValuesWithNoSize"},
@@ -3693,6 +3700,7 @@
 					"match": "(?i)(dcl-subf)",
 					"name":"constant.language"
 					}]},
+				{"include": "#commentsclike2"},
 				{"include": "#PI_free_DeclareTypesWithDecimals"},
 				{"include": "#PI_free_DeclareTypesNoDecimals"},
 				{"include": "#DS_free_ValuesWithNoSize"},
