@@ -66,6 +66,7 @@
        { "open": "(", "close": ")" },
 	   { "open": "\"", "close": "\"" },
 	   { "open": "'", "close": "'" },
-	   { "open": "/free", "close": "/end-free"}
+	   { "open": "/free", "close": "\n /end-free"},
+	   {"open": "/exec sql", "close": "\n /end-exec"}
    ]
 }
