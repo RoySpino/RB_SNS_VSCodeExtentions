@@ -1,10 +1,5 @@
 # RPG for Visual Studio Code
 
-![vs](https://vsmarketplacebadge.apphb.com/version-short/SpineNetSystems.rpgle.svg) 
-![vs-d](https://vsmarketplacebadge.apphb.com/installs/SpineNetSystems.rpgle.svg) 
-![dow](https://vsmarketplacebadge.apphb.com/downloads/SpineNetSystems.rpgle.svg) 
-![rating](https://vsmarketplacebadge.apphb.com/rating-star/SpineNetSystems.rpgle.svg)
-
 ## What is this?
 Syntax highlighting for IBM RPG, RPGLE and ASNA Visual RPG 
 
@@ -57,7 +52,8 @@ Called by typing in the source code _(spec)format_. Examples and demos are shown
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/CSpecFormatLine.gif)
 ### Indicator delineation
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/HiLoEq_higlight.png)
-
+### Block matching
+ ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/RPG_BlockMatching.png)
 ## TODO
 + Add support for RPG 3 specs, current specs and their status are
     * **H** spec: completed
