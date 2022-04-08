@@ -3,7 +3,6 @@
 	"patterns": [
 		{"include": "#commentBlock"},
 		{"include": "#CommentLine"},
-		{"include": "#CommentLineCol80"},
 		{"include": "#Hspec"},
 		{"include": "#Hspec_NoComment"},
 		{"include": "#GOTO_Tags"},
@@ -51,7 +50,6 @@
 		{"include": "#Cspec_No02"},
 		{"include": "#Cspec_NoN2"},
 		{"include": "#Cspec_No01"},
-		{"include": "#Cspec_NoL0"},
 		{"include": "#Espec"},
 		{"include": "#Espec_NoComment"},
 		{"include": "#Espec_NoS"},
@@ -127,15 +125,12 @@
 		{"include": "#Ospec_NoA"},
 		{"include": "#Ospec_NoB"},
 		{"include": "#Ospec_NoF"},
-		{"include": "#Ospec_NoD"},
-
-		{"include": "#NOSPEC"}
+		{"include": "#Ospec_NoD"}
 	],
 	"repository": {
 		"CommentLine": {
 			"name": "comment.line",
-			"begin": "^......[*]",
-			"end": "\\n"
+			"match": "(?i)^.{5}[ hfeicolu][*].*$"
 		},
 		"commentBlock":{
 			"name":"comment.line",
@@ -1932,14 +1927,6 @@
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
 				"3":{"name":"constant.character.escape"}
-			}
-		},
-		"Cspec_NoL0":{
-			"name":"constant.rgb-value",
-			"match": "(?i)^(.....)(c)",
-			"captures": {
-				"1":{"name":"comment"},
-				"2":{"name":"support.type"}
 			}
 		},
 		"Espec":{
