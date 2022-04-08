@@ -1,8 +1,8 @@
 {
 	"name": "rpgle",
 	"displayName": "RRPG",
-	"description": "Visual/LE RPG syntax highlighting",
-	"version": "0.0.1",
+	"description": "RPGLE & RPG400 syntax highlighting",
+	"version": "1.1.14",
 	"publisher": "SpineNetSystems",
 	"author": {
 		"name": "Roy Banuelos"
@@ -23,11 +23,13 @@
             {
                 "id": "rpg",
                 "aliases": [
-                    "rpgfree"
+                    "rpgfree",
+                    "rpgle",
+                    "rpg"
                 ],
                 "extensions": [
                     ".rpgle",
-                    "rpg"
+                    ".rpg"
                 ],
                 "configuration": "./rpg.configuration.json"
             },
