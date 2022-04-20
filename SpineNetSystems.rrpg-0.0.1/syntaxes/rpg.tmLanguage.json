@@ -12,6 +12,7 @@
 		{"include": "#compilerConst"},
 		{"include": "#BIF"},
 		{"include": "#starKeywords"},
+		{"include": "#starKeywords2"},
 		{"include": "#numericIndicators"},
 		{"include": "#LIndicators"},
 		{"include": "#CompilerDirectives"},
@@ -39,6 +40,8 @@
 		{"include": "#Fspec_NoF1"},
 		{"include": "#Fspec_NoI"},
 		{"include": "#Fspec_NoI2"},
+		{"include": "#Dspec_StarKeyword"},
+		{"include": "#Dspec_StarKeyword_NoComment"},
 		{"include": "#Dspec_DSConst"},
 		{"include": "#Dspec"},
 		{"include": "#Dspec_NoComments"},
@@ -249,7 +252,7 @@
 		},
 		"starKeywords2": {
 			"name":"constant.language.rpgle",
-			"match": "(?i)[*](inlr|inof|ink[a-y]|inh\\d|inof|inlo|inmr|ino[agv]|inrt|nopass|varsize|inm\\d|inl\\d|inu[1-8]|hms[\\d]?|iso[\\d]?|cursym|astfil)\\b",
+			"match": "(?i)[*](inlr|inof|ink[a-y]|inh\\d|inof|inlo|inmr|ino[agv]|inrt|nopass|varsize|inm\\d|inl\\d|inu[1-8]|hms[\\d]?|iso[\\d]?|cursym|astfil|file|record|size|routine)\\b",
 			"comment": "keyboard and special indicators"
 		},
 		"numericIndicators": {
@@ -269,7 +272,7 @@
 		},
 		"keywordSuport":{
 			"name":"keyword.control.rpgle",
-			"match": "(?i)\\b(dim|inz|keyed|keyloc|sfile|usropn|extname|value|varying|ctdata|perrcd|alt|fromfile|rename|prefix|Options|Const|commit|ignore|include|ext|ExtPgm|extmbr|infds|maxdev|oflind|overlay|prtctl|infsr|like|likerec|timfmt)\\b"
+			"match": "(?i)\\b(dim|datfmt|inz|keyed|keyloc|sfile|usropn|extname|value|varying|ctdata|perrcd|alt|fromfile|rename|prefix|Options|Const|commit|ignore|include|ext|ExtPgm|extmbr|infds|maxdev|oflind|overlay|prtctl|infsr|like|likerec|timfmt)\\b"
 		},
 		"keywordControl":{
 			"name":"keyword.control.rpgle",
@@ -1106,6 +1109,38 @@
 				}
 		},
 
+
+		"Dspec_StarKeyword":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([d])([^*].{14})(\\s{4})([*][^\\d]{7})(\\s{47})(.*)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type.rpgle"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{
+					"patterns": [{"include": "#starKeywords"},
+						         {"include": "#starKeywords2"}],
+					"name":"constant.rgb-value"},
+
+				"6":{"name":"constant.rgb-value"},
+				"7":{"name":"comment"}
+			}
+		},
+		"Dspec_StarKeyword_NoComment":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|\\s{5})([d])([^*].{14})(\\s{4})([*][^\\d]{,7})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type.rpgle"},
+				"3":{"name":"punctuation.separator.classes"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{
+					"patterns": [{"include": "#starKeywords"},
+						         {"include": "#starKeywords2"}],
+					"name":"constant.rgb-value"}
+			}
+		},
 		"Dspec":{
 			"name":"constant.rgb-value",
 			"match": "(?i)^(|\\s{5})([d])([^*].{14})(.)(.)(s |pi|ds|ps|pr|\\s\\s)([\\d\\s]{7})([\\d\\s]{7})(.)(\\d|\\s){2}(.)(.{37})(.*)",
@@ -3390,7 +3425,7 @@
 		},
 		"DS_free_CompilerConstants":{
 			"name":"constant.rgb-value",
-			"match": "(?i)(\\s{0,})(\\S{0,})(\\s{0,})([*])(status|opcode|routine|record|size|file|parms|proc)",
+			"match": "(?i)(\\s{0,})(\\S{0,})(\\s{0,})([*])(status|opcode|routine|record|size|file|parms|proc|record|size|file)",
 			"captures": {
 				"1":{"name":"constant.rgb-value"},
 				"2":{"name":"constant.rgb-value"},
