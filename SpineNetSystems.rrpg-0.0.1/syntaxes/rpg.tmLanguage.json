@@ -252,7 +252,7 @@
 		},
 		"starKeywords2": {
 			"name":"constant.language.rpgle",
-			"match": "(?i)[*](inlr|inof|ink[a-y]|inh\\d|inof|inlo|inmr|ino[agv]|inrt|nopass|varsize|inm\\d|inl\\d|inu[1-8]|hms[\\d]?|iso[\\d]?|cursym|astfil|file|record|size|routine)\\b",
+			"match": "(?i)[*](inlr|inof|ink[a-y]|inh\\d|inof|inlo|inmr|ino[agv]|inrt|nopass|varsize|inm\\d|inl\\d|inu[1-8]|hms[\\d]?|iso[\\d]?|cursym|astfil|file|record|size|routine|mdy0|date)\\b",
 			"comment": "keyboard and special indicators"
 		},
 		"numericIndicators": {
