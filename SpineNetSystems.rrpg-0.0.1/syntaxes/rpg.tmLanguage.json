@@ -401,8 +401,7 @@
 
 		"Hspecs": {
 			"name":"constant.language.rpgle",
-			"match": "^(?i)^(|\\s{5})([h].*$)",
-			"comment": "comments lines with * on column 2"
+			"match": "^(?i)^(|\\s{5})([h][^*].*$)"
 		},
 
 		"GOTO_Tags":{
@@ -768,7 +767,7 @@
 		},
 		"Cspec_NoCLIN":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([c])(.{,2})",
+			"match": "(?i)^(|\\s{5})([c])([^*]{1,2})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpg3"},
@@ -1941,7 +1940,7 @@
 		},
 		"Pspec_NoBegin":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([p])(.{0,15})",
+			"match": "(?i)^(|\\s{5})([p])([^*].{,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -1957,7 +1956,7 @@
 		},
 		"Pspec_End":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([p])(.{17})([e])",
+			"match": "(?i)^(|\\s{5})([p])([^*].{,16})([e])",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2448,7 +2447,7 @@
 		},
 		"Ospec2_NoD":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([o])(.{0,10})",
+			"match": "(?i)^(|\\s{5})([o])([^*].{,9})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
@@ -2787,7 +2786,7 @@
 		},
 		"Ispec1_NoSQ":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|\\s{5})([i])(.{0,10})",
+			"match": "(?i)^(|\\s{5})([i])([^*].{,9})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type"},
