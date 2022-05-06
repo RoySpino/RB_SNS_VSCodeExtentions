@@ -53,8 +53,9 @@ Called by typing in the source code _(spec)format_. Examples and demos are shown
 ### Indicator delineation
  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/HiLoEq_higlight.png)
 ### Block matching
- ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/RPG_BlockMatching.gif)
+ Removed because: see todo section.
 ## TODO
++ Create an independint block macher. In VSC v. 1.67 a new block colorizor was implemented, this ovrided the colors for the all control blocks in the extension.
 + Add support for RPG 3 specs, current specs and their status are
     * **H** spec: completed
     * **F** spec: incomplete documentation needed
