@@ -55,7 +55,7 @@ Called by typing in the source code _(spec)format_. Examples and demos are shown
 ### Block matching
  Removed: See todo section.
 ## TODO
-+ Create an independint block macher. In VSC v. 1.67 a new block colorizor was implemented, this ovrided the colors for the all control blocks in the extension.
++ Create an independint block macher. In VSC v. 1.67 a new block colorizor was implemented, this ovrided the colors for the all control blocks in the extension. ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/BadColors.png)
 + Add support for RPG 3 specs, current specs and their status are
     * **H** spec: completed
     * **F** spec: incomplete documentation needed
