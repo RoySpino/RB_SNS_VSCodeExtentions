@@ -8,7 +8,7 @@
 	// symbols used as brackets
 	"brackets": [
 		["(", ")"],
-		["'", "'"],
+		["'", "'"]/*,
 		["if", "endif"],
 		["ifeq", "endif"],
 		["ifeq", "end"],
@@ -61,6 +61,7 @@
 		["for", "endfor"],
 		["/exec sql", "/end-exec"],
 		["/free", "/end-free"]
+		*/
 	],
 	   "autoClosingPairs": [
        { "open": "(", "close": ")" },
