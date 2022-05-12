@@ -40,6 +40,8 @@
 		{"include": "#Fspec_NoF1"},
 		{"include": "#Fspec_NoI"},
 		{"include": "#Fspec_NoI2"},
+		{"include": "#Dspec_Constant"},
+		{"include": "#Dspec_ConstantNoValue"},
 		{"include": "#Dspec_StarKeyword"},
 		{"include": "#Dspec_StarKeyword_NoComment"},
 		{"include": "#Dspec_DSConst"},
@@ -1282,6 +1284,39 @@
 				"3":{"name":"punctuation.separator.classes"},
 				"4":{"name":"constant.regexp.rpgle"},
 				"5":{"name":"constant.character.escape.rpgle"}
+			}
+		},
+		"Dspec_Constant":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|.{5})([d])([^*].{14})(\\s\\s)(c)([\\s]{19})(.{,37})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type.rpgle"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"variable.name"},
+				"6":{"name":"constant.rgb-value"},
+				"7":{
+					"patterns": [
+						{"include": "#Numerics"},
+						{"include": "#strings"},
+						{"include": "#starKeywords"},
+						{"include": "#starKeywords2"},
+						{"include": "#DateLiteral"},
+						{"include": "#BIF"}
+					],
+					"name":"constant.rgb-value"}
+			}
+		},
+		"Dspec_ConstantNoValue": {
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|.{5})([d])([^*].{14})(\\s\\s)(c)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type.rpgle"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"variable.name"}
 			}
 		},
 
