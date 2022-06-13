@@ -599,5 +599,53 @@
 		],
 		"description": "Add the Built in Function %Scanr ",
 		"scope": "source.RPG"
+	},
+	"Dcl-F":{
+		"prefix":"help Dcl-f",
+		"body": [
+			"//",
+			"// Dcl-F <File_Name> Usage(<File_access_key_words>) <key_words>;",
+			"// ",
+			"//             <File_Name>  The physical file (db Table) name on the system",
+			"//             <key_words>  Standard key words KEYED, DISK, etc...",
+			"// <File_access_key_words>  *Delete, *Output, *Input, *Update",
+			"//                          one or more of these terms can be used separated by :",
+			"//",
+			"// ex,",
+			"// Usage(*Output)                  // write",
+			"// Usage(*Input:)                  // read",
+			"// Usage(*Input: *Output)          // read/ write",
+			"// Usage(*Input: *Output: *Update) // read/ write/ update",
+			"// Usage(*Delete: *Output)         // read/ update/ delete/ write",
+			"//"
+		],
+		"description": "Add free format f spec",
+		"scope": "source.RPG"
+	},
+	"Dcl-Ds":{
+		"prefix":"help Dcl-ds",
+		"body": [
+			"//",
+			"// Dcl-Ds <Data_Struct_Name> <key_words>;",
+			"// ",
+			"//      <Data_Struct_Name>  *N or Any Valid name",
+			"//             <key_words>  Standard key words DTAARAA, LEN, etc...",
+			"//"
+		],
+		"description": "Add free format f spec",
+		"scope": "source.RPG"
+	},
+	"Dcl-Pr":{
+		"prefix":"help Dcl-Pr",
+		"body": [
+			"//",
+			"// Dcl-Pr <Proc_Name> <key_words>;",
+			"// ",
+			"//      <Data_Struct_Name>  *N or Any Valid name",
+			"//             <key_words>  Standard key words EXTPGM, etc...",
+			"//"
+		],
+		"description": "Add free format f spec",
+		"scope": "source.RPG"
 	}
 }
