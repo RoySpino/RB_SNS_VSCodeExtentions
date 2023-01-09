@@ -23,13 +23,12 @@
             {
                 "id": "rpg",
                 "aliases": [
-                    "rpgfree",
                     "rpgle",
-                    "rpg"
+                    "sqlrpgle"
                 ],
                 "extensions": [
                     ".rpgle",
-                    ".rpg"
+                    ".sqlrpg"
                 ],
                 "configuration": "./rpg.configuration.json"
             },
@@ -39,7 +38,8 @@
                     "rpg3"
                 ],
                 "extensions": [
-                    ".rpg3"
+                    ".rpg3",
+                    ".rpg"
                 ],
                 "configuration": "./rpg.configuration.json"
             },
