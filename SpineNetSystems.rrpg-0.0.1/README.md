@@ -21,8 +21,8 @@ These are the supported file extensions for RPG 4 and 3
 
 | Extension(s)        | Description        |
 | --------------------| ------------------ |
-| .rpg, .rpgle        | RPG4 and SQLRPGL |
-| .rpg3               | RPG/400  |
+| .rpgle, .sqlrpg     | RPG4 and SQLRPGL |
+| .rpg3, .rpg         | RPG/400  |
 | .vr                 | ASNA Visual RPG |
 
 ## Tools for fixed format RPG
