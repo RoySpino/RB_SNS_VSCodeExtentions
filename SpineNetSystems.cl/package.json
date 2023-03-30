@@ -1,0 +1,65 @@
+{
+	"name": "cllepkg",
+	"displayName": "CL/CLLE",
+	"description": "CL syntax support",
+	"publisher": "SpineNetSystems",
+	"version": "1.0.0",
+	"author": {
+		"name": "Roy Banuelos"
+	},
+	"engines": {
+		"vscode": "^1.21.0"
+	},
+	"icon": "Images/CL.png",
+	"categories": [
+		"Programming Languages"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RoySpino/RB_SNS_VSCodeExtentions"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "CL",
+				"aliases": [
+					"cl",
+					"clle"
+				],
+				"extensions": [
+					".cl",
+					".clle"
+				],
+				"configuration": "./cl.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "cl",
+				"scopeName": "source.cl",
+				"path": "./syntaxes/cl.tmLanguage.json"
+			},
+			{
+				"language": "clle",
+				"scopeName": "source.cl",
+				"path": "./syntaxes/cl.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "cl",
+				"path": "./snippets/AVRCodeCompleation.json"
+			},
+			{
+				"language": "clle",
+				"path": "./snippets/AVRCodeCompleation.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "61a10db7-1758-49a0-9e05-76ac56936b1a",
+		"publisherId": "4778d9f4-c2a6-4e40-8d40-cf8ae7639441",
+		"publisherDisplayName": "SpineNet Systems"
+	},
+	"scopeName": "source.cl"
+}

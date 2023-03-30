@@ -1,0 +1,82 @@
+{
+    "BegClass": {
+        "prefix": "BegClass",
+        "body": ["BegClass ClassName Access(*Public)\n\n",
+		         "\tBegConstructor Access(*Public)\n\n\tEndConstructor\n\n",
+				 "EndClass"
+				 ],
+        "description": "Build a class for your project",
+		"scope": "source.CL"
+    },
+	"BegFunc": {
+        "prefix": "BegFunc",
+        "body": ["BegFunc FunctionName Access(*Public)\n\n",
+		         "\t\nDclSrParm FunctionParameter Type(TypeName)\n\n// Function body \n",
+				 "EndFunc"
+				 ],
+        "description": "Build a function for your project",
+		"scope": "source.CL"
+    },
+	"BegSr": {
+        "prefix": "BegSr",
+        "body": ["BegSr FunctionName Access(*Public)\n\n",
+		         "\t\nDclFld LocalSubroutineVariable Type(TypeName)\n\n// Subroutine (void function) body \n",
+				 "EndFunc"
+				 ],
+        "description": "Build a subroutine for your project",
+		"scope": "source.CL"
+    },
+	"DclFld": {
+        "prefix": "DclFld",
+        "body": ["DclFld LocalVariable Type(TypeName)"],
+        "description": "Add a local varialbe to a function or subroutine for your project",
+		"scope": "source.CL"
+    },
+	"DclSrParm": {
+        "prefix": "DclSrParm",
+        "body": ["DclSrParm Parameter Type(TypeName)"],
+        "description": "Add a parameter to a function or subroutine for your project",
+		"scope": "source.CL"
+    },
+	"do": {
+        "prefix": "do",
+        "body": ["DO\n\t/* a block of code*/\n\nENDDO"],
+        "description": "Add a program block to your project ",
+		"scope": "source.CL"
+    },
+    "dountil":{
+        "prefix": "dountil",
+        "body": ["DOUNTIL (0 > 1)\n\t/* loop body */\n\n\tLEAVE\nENDDO"],
+        "description": "Add a do untill loop to your project"
+    },
+	"DoWhile": {
+        "prefix": "DoWhile",
+        "body": ["DOWHILE (1 *EQ 1)\n\t/* loop body */\n\n\tLEAVE\nENDDO"],
+        "description": "Add a do while loop to your project ",
+		"scope": "source.CL"
+    },
+	"for": {
+        "prefix": "for",
+        "body": ["DOFOR VAR(&INT) FROM(2) TO(4) BY(1) \n\t/* loop body */\n\n\tLEAVE\nENDDO"],
+        "description": "Add a for loop to your project ",
+		"scope": "source.CL"
+    },
+	"dofor": {
+        "prefix": "dofor",
+        "body": ["DOFOR VAR(&INT) FROM(2) TO(4) BY(1) \n\t/* loop body */\n\n\tLEAVE\nENDDO"],
+        "description": "Add a for loop to your project ",
+		"scope": "source.CL"
+    },
+	"if": {
+        "prefix": "if",
+        "body": ["IF 1 *EQ 1 THEN\nDO\n\t/* when true do this*/\nENDDO\nElse\nDO\n\t/* otherwise do this*/\nENDDO"],
+        "description": "Add a for loop to your project ",
+		"scope": "source.CL"
+    },
+	"select": {
+        "prefix": "select",
+        "body": ["Select\n\tWhen 1 *EQ 1\n\tDO\n\t\t/* if 1 = 1 do this*/\n\tOTHERWISE\n\tDO\n\t\t/* when 1 is not equal to 1 do this*/\n\tENDDO\nENDSELECT"],
+        "description": "Add a select (switch) block to CL rpg project ",
+		"scope": "source.CL"
+    }
+}

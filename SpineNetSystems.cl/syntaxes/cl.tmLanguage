@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>cl</string>
+		<string>clp</string>
+		<string>clle</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>(?i)(do)</string>
+	<key>foldingStopMarker</key>
+	<string>(?i)(end)</string>
+	<key>grammaurl</key>
+	<string>http://manual.macromates.com/en/language_grammars#language_grammars</string>
+	<key>name</key>
+	<string>vr vr</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>(?i)\b(ctl-opt)\b</string>
+			<key>end</key>
+			<string>;</string>
+			<key>name</key>
+			<string>keyword.other.cl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?i)\b(if|Do|dofor|DoWhile|DoUntil|select|subr|begsr|endsr|enddo|endfor|endselect|endsubr)\b</string>
+			<key>name</key>
+			<string>keyword.control.cl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?i)\b(when|exsr|else|otherwise)\b</string>
+			<key>name</key>
+			<string>keyword.control.cl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?i)\b(var)\b</string>
+			<key>name</key>
+			<string>storage.type.cl</string>
+		</dict>
+
+		<!-- string literals -->
+		<dict>
+			<key>begin</key>
+			<string>\'</string>
+			<key>end</key>
+			<string>\'</string>
+			<key>name</key>
+			<string>string.quoted.single.cl</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\.</string>
+					<key>name</key>
+					<string>constant.character.escape.cl</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\"</string>
+			<key>end</key>
+			<string>\"</string>
+			<key>name</key>
+			<string>string.quoted.single.cl</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\.</string>
+					<key>name</key>
+					<string>constant.character.escape.cl</string>
+				</dict>
+			</array>
+		</dict>
+		
+
+
+
+
+		<dict>
+			<key>match</key>
+			<string>(?i)[\%](ADDRESS|BIN|BINARY|OFFSET|SST|SUBSTRING|SWITCH)\b</string>
+			<key>name</key>
+			<string>constant.language.figurative.cl</string>
+		</dict>
+		
+		<dict>
+			<key>match</key>
+			<string>[*](FILE|LIBL|NO|OBJ|YES)\b</string>
+			<key>name</key>
+			<string>constant.language.cl</string>
+		</dict>
+		
+		<!-- constnats that begin with a * -->
+		<dict>
+			<key>match</key>
+			<string>(?i)[*](AFPDS|AND|ALL|AND|AUTO|AUTOCUT|BCAT|BLDKEY|CALLER|CAT|CHANGE|CHAR|COPIED|CT|CURRENT|CVTFLOAT|CVTSRC|DATE|DEC|DIST|DROP|END|EQ|ERROR|EXCL|EXCLRD|EXCLUDE|FILE|FIRST|FLD|FROMMBR|FONT|GT|HEX|IF|INT|INT2|INT4|ISO|JUL|LAST|LDA|LE|LGL|LIBL|MAP|MDY|NE|NG|NL|NO|NOMAX|NONE|NOT|NULLFLAGS|OFF|ON|ONLY|OR|OUTFILE|PDF|PTR|PRINT|PRTF|REPLACE|RCD|ROWCOL|SAME|SEQNBR|SHRNUP|SHRRD|SHRUPD|SPLEXIST|START|STOPTRC|SYSOPR|TCAT|UINT2|UINT4|UPDADD|USA|USE|USRPRF|WRAP|YES)\b</string>
+			<key>name</key>
+			<string>constant.language.cl</string>
+		</dict>
+		
+		<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+		<!--Reserved words -->
+		<dict>
+			<key>match</key>
+			<string>\b(?i:(ABN|ACC|ACCGRP|ACG|ACN|ACNE|ACT|ADD|ADM|ADP|ADPI|ADPP|ADPT|ADR|ADSM|ADSTAR|AFP|AGR|AGT|AJE|ALC|ALR|ALRD|ALRTBL|ALS|ANS|ANZ|AP|APAR|APF|APP|APPC|APPN|APY|ARA|ARC|ASC|ASK|ASN|ASP|AST|ATM|ATN|ATR|AUD|AUT|AUTE|AUTL|BACK|BAL|BAS|BASIC|BCD|BCH|BCK|BCKUP|BGU|BKP|BKU|BND|BP|BRM|BRMS|BSC|BSCF|BUF|BY|C|CAL|CALL|CAP|CBL|COBOL|CCS|CCT|IPX|CCTRTE|CCTSRV|CDE|CDS|CFG|CFGL|CFGLE|CGY|CHG|CHGVAR|CHK|CHT|CICS|CL|CLD|C|CLG|CLNUP|CLO|CLR|CLS|CLT|CLU|CMD|CMN|CMNE|CMNF|CMP|CMT|CNL|CNN|CNNL|CNNLE|CNR|CNT|CNV|CODE|COL|COM|COSD|CP|CPH|CPIC|CPP|C|CPR|CPT|CPY|CPYSCN|CRG|CRL|CRP|CRQ|CRSDMN|CRT|CRTPF|CSI|CSL|CST|CTG|CTL|CTLD|CUR|CVG|CVN|CVT|D|DAT|DB|DBF|DBG|DCL|DCLF|DCP|DCT|DDI|DDM|DDMF|DEP|DEV|DEVD|DFN|DFT|DFU|DHCP|DIR|DIRE|DIRSHD|DKT|DKTF|DL|DLC|DLF|DLFM|DLO|DLT|DLY|DMN|DMP|DNS|DO|DOC|DOM|DPCQ|DSNX/PC|DPR|DSC|DSK|DSP|DSPF|DSPLAY|DST|DSTL|DSTLE|DSTQ|DSTSRV|DTA|DTAARA|DTAQ|DUP|DWN|E|EDT|EDTD|EDU|EJT|EML|ENC|END|ENDPGM|ENR|ENV|ENVVAR|EPM|ERR|ETH|EWC|EWL|EXIT|EXP|EXT|F|FAX|FCN|FCT|FCTE|FD|FFD|FIL|FILL|FLR|FMT|FMW|FNC|FND|FNT|FNTRSC|FNTTBL|FORM|FORMD|FORMDF|FR|FRM|FROM|FRW|FTN|FORTRAN|FTP|FTR|GDF|GEN|GO|GOTO|GPH|GPHPKG|GRP|GRT|GSS|HDB|HDW|HDWRSC|HLD|HLL|HLP|HLR|HOST|HST|HTE|HTTP|I|ILE|LEAVE|ICF|ICFF|IDD|IDLC|ISDN|IDX|IDXE|IFC|IMG|IMP|INF|INP|INS|INT|INTR|INZ|IPI|IPX|IPL|IPS|SNA|IPX|IPXD|IPX|ISDB|ISDN|ITF|ITG|ITM|IWS|JOB|JOBD|JOBE|JOBQ|JOBQE|JRN|JRNRCV|JS|JVA|JVM|KBD|KEY|L|LAN|LANG|LBL|LCK|LCL|LCLA|LF|LFM|LIB|LIBL|LIBM|LIC|LIN|LIND|LNK|LNX|LOC|LOCALE|LOD|LOF|LOG|LOGE|LPD|LPDA|LPR|LWS|M|MAC|MAIL|MAP|MAX|MBR|MDL|MED|MEDDFN|MEDI|MEM|MFS|MGD|MGR|MGTCOL|MLB|MLM|MNT|MNU|MOD|MODD|MON|MOV|MRG|MSF|MSG|MSGD|MSGF|MSGQ|MST|M36|AS/400|M36CFG|AS/400|36|NAM|NCK|NDSCTX|NET|NETF|NFS|NODGRP|NODL|NTB|NTF|NTS|NTW|NWI|NWS|NWSAPP|NWSCFG|NWSD|NWSH|OBJ|OCL|OF|OFC|OFF|OMC|OPC|OPN|OPT|ORD|OUT|OUTQ|OUTQD|OVL|OVLU|OVR|OVRDBF|OWN|PAG|PAGDFN|PAGS|PAGSEG|PARM|PART|PASTHR|PC|PCD|PCL|PCO|PCY|PDF|PDG|PDM|PEX|PF|PFD|PFM|PFR|PFRG|PFRT|PFU|PFX|PGM|PGP|PGR|PHS|PIN|PJ|PJE|PKG|PLI|PL/I|PMN|PMT|PNLGRP|POF|POL|POP|PORT|POS|PPP|PRB|PRC|PRD|PRF|PRFL|PRJ|PRM|PRP|PRS|PRT|PRTF|PRTQ|PRX|PSFCFG|PTC|PTF|PTP|PTR|PVD|PVT|PWD|PWR|PYM|QM|QRY|QRYF|QSH|QST|RBD|RCD|RCDFMT|RCL|RCV|RCY|RDAR|RDB|RDR|REF|REG|RETURN|REX|REXX|RGP|RGPE|RGZ|RJE|RLS|RLU|RMC|RMT|RMV|RMVLIBLE|RNM|ROLL|RPC|RPDS|VM/MVS|RSCS/PROFS|RPG|RPL|RPT|RPY|RPYL|RQS|RRT|RSC|RSE|RSI|RSM|RST|RTD|D|TCP/IP|RTE|RTGE|RTL|RTLF|RTN|RTV|RTVJOBA|RUN|RVK|RWS|RXC|REXEC|SAV|SAVF|SAVRST|SBM|SBMJOB|SBS|SBSD|SCD|SCDE|SCHIDX|SCHIDXE|SCN|SDA|SDLC|SEC|SET|SEU|SFW|SHD|SHRPOOL|SIGN|SIT|SLT|SLTE|SMG|SMW|SMTP|SNA|SND|SNDRCVF|SNI|SNA|IPX|SNMP|SNPT|SNA|SNUF|SNA|SOC|SPADCT|SPL|SPLF|SPT|SPTN|SQL|SRC|SRCF|SRV|SRVPGM|SSN|SSND|SST|STC|STG|STGL|STM|STR|STRPGMMNU|STS|SUBR|SVR|SWA|SWL|SYS|SYSCTL|SYSDIR|SYSVAL|S34|/34|S36|S38|TAP|TAPF|TBL|TBLE|TCP|TCP/IP|TDLC|TELN|TFR|TFTP|THD|THLD|TIE|TIEF|TIMZON|TNS|TO|TOS|TPL|TRC|TRG|TRN|TRP|TXT|TYPE|T1|UBC|UDFS|UPD|UPG|USF|USG|USR|USRIDX|USRPRF|USRPRTI|USRQ|USRSPC|VAL|VAR|VFY|VLDL|VOL|VRY|VT|VT100|VT220|VWS|WAIT|WCH|WLS|WNT|WP|WRK|WRKJOB|WSE|WSG|WSO|WTR|XREF|X25))\b</string>
+			<key>name</key>
+			<string>variable.cl</string>
+		</dict>
+		<!-- Reserved words overflow --> 
+		<dict>
+			<key>match</key>
+			<string>\b(?i:(ACKTYP|ACTGRP|ADDLIBLE|BCHJOB|CALLSUBR|CHGDTAARA|CHGJOB|CHGJOBD|CHKTAP|CLRPFM|CMDLBL|COND|COPYRIGHT|CPYF|CRTCVRP|CRTDTAARA|CRTDUPOBJ|CRTFILE|CRTJOBD|CRTWSCST|CPI|CVRPRTF|CVTDAT|DATE|DEL|DCLPRCOPT|DEFVAR|DEVTYPE|DFTACTGRP|DLTF|DLTOVR|DLTSPLF|DLTWSCST|DSTSELMTH|EXEC|EXECUTE|FILE|FONT|FNTCHRSET|FORMFEED|FROMFILE|FROMFMT|FRONTMGN|HOLD|INCREL|LEN|LPI|MONMSG|MSGTYPE|MSGID|NBR|NBRCURRCD|OBJLNK|OPTION|OUTFILE|OVRFLW|OVRPRTF|PAGRTT|PAGESIZE|POSITION|PRTTXT|QDATE|QTIME|RCVMSG|RLSSPLF|RTNSUBR|RTNVAL|RTVNETA|RTVSYSVAL|RTVMBRD|RTVWSCST|SCDTIME|SECURE|SNDACK|SNDBRKMSG|SNDMSG|SNDPGMMSG|SNDTIME|SPLNBR|SUBRSTACK|TEXT|THEN|TOFILE|TOFMT|TOMSGQ|TOSEP|TOSTMF|TOUSR|TOVAR|TRCCPIC|USER|VALUE|WSCST))\b</string>
+			<key>name</key>
+			<string>variable.cl</string>
+		</dict>
+		
+
+
+		<!-- number rules -->
+		<dict>
+			<key>comment</key>
+			<string>simple numerics in () and []</string>
+			<key>match</key>
+			<string>(?&lt;=(\(|\[)),((\-\+)*[0-9 ,\.\+\-\*\/]+)(?=(\)|\]))</string>
+			<key>name</key>
+			<string>constant.numeric.cl</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(\s|^)(\-|\+)?((([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?(?=\s|\.|,|\))</string>
+			<key>name</key>
+			<string>constant.numeric.cl</string>
+		</dict>
+
+		<!-- declared Variable names -->
+		<dict>
+			<key>begin</key>
+			<string>(?i)([&amp;])</string>
+			<key>end</key>
+			<string>(?=([&nbsp;]|[&#39;]|[&#40;]|[&#41;]|[&#42;]|[&#43;]|[&#45;]|[&#47;]|[&#58;]|[&#59;]|[&#60;]|[&#61;]|[&#62;]|[&#10;]))</string>
+			<key>name</key>
+			<string>entity.name.function.cl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>highlight number indicatiors</string>
+			<key>match</key>
+			<string>(?i)[&amp;][i][n][0-9][0-9]\b</string>
+			<key>name</key>
+			<string>storage.type.cl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\%\&gt;</string>
+			<key>end</key>
+			<string>\&lt;\%</string>
+			<key>name</key>
+			<string>storage.type.cl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\/\*</string>
+			<key>end</key>
+			<string>\*\/</string>
+			<key>name</key>
+			<string>comment.block.cl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?i)^[ \t]{0,5}[ hfdc][*]</string>
+			<key>end</key>
+			<string>\n</string>
+			<key>name</key>
+			<string>comment.block.cl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>\/\/</string>
+			<key>end</key>
+			<string>\n</string>
+			<key>name</key>
+			<string>comment.block.cl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>variable previx reserved word</string>
+			<key>match</key>
+			<string>\b(?i:(DclSrParm|Dclfld))\b</string>
+			<key>name</key>
+			<string>storage.modifier.cl</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.cl</string>
+	<key>uuid</key>
+	<string>f43aff62-4f12-4328-9cbb-a8a7a3f1cfef</string>
+</dict>
+</plist>

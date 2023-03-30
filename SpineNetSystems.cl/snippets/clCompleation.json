@@ -1,0 +1,105 @@
+{
+	"do": {
+        "prefix": "do",
+		"body": ["Do",
+				 "    /* loop body */",
+				 "Enddo;"],
+        "description": "Add a do block to the project ",
+		"scope": "source.RPG"
+    },
+	"dow": {
+        "prefix": "dowhile",
+		"body": ["DoWhile Cond(1 *Eq 1)",
+				 "    /* loop body */",
+				 "    Leave",
+				 "Enddo"],
+        "description": "Add a do wile loop to the project ",
+		"scope": "source.RPG"
+	},
+	"dou": {
+        "prefix": "dountil",
+		"body": ["DoUntil Cond(1 *Eq 1)",
+				 "    /* loop body */",
+				 "    Leave",
+				 "Enddo"],
+        "description": "Add a do wile loop to the project ",
+		"scope": "source.RPG"
+	},
+	"if": {
+        "prefix": "if",
+		"body": ["If 1 *Eq 1 Do",
+				 "    // when true do this",
+				 "EndDo"],
+        "description": "Add a if block to the project ",
+		"scope": "source.RPG"
+    },
+	"if/else": {
+        "prefix": "if",
+		"body": ["If 1 *Eq 1 Do",
+                 "    /* when true do this */",
+                 "Enddo",
+				 "Else Do",
+				 "    /* otherwise do this */",
+				 "EndDo"],
+        "description": "Add a If Else Block to the project ",
+		"scope": "source.RPG"
+    },
+	"select": {
+        "prefix": "select",
+		"body": ["Select;",
+				 "    When 1 *Eq 1 Do",
+                 "        /* if 1 = 1 do this */",
+                 "        EndDo",
+				 "    Otherwise Do",
+                 "        /* when 1 is not equal to 1 do this */",
+                 "        EndDo",
+				 "EndSelect"],
+        "description": "Add a select (switch) block to free rpg project ",
+		"scope": "source.RPG"
+    },
+    "Skeleton":{
+        "prefix": "skeleton",
+        "body": ["PGM  Parm(&arg)",
+                 "    Dcl &arg Type(*Char) Len(10)",
+                 "",
+                 "    /* Your Code Here */",
+                 "",
+                 "    Return",
+                 "EndPgm"],
+        "description": "start a cl project",
+        "scope": "source.RPG"
+    },
+    "sub":{
+        "prefix": "subroutine",
+        "body": ["Subr Subr(/*Subroutine Name*/)",
+                 "",
+                 "    /* Your Code Here */",
+                 "",
+                 "    RtnSubr",
+                 "EndSubr"],
+        "description": "Add a Subroutine",
+        "scope": "source.RPG"
+    },
+    "sub2":{
+        "prefix": "subroutine",
+        "body": ["Subr Subr(/*Subroutine Name*/)",
+                 "",
+                 "    /* Your Code Here */",
+                 "",
+                 "EndSubr Rtnval(0)"],
+        "description": "Add a Subroutine that returns a value",
+		"scope": "source.RPG"
+    },
+	"monitor": {
+        "prefix": "monitor",
+		"body": ["MonMsg /*message Hex code*/ Exec(/*goto or sbrutine*/)"],
+        "description": "Add a try catch block to a  rpg project ",
+		"scope": "source.RPG"
+    },
+	"monitor2": {
+        "prefix": "monmsg",
+		"body": ["MonMsg /*message Hex code*/ Exec(/*goto or sbrutine*/)"],
+        "description": "Add a try catch block to a  rpg project ",
+		"scope": "source.RPG"
+    }
+}

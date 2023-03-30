@@ -1,0 +1,204 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "cl",
+	"patterns": [
+        {"include": "#Numerics"},
+        {"include": "#strings"},
+        {"include": "#starKeywords2"},
+        {"include": "#starKeywords1"},
+        {"include": "#BIF"},
+        {"include": "#subroutines"},
+        {"include": "#ReservedWords"},
+        {"include": "#ReservedWords2"},
+        {"include": "#variables"},
+        {"include": "#GOTO_WithCmdlblKeyword"},
+        {"include": "#GOTO_Lable"},
+        {"include": "#GOTO_Line"},
+        {"include": "#controlKeyWords"},
+        {"include": "#special"},
+        {"include": "#CommentLine"},
+        {"include": "#green"}
+	],
+	"repository": {
+        "green":{
+            "foreground":"#00aa00",
+            "match": "(?i)\\bgreen\\b"
+        },
+		"CommentLine": {
+			"name": "comment.line",
+			"begin": "/[*]",
+			"end": "[*]/"
+        },
+        "strings": {
+            "name": "string.quoted.double.rpgle",
+            "begin": "'",
+            "end": "'",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.rpgle",
+                    "match": "\\\\."
+                }
+            ]
+        },		
+        "Numerics": {
+            "patterns": [
+                {
+                    "include": "#number-float"
+                },
+                {
+                    "include": "#number-dec"
+                },
+                {
+                    "include": "#number-hex"
+                },
+                {
+                    "include": "#number-oct"
+                },
+                {
+                    "include": "#number-bin"
+                }
+            ]
+        },
+        "number-float": {
+            "name": "constant.numeric.float.dspf",
+            "match": "(?x)\n  (?<! \\w)(?:\n    (?:\n      \\.[0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\. [0-9](?: _?[0-9] )*\n      |[+0-9](?: _?[0-9] )*|\n      [0-9](?: _?[0-9] )* \\.\n    ) (?: [eE][+-]?[0-9](?: _?[0-9] )* )?\n    |\n    [0-9](?: _?[0-9] )* (?: [eE][+-]?[0-9](?: _?[0-9] )* )\n  )([jJ])?\\b\n",
+            "captures": {
+                "1": {
+                    "name": "storage.type.imaginary.number.dspf"
+                }
+            }
+        },
+        "number-dec": {
+            "name": "constant.numeric.dec.dspf",
+            "match": "(?x)\n  (?<![\\w\\.])(?:\n      [1-9](?: _?[0-9] )*\n      |\n      0+\n      |\n      [0-9](?: _?[0-9] )* ([jJ])\n      |\n      0 ([0-9]+)(?![eE\\.])\n  )\\b\n",
+            "captures": {
+                "1": {
+                    "name": "storage.type.imaginary.number.dspf"
+                },
+                "2": {
+                    "name": "constant.numeric.dspf"
+                },
+                "3": {
+                    "name": "constant.numeric.dspf"
+                }
+            }
+        },
+        "number-hex": {
+            "name": "constant.numeric.hex.dspf",
+            "match": "(?x)\n  (?<![\\w\\.])\n    (0[xX]) (_?[0-9a-fA-F])+\n  \\b\n",
+            "captures": {
+                "1": {
+                    "name": "storage.type.number.dspf"
+                }
+            }
+        },
+        "number-oct": {
+            "name": "constant.numeric.oct.dspf",
+            "match": "(?x)\n  (?<![\\w\\.])\n    (0[oO]) (_?[0-7])+\n  \\b\n",
+            "captures": {
+                "1": {
+                    "name": "storage.type.number.dspf"
+                }
+            }
+        },
+        "number-bin": {
+            "name": "constant.numeric.bin.dspf",
+            "match": "(?x)\n  (?<![\\w\\.])\n    (0[bB]) (_?[01])+\n  \\b\n",
+            "captures": {
+                "1": {
+                    "name": "storage.type.number.dspf"
+                }
+            }
+        },
+
+
+
+
+        "BIF":{
+            "name": "constant.language",
+            "match": "(?i)%(ADDRESS|BIN|BINARY|CHECK|CHECKER|OFFSET|SCAN|SST|SUBSTRING|SWITCH|TRIM|TRIML|TRIMR)\\b"
+        },
+        "starKeywords1":{
+            "name": "constant.language",
+            "match": "(?i)[*](YES|WRAP|USRPRF|USER|USE|USA|UPDADD|UINT4|UINT2|TCAT|SYSOPR|STOPTRC|START|SPLEXIST|SHRUPD|SHRRD|SHRNUP|SEQNBR|SAME|ROWCOL|REPLACE|RCD|PTR|PRTF|PRINT|PDF|OUTFILE|OR|ONLY|ON|OFF|NULLFLAGS|NOT|NONE|NOMAX|NOCHK|NO|NL|NG|NE|MDY|MAP|LIBL|LGL|LE|LDA|LAST|JUL|ISO|INT4|INT2|INT|IF|HEX|GT|FROMMBR|FONT|FLD|FIRST|FILE|EXCLUDE|EXCLRD|EXCL|ERROR|EQ|END|DROP|DIST|DEC|DATE|CVTSRC|CVTFLOAT|CURRENT|CT|COPIED|CHAR|CHANGE|CAT|CALLER|BLDKEY|BLANK|BCAT|AUTOCUT|AUTO|AND|AND|ALL|AFPDS)\\b"
+        },
+        "starKeywords2":{
+            "name": "constant.language",
+            "match":"(?i)[*](PRV|PRTBDR|PRTALL|OBJ|NO|NEXT|LIBL|LASTMBR|INTERMED|FROMFILE|FIRSTMBR|FILE|EXT|COMP|BASIC|ADVANCE|ADD)\\b"
+        },
+        "ReservedWords":{
+            "name": "variable",
+            "match": "(?i)\\b(XREF|X25|WTR|WSO|WSG|WSE|WRKJOB|WRK|WP|WNT|WLS|WCH|WAIT|VWS|VT220|VT100|VT|VRY|VOL|VM/MVS|VLDL|VFY|VAR|VAL|USRSPC|USRQ|USRPRTI|USRPRF|USRIDX|USR|USG|USF|UPG|UPD|UDFS|UBC|TYPE|TXT|TRP|TRN|TRG|TRC|TPL|TOS|TO|TNS|TIMZON|TIEF|TIE|THLD|THD|TFTP|TFR|TELN|TDLC|TCP/IP|TCP/IP|TCP|TBLE|TBL|TAPF|TAP|T1|SYSVAL|SYSDIR|SYSCTL|SYS|SWL|SWA|SVR|SUBR|STS|STRPGMMNU|STR|STM|STGL|STG|STC|SST|SSND|SSN|SRVPGM|SRV|SRCF|SRC|SQL|SPTN|SPT|SPLF|SPL|SPADCT|SOC|SNUF|SNPT|SNMP|SNI|SNDRCVF|SNDFAX|SND|SNA|SNA|SNA|SNA|SNA|SMW|SMTP|SMG|SLTE|SLT|SIT|SIGN|SHRPOOL|SHD|SFW|SEU|SET|SEC|SDLC|SDA|SCN|SCHIDXE|SCHIDX|SCDE|SCD|SBSD|SBS|SBMJOB|SBM|SAVRST|SAVF|SAVE|SAV|S38|S36|S34|RXC|RWS|RVK|RUN|RTVJOBA|RTVDTAARA|RTVDAT|RTV|RTN|RTLF|RTL|RTGE|RTE|RTD|RST|RSM|RSI|RSE|RSCS/PROFS|RSC|RRT|RQS|RPYL|RPY|RPT|RPL|RPG|RPDS|RPC|ROLL|RNM|RMVM|RMVLIBLE|RMV|RMT|RMC|RLU|RLS|RJE|RGZ|RGPE|RGP|REXX|REXEC|REX|RETURN|REG|REF|RDR|RDB|RDAR|RCY|RCV|RCL|RCDFMT|RCD|RBD|QST|QSH|QRYF|QRY|QM|PYM|PWR|PWD|PVT|PVD|PTR|PTP|PTF|PTC|PSFCFG|PRX|PRTQ|PRTF|PRT|PRS|PRP|PRM|PRJ|PRFL|PRF|PRD|PRC|PRB|PPP|POS|PORT|POP|POL|POF|PNLGRP|PMT|PMN|PLI|PL/I|PKG|PJE|PJ|PIN|PHS|PGR|PGP|PGM|PFX|PFU|PFRT|PFRG|PFR|PFM|PFD|PF|PEX|PDM|PDG|PDF|PCY|PCO|PCL|PCD|PC|PASTHR|PART|PARM|PAGSEG|PAGS|PAGDFN|PAG|OWN|OVRDBF|OVR|OVLU|OVL|OUTQD|OUTQ|OUT|ORD|OPT|OPN|OPC|OMC|OFF|OFC|OF|OCL|OBJ|NWSH|NWSD|NWSCFG|NWSAPP|NWS|NWI|NTW|NTS|NTF|NTB|NODL|NODGRP|NFS|NETF|NET|NDSCTX|NCK|NAM|MST|MSGQ|MSGF|MSGD|MSG|MSF|MRG|MOV|MON|MODD|MOD|MNU|MNT|MLM|MLB|MGTCOL|MGR|MGD|MFS|MEM|MEDI|MEDDFN|MED|MDL|MBR|MAX|MAP|MAIL|MAC|M36CFG|M36|M|LWS|LPR|LPDA|LPD|LOGE|LOG|LOF|LOD|LOCALE|LOC|LNX|LNK|LIND|LIN|LIC|LIBM|LIBL|LIB|LFM|LF|LEAVE|LCLA|LCL|LCK|LBL|LANG|LAN|L|KEY|KBD|JVM|JVA|JS|JRNRCV|JRN|JOBQE|JOBQ|JOBE|JOBD|JOB|IWS|ITM|ITG|ITF|ISDN|ISDN|ISDB|IPXD|IPX|IPX|IPX|IPX|IPX|IPS|IPL|IPI|INZ|INTR|INT|INS|INP|INF|IMP|IMG|ILE|IFC|IDXE|IDX|IDLC|IDD|ICFF|ICF|I|HTTP|HTE|HST|HOST|HLR|HLP|HLL|HLD|HDWRSC|HDW|HDB|GSS|GRT|GRP|GPHPKG|GPH|GO|GEN|GDF|FTR|FTP|FTN|FRW|FROM|FRM|FR|FORTRAN|FORMDF|FORMD|FORM|FNTTBL|FNTRSC|FNT|FND|FNC|FMW|FMT|FLR|FILL|FIL|FFD|FD|FCTE|FCT|FCN|FAX|F|EXT|EXP|EXIT|EWL|EWC|ETH|ERR|EPM|ENVVAR|ENV|ENR|ENDPGM|END|ENC|EML|EJT|EDU|EDTD|EDT|E|DWN|DUP|DTAQ|DTAARA|DTA|DSTSRV|DSTQ|DSTLE|DSTL|DST|DSPLAY|DSPF|DSP|DSNX/PC|DSK|DSC|DPR|DPCQ|DOM|DOC|DO|DNS|DMP|DMN|DLY|DLT|DLO|DLFM|DLF|DLCOBJ|DLC|DL|DKTF|DKT|DIRSHD|DIRE|DIR|DHCP|DFU|DFT|DFN|DEVD|DEV|DEP|DDMF|DDM|DDI|DCT|DCP|DCLF|DCL|DBG|DBF|DB|DAT|D|D|CVT|CVN|CVG|CUR|CTLD|CTL|CTG|CST|CSL|CSI|CRTPF|CRT|CRSDMN|CRQ|CRP|CRL|CRG|CPYSCN|CPY|CPT|CPR|CPP|CPIC|CPH|CP|COSD|COM|COL|CODE|COBOL|CNV|CNT|CNR|CNNLE|CNNL|CNN|CNL|CMT|CMP|CMNF|CMNE|CMN|CMD|CLU|CLT|CLS|CLR|CLO|CLNUP|CLG|CLD|CL|CICS|CHT|CHKOBJ|CHK|CHGVAR|CHG|CGY|CFGLE|CFGL|CFG|CDS|CDE|CCTSRV|CCTRTE|CCT|CCS|CBL|CAP|CALL|CAL|C|C|C|BY|BUF|BSCF|BSC|BRMS|BRM|BP|BND|BKU|BKP|BGU|BCKUP|BCK|BCH|BCD|BASIC|BAS|BAL|BACK|AUTL|AUTE|AUT|AUD|ATR|ATN|ATM|AST|ASP|ASN|ASK|ASC|AS/400|ARC|ARA|APY|APPN|APPC|APP|APF|APAR|AP|ANZ|ANS|ALS|ALRTBL|ALRD|ALR|ALC|AJE|AGT|AGR|AFP|ADSTAR|ADSM|ADR|ADPT|ADPP|ADPI|ADP|ADM|ADDPFM|ADD|ACT|ACNE|ACN|ACG|ACCGRP|ACC|ABN|/34|36)\\b"
+        },
+        "ReservedWords2":{ 
+            "name": "variable",
+            "match": "(?i)\\b(WSCST|VIEW|VALUE|USER|TRCCPIC|TOVAR|TOUSR|TOSTMF|TOSEP|TOMSGQ|TOLIB|TOFMT|TOFILE|TEXT|SUBRSTACK|SPLNBR|SNDUSRMSG|SNDTIME|SNDPGMMSG|SNDMSG|SNDBRKMSG|SNDACK|SECURE|SCDTIME|RGZPFM|RTVWSCST|RTVSYSVAL|RTVNETA|RTVMBRD|RTNVAR|RTNVAL|RTNSUBR|RLSSPLF|RCVMSG|QTIME|QDATE|PRTTXT|POSITION|PAGRTT|PAGESIZE|OVRPRTF|OVRFLW|OUTFILE|OPTION|OBJTYPE|OBJLNK|NBRCURRCD|NBR|MSGTYPE|MSGID|MONMSG|MBROPT|LPI|LEN|INCREL|HOLD|FRONTMGN|FROMRCD|FROMLIB|FROMFMT|FROMFILE|FORMFEED|FONT|FNTCHRSET|FMTDTA|FILE|EXECUTE|EXEC|DSTSELMTH|DRAWER|DLTWSCST|DLTSPLF|DLTOVR|DLTF|DFTACTGRP|DEVTYPE|DEL|DEFVAR|DCLPRCOPT|DATE|CVTDAT|CVRPRTF|CRTWSCST|CRTSRCPF|CRTJOBD|CRTFILE|CRTDUPOBJ|CRTDTAARA|CRTCVRP|CPYF|CPI|COPYRIGHT|COPIES|COND|CMDLBL|CLRPFM|CHKTAP|CHGJOBD|CHGJOB|CHGDTAARA|CHGPF|CALLSUBR|BCHJOB|ADDLIBLE|ACTGRP|ACKTYP|ALCOBJ)\\b"
+        },
+        "variables":{
+            "name": "entity.name.function",
+            "match": "(?i)\\&([a-z][a-z0-9_@#$]{,99})\\b"
+        },
+        "controlKeyWords": {
+            "name": "keyword.control",
+            "match": "(?i)\\b(if|Do|dofor|DoWhile|DoUntil|else|select|subr|begsr|endsr|enddo|endfor|endselect|endsubr|then|when|otherwise)\\b"
+        },
+		"subroutines": {
+			"patterns": [{
+				"name": "keyword.control.clle",
+				"match": "\\b\\s*(?i:(subr))\\s+(?i:(subr))\\b",
+				"captures": {
+					"1":{"name":"keyword.control.clle"},
+					"2":{"name":"variable.clle"}
+				}
+			}]
+		},
+        "GOTO_WithCmdlblKeyword":{
+			"name":"entity.name",
+            "match": "(?i)\\s*(goto)(\\s*)(cmdlbl)([(])(\\w*)([)])",
+			"captures": {
+				"1":{"name":"invalid"},
+                "2":{"name":"entity.name"},
+                "3":{"name":"keyword.control"},
+                "4":{"name":"entity.name"},
+				"5":{
+					"patterns": [
+						{
+                            "name":"constant.character.escape",
+								"match": ".*"
+						}],
+					"name":"markup.underline.link"},
+                "6":{"name":"entity.name"}
+            }
+        },
+        "GOTO_Lable": {
+            "name": "invalid",
+            "match": "(?i)\\s*([a-z][a-z0-9_@#$]*[\\:])"
+        },
+        "GOTO_Line": {
+			"name":"entity.name",
+            "match": "(?i)\\s*(goto)(\\s*)([a-z][a-z0-9_@#$]*)\\b",
+			"captures": {
+				"1":{"name":"invalid"},
+                "2":{"name":"entity.name"},
+				"3":{
+					"patterns": [
+						{
+                            "name":"constant.character.escape",
+								"match": ".*"
+						}],
+					"name":"markup.underline.link"}
+            }
+        },
+        "special": {
+            "match": "(?i)(SEQUEL/EXECUTE)",
+            "captures": {
+                "1":{ "patterns": [{
+                    "name": "constant.language",
+                    "match": "."
+                }],
+                "name":"emphasis"}
+            }
+        }
+    },
+	"scopeName": "source.cl"
+}
