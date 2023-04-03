@@ -8,10 +8,10 @@ Quick viewing and editing of Control Language source code. With better highlight
 
 ## Features 
 * Highlight GOTO keywords and Labels
-  ![struc.rpg](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/CL_Sample_002.gif)
+  ![pic2.cl](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/Images/CL_Sample_002.png)
 * clearly define control flow keywords and command keywords
 
 ## What does it look like?
- ![pi.cbl](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/SpineNetSystems.cl/Images/CL_Sample_001.png)
+ ![pic1.cl](https://raw.githubusercontent.com/RoySpino/RB_SNS_VSCodeExtentions/main/SpineNetSystems.cl/Images/CL_Sample_001.png)
 
  
