@@ -53,6 +53,33 @@
         "description": "Add a select (switch) block to free rpg project ",
 		"scope": "source.RPG"
     },
+	"programStatusDS": {
+        "prefix": "program status",
+		"body": ["Dcl-ds MYPSDS psds;",
+				 "\tPROC_NAME *PROC;",
+				 "\tPGM_STATUS *STATUS;",
+				 "\troutineName *ROUTINE;",
+				 "\tnbrPassedParms *PARMS;",
+				 "\tPgm_Lib char(10) pos(81);",
+				 "\tJobName char(10) pos(244);",
+				 "\tUserName char(10) pos(254);",
+				 "End-ds;"],
+        "description": "Add a pgm. status datastructure to a free rpg project",
+		"scope": "source.RPG"
+    },
+	"programStatusDS_Struc": {
+        "prefix": "program status",
+		"body": ["Dmypsds          SDS",
+				"D Proc_name         *PROC",
+				"D Pgm_Status        *STATUS",
+				"D Rtn_Name          *ROUTINE",
+				"D Prms_Cnt          *PARMS",
+				"D Pgm_Lib                81     90",
+				"D JobName               244    253",
+				"D User                  254    263"],
+        "description": "Add a pgm. status datastructure to a rpg project",
+		"scope": "source.RPG"
+    },
 	"monitor": {
         "prefix": "monitor",
 		"body": ["Monitor;",
