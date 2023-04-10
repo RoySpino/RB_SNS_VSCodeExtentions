@@ -3657,7 +3657,7 @@
 			]
 		},
 		"ProcInterfaceBlock2":{
-			"begin": "(?i)(\\s{0,})(dcl-pi)(\\s{1,})([*]n)(\\s{1,})(\\w{1,})",
+			"begin": "(?i)(\\s{0,})(dcl-pi)(\\s{1,})([*]n)(\\s{1,})(\\w{0,})",
 			"end": "(?i)(\\s{0,})(end-pi)",
 			"beginCaptures": {
 				"1":{"name": "constant.rgb-value"},
@@ -3884,8 +3884,8 @@
 				{"include": "#DatastrucBlock3"},
 				{"include": "#DatastrucBlock2"},
 				{"include": "#DatastrucBlock"},
-				{"include": "#ProcInterfaceBlock3"},
 				{"include": "#ProcInterfaceBlock2"},
+				{"include": "#ProcInterfaceBlock3"},
 				{"include": "#ProcInterfaceBlock"},
 				{"include": "#PrototypeBlock"},
 				{"include": "#PrototypeBlock2"},
