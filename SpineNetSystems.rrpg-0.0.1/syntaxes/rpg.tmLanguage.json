@@ -1,11 +1,12 @@
 {
 	"name": "rpgle",
 	"patterns": [
+		{"include": "#freeTotal"},
 		{"include": "#commentBlock"},
 		{"include": "#freeBlock"},
 		{"include": "#commentsclike"},
 		{"include": "#commentsclikeIBM"},
-		{"include": "#freeTotal"},
+		{"include": "#commentsRPGIBM"},
 		{"include": "#commentsRPGRampage"},
 		{"include": "#sql_struc"},
 		{"include": "#TimeLiteral"},
@@ -53,7 +54,9 @@
 		{"include": "#Dspec_NoLen"},
 		{"include": "#Dspec_NoFrom"},
 		{"include": "#Dspec_NoVarType"},
-		{"include": "#Cspec_evalComment"},
+		{"include": "#Cspec_controlEndSR_OldLeave"},
+		{"include": "#Cspec_controlEndSR_OldLeave2"},
+		{"include": "#Cspec_EvalContinued"},
 		{"include": "#Cspec_eval"},
 		{"include": "#Cspec_eval2"},
 		{"include": "#Cspec_controlComment"},
@@ -144,8 +147,7 @@
 		{"include": "#Ispec1_NoPos1"},
 		{"include": "#Ispec1_NoRi"},
 		{"include": "#Ispec1_NoO"},
-		{"include": "#Ispec1_NoSQ"},
-		{"include": "#commentsRPGIBM"}
+		{"include": "#Ispec1_NoSQ"}
 	],
 	"repository": {
 		"commentsclike": {
@@ -848,9 +850,23 @@
 					"name":"constant.rgb-value"}
 				}
 		},
+		"Cspec_EvalContinued":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|.{5})([c])(\\s{29})(.+)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type.rpgle"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{
+					"patterns": [
+						{"include": "#factor123"}
+					],
+					"name":"constant.rgb-value"}
+				}
+		},
 		"Cspec_controlComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{45})(.*)",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{45})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -874,7 +890,7 @@
 		},
 		"Cspec_control":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{,45})",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{,45})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -897,7 +913,7 @@
 		},
 		"Cspec_controlNoFac2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when|select|return|plist|other|on-error|monitor|if|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|endcs|end|else|dow|dou)",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when|select|return|plist|other|on-error|monitor|if|for|extpgm|endsl|endmon|endif|endfor|enddo|endcs|end|else|dow|dou)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -913,6 +929,30 @@
 					"patterns": [{"include": "#factor123CONTROL"}],
 					"name":"constant.rgb-value"},
 				"7":{"name":"keyword.control"}
+			}
+		},
+		"Cspec_controlEndSR_OldLeave":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|.{5})([c])(\\s{5})(.{14})(endsr     )(\\s{41})(.{1,})",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type.rpgle"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid"},
+				"5":{"name":"keyword.control"},
+				"6":{"name":"constant.rgb-value"},
+				"7":{"name":"comment.line"}
+			}
+		},
+		"Cspec_controlEndSR_OldLeave2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(|.{5})([c])(\\s{5})(.{14})(endsr)",
+			"captures": {
+				"1":{"name":"comment"},
+				"2":{"name":"support.type.rpgle"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid"},
+				"5":{"name":"keyword.control"}
 			}
 		},
 		"Cspec_controlContinued":{
@@ -1002,7 +1042,7 @@
 		},
 		"Cspec_control_rpg3":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|ifne|iflt|ifle|ifgt|ifge|ifeq|endsr|endsl|endif|endfor|enddo|endcs|end|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq)",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|ifne|iflt|ifle|ifgt|ifge|ifeq|endsl|endif|endfor|enddo|endcs|end|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1022,7 +1062,7 @@
 		},
 		"Cspec_control_rpg3Comment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |plist     |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |begsr     )(.{14})(\\s{14})(.*)",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |plist     |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |begsr     )(.{14})(\\s{14})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1050,7 +1090,7 @@
 		},
 		"Cspec_control_rpg3NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |extpgm    |endsr     |endsl     |endmon    |endif     |endfor    |enddo     |endcs     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |begsr     )(.{,14})",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |endcs     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |begsr     )(.{,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1073,7 +1113,7 @@
 		},
 		"Cspec_control_rpg3NoFactor2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|sfile|return|other|ifne|iflt|ifle|ifgt|ifge|ifeq|extpgm|endsr|endsl|endmon|endif|endfor|enddo|endcs|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq|begsr)(.{,14})",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|sfile|return|other|ifne|iflt|ifle|ifgt|ifge|ifeq|extpgm|endsl|endmon|endif|endfor|enddo|endcs|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq|begsr)(.{,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -3657,7 +3697,7 @@
 			]
 		},
 		"ProcInterfaceBlock2":{
-			"begin": "(?i)(\\s{0,})(dcl-pi)(\\s{1,})([*]n)(\\s{1,})(\\w{0,})",
+			"begin": "(?i)(\\s{0,})(dcl-pi)(\\s{1,})([*]n)(\\s{1,})(\\w{1,})",
 			"end": "(?i)(\\s{0,})(end-pi)",
 			"beginCaptures": {
 				"1":{"name": "constant.rgb-value"},
@@ -3884,8 +3924,8 @@
 				{"include": "#DatastrucBlock3"},
 				{"include": "#DatastrucBlock2"},
 				{"include": "#DatastrucBlock"},
-				{"include": "#ProcInterfaceBlock2"},
 				{"include": "#ProcInterfaceBlock3"},
+				{"include": "#ProcInterfaceBlock2"},
 				{"include": "#ProcInterfaceBlock"},
 				{"include": "#PrototypeBlock"},
 				{"include": "#PrototypeBlock2"},
