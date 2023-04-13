@@ -1,0 +1,9 @@
+{
+	"format": {
+        "prefix": "formatLine",
+        "body": ["/*",
+				 ".....A..........T.Name++++++.Len++TDpB......Functions+++++++++++++++++++++++++++ */"],
+        "description": "Write a format line for this file",
+		"scope": "source.dspf"
+	}
+}

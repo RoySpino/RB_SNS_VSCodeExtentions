@@ -1,0 +1,292 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DSPF",
+	"patterns": [
+		{"include": "#comments"},
+		{"include": "#recordFormatWithKeyWord"},
+		{"include": "#recordFormat"},
+		{"include": "#variables"},
+		{"include": "#variablesWithoutKeyWords"},
+		{"include": "#variablesWithoutNoPos"},
+		{"include": "#starKeywords"},
+		{"include": "#LablesDATE_TIME"},
+		{"include": "#keywordsSingleLine"},
+		{"include": "#keywords"},
+		{"include": "#numberIndicators"},
+		{"include": "#Lables"},
+		{"include": "#colors"},
+        {"include": "#Numerics"},
+        {"include": "#modifiers"},
+		{"include": "#strings"}
+	],
+	"repository": {
+		"comments":{
+			"patterns": [{
+				"name":"comment.line.dspf",
+				"match": "(^[0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][a-zA-Z\\s][\\*].*$)"
+			}]
+		},
+		"recordFormatWithKeyWord":{
+			"patterns": [{
+				"name":"string.regexp",
+				"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([R|r][\\s][A-Za-z_][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])(?i:(SFL|SFLCTL))\\b)",
+				"captures": {
+					"1":{"name":"comment.dspf"},
+					"2":{"name":"emphasis.dspf"},
+                    "3":{"name":"constant.rgb-value.dspf"},
+					"4":{"name":"invalid.illegal.dspf"},
+					"5":{"name":"constant.rgb-value.dspf"},
+					"6":{"name":"constant.rgb-value"},
+					"7":{"name":"constant.character.escape.dspf"}
+				}
+			}]
+		},
+		"recordFormat":{
+			"patterns": [{
+				"name":"string.regexp",
+				"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([R|r][\\s][A-Za-z_][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*]*)\\b)",
+				"captures": {
+					"1":{"name":"comment.dspf"},
+					"2":{"name":"emphasis.dspf"},
+                    "3":{"name":"constant.rgb-value.dspf"},
+					"4":{"name":"invalid.illegal.dspf"},
+                    "5":{"name":"constant.rgb-value.dspf"}
+				}
+			}]
+		},
+		"variables":{
+			"patterns": [{
+				"name":"constant.rgb-value",
+				"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([A-Za-z_\\#][A-Za-z0-9_\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])(?i:(COLOR|DATE|DATFMT|DSPATR|EDTCDE|TEXT|TIME|VALUES))\\b)",
+				"captures": {
+					"1":{"name":"comment.dspf"},
+					"2":{"name":"support.type.dspf"},
+                    "3":{"name":"constant.rgb-value"},
+					"4":{"name":"constant.rgb-value"},
+					"5":{"name":"constant.regexp.dspf"},
+					"6":{"name":"constant.numeric.dspf"},
+					"7":{"name":"constant.language.dspf"},
+					"8":{"name":"constant.numeric.dspf"},
+					"9":{"name":"constant.character.escape"},
+					"10":{"name":"constant.numeric.dspf"},
+					"11":{"name":"constant.language.dspf"}
+				}
+			}]
+		},
+		"variablesWithoutKeyWords":{
+			"patterns": [{
+				"name":"constant.rgb-value",
+				"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s]) ([A-Za-z_\\#][A-Za-z0-9_\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s]))",
+				"captures": {
+					"1":{"name":"comment.dspf"},
+					"2":{"name":"support.type.dspf"},
+                    "3":{"name":"constant.rgb-value"},
+					"4":{"name":"constant.rgb-value"},
+					"5":{"name":"constant.regexp.dspf"},
+					"6":{"name":"constant.numeric.dspf"},
+					"7":{"name":"constant.language.dspf"},
+					"8":{"name":"constant.numeric.dspf"},
+					"9":{"name":"constant.character.escape"},
+					"10":{"name":"constant.numeric.dspf"}
+				}
+			}]
+		},
+		"variablesWithoutNoPos":{
+			"patterns": [{
+				"name":"constant.rgb-value",
+				"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s]) ([A-Za-z_\\#][A-Za-z0-9_\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s])([A-Za-z\\s]))",
+				"captures": {
+					"1":{"name":"comment.dspf"},
+					"2":{"name":"support.type.dspf"},
+                    "3":{"name":"constant.rgb-value"},
+					"4":{"name":"constant.rgb-value"},
+					"5":{"name":"constant.regexp.dspf"},
+					"6":{"name":"constant.numeric.dspf"},
+					"7":{"name":"constant.language.dspf"},
+					"8":{"name":"constant.numeric.dspf"},
+					"9":{"name":"constant.character.escape"},
+					"10":{"name":"constant.numeric.dspf"}
+				}
+			}]
+		},
+		"Lables": {
+			"patterns": [
+				{
+					"include": "#strings"
+				},
+				{
+				"name":"variable.other",
+				"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])((?=.*)))",
+				"captures": {
+					"1":{"name":"comment.dspf"},
+					"2":{"name":"support.type.dspf"},
+                    "3":{"name":"constant.rgb-value"},
+					"4":{"name":"constant.numeric.dspf"},
+					"5":{"name":"string.quoted.double.dspf"}
+				}
+			}]
+		},
+
+		"LablesDATE_TIME": {
+			"patterns": [{
+				"name":"variable.other",
+				"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])(?i:(DATE|TIME))\\b)",
+				"captures": {
+					"1":{"name":"comment.dspf"},
+					"2":{"name":"support.type.dspf"},
+                    "3":{"name":"constant.rgb-value"},
+					"4":{"name":"constant.numeric.dspf"},
+					"5":{"name":"variable.name.dspf"}
+				}
+			}]
+		},
+		"keywordsSingleLine":{
+			"patterns": [{
+				"name":"variable.other",
+				"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([A-Za-z\\s])([a-zA-Z\\s])([0-9 \\s][0-9 \\s])([a-zA-Z\\s])([0-9 \\s][0-9 \\s])([a-zA-Z\\s])([0-9 \\s][0-9 \\s])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s] [\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])(?i:(BLINK|CHECK|CHGINPDFT|COLOR|CSRINPONLY|CSRLOC|COMP|DSPATR|DSPSIZ|EDTCDE|INDARA|OVERLAY|PRINT|SFLCLR|SFLCSRRRN|SFLDLT|SFLDROP|SFLFOLD|SFLEND|SFLDSP|SFLDSPCTL|SFLINZ|SFLSIZ|SFLSNGCHC|SFLPAG|TEXT|VALUE|WDWTITLE|WINDOW))\\b)",
+				"captures": {
+					"1":{"name":"comment.dspf"},
+					"2":{"name":"support.type.dspf"},
+					"3":{"name":"constant.regexp.dspf"},
+                    "4":{"name":"constant.language.dspf"},
+					"5":{"name":"variable.name.dspf"},
+                    "6":{"name":"constant.language.dspf"},
+					"7":{"name":"variable.name.dspf"},
+                    "8":{"name":"constant.language.dspf"},
+					"9":{"name":"variable.name.dspf"},
+                    "10":{"name":"constant.rgb-value.dspf"},
+					"11":{"name":"constant.language.dspf"}
+				}
+			}]
+		},
+		"starKeywords":{
+			"patterns": [{
+				"name":"variable.other.dspf",
+				"match": "(?i)[\\*](BOTTOM|COLOR|DS3|ISO|LIBL|SCRBAR|MORE|NOMSGLIN|PFILE|RANGE|RSTCSR|TEXT|USA|VALUES)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name":"keyword.control.dspf",
+				"match": "\\b(?i:(CHGINPDFT|OVERLAY|SFLSIZ|SFLPAG|TEXT|VALUE))\\b"
+			}]
+		},
+		"numberIndicators":{
+			"patterns": [{
+				"name":"storage.type.dspf",
+				"match": "(?i)([C][(A|F)][0-9\\s][0-9\\s])"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.dspf",
+			"begin": "'",
+			"end": "('|(-\\n)|\\n)",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dspf",
+					"match": "\\\\."
+				}
+			]
+		},
+		"colors":{
+			"patterns": [{
+				"name":"variable.other.dspf",
+				"match": "\\b(?i:[(].(blu|grn|pnk|red|trq|wht|ylw).[)])\\b"
+			}]
+		},
+		"modifiers":{
+			"patterns": [{
+				"name":"variable.other.dspf",
+				"match": "\\b(?i:[(].(ri|z|pnk|red|trq|wht|ylw).[)])\\b"
+			}]
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+		"Numerics": {
+			"name": "constant.numeric.dspf",
+			"patterns": [
+			{
+				"include": "#number-float"
+			},
+			{
+				"include": "#number-dec"
+			},
+			{
+				"include": "#number-hex"
+			},
+			{
+				"include": "#number-oct"
+			},
+			{
+				"include": "#number-bin"
+			},
+			{
+				"name": "invalid.illegal.name.dspf",
+				"match": "\\b[0-9]+\\w+"
+			}]
+		},
+		"number-float": {
+			"name": "constant.numeric.float.dspf",
+			"match": "(?x)\n  (?<! \\w)(?:\n    (?:\n      \\.[0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\. [0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\.\n    ) (?: [eE][+-]?[0-9](?: _?[0-9] )* )?\n    |\n    [0-9](?: _?[0-9] )* (?: [eE][+-]?[0-9](?: _?[0-9] )* )\n  )([jJ])?\\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.imaginary.number.dspf"
+				}
+			}
+		},
+		"number-dec": {
+			"name": "constant.numeric.dec.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])(?:\n      [1-9](?: _?[0-9] )*\n      |\n      0+\n      |\n      [0-9](?: _?[0-9] )* ([jJ])\n      |\n      0 ([0-9]+)(?![eE\\.])\n  )\\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.imaginary.number.dspf"
+				},
+				"2": {
+					"name": "invalid.illegal.dec.dspf"
+				},
+				"3": {
+					"name": "invalid.illegal.dec.dspf"
+				}
+			}
+		},
+		"number-hex": {
+			"name": "constant.numeric.hex.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[xX]) (_?[0-9a-fA-F])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		},
+		"number-oct": {
+			"name": "constant.numeric.oct.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[oO]) (_?[0-7])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		},
+		"number-bin": {
+			"name": "constant.numeric.bin.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[bB]) (_?[01])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		}
+	},
+	"scopeName": "source.dspf"
+}

@@ -1,0 +1,413 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PF",
+	"patterns": [
+		{"include": "#comments"},
+		{"include": "#KeyFormat"},
+		{"include": "#KeyFormat_NoName"},
+		{"include": "#recFormat"},
+		{"include": "#recFormat_NoName"},
+		{"include": "#stdPhysicalFileLine"},
+		{"include": "#stdPhysicalFileLine_NoFunctions"},
+		{"include": "#stdPhysicalFileLine_NoB"},
+		{"include": "#stdPhysicalFileLine_NoDp"},
+		{"include": "#stdPhysicalFileLine_NoT"},
+		{"include": "#stdPhysicalFileLine_NoLen"},
+		{"include": "#stdPhysicalFileLine_NoR"},
+		{"include": "#stdPhysicalFileLine_NoName"}
+	],
+	"repository": {
+		"comments":{
+				"name":"comment.line.pf",
+				"match": "^(.{6})(\\*)(.*)"
+		},
+		"stdPhysicalFileLine":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{11})(\\s)(.{10})(.)([\\d\\s]{5})(.)([\\d\\s]{2})(.)(.{6})(.*)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.rgb-value"},
+				
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"constant.numeric.float"},
+				"8":{"name":"constant.language"},
+				"9":{"name":"constant.numeric.float"},
+				"10":{"name":"constant.character.escape"},
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{"include": "#Functions"}],
+					"name":"constant.rgb-value"}
+			}
+		},
+		"stdPhysicalFileLine_NoFunctions":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{11})(\\s)(.{10})(.)([\\d\\s]{5})(.)([\\d\\s]{2})(.)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.rgb-value"},
+				
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"constant.numeric.float"},
+				"8":{"name":"constant.language"},
+				"9":{"name":"constant.numeric.float"},
+				"10":{"name":"constant.character.escape"}
+			}
+		},
+		"stdPhysicalFileLine_NoB":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{11})(\\s)(.{10})(.)([\\d\\s]{5})(.)([\\d\\s]{,2})",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.rgb-value"},
+				
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"constant.numeric.float"},
+				"8":{"name":"constant.language"},
+				"9":{"name":"constant.numeric.float"}
+			}
+		},
+		"stdPhysicalFileLine_NoDp":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{11})(\\s)(.{10})(.)([\\d\\s]{5})(.)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.rgb-value"},
+				
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"constant.numeric.float"},
+				"8":{"name":"constant.language"}
+			}
+		},
+		"stdPhysicalFileLine_NoT":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{11})(\\s)(.{10})(.)([\\d\\s]{,5})",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.rgb-value"},
+				
+				"6":{"name":"constant.regexp"},
+				"7":{"name":"constant.numeric.float"}
+			}
+		},
+		"stdPhysicalFileLine_NoLen":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{11})(\\s)(.{10})(.)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.rgb-value"},
+				
+				"6":{"name":"constant.regexp"}
+			}
+		},
+		"stdPhysicalFileLine_NoR":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{11})(\\s)(.{,10})",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.rgb-value"}
+			}
+		},
+		"stdPhysicalFileLine_NoName":{
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"}
+			}
+		},
+		"recFormat": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{10})(r)(\\s)(.{,10})",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid.illegal"},
+				"5":{"name":"constant.rgb-value"},
+
+				"6":{"name":"invalid.illegal"}
+			}
+		},
+		"recFormat_NoName": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{10})(r)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid.illegal"}
+			}
+		},
+		"KeyFormat": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{10})(k)(\\s)(.{,10})",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid.illegal"},
+				"5":{"name":"constant.rgb-value"},
+
+				"6":{"name":"constant.character.escape"}
+			}
+		},
+		"KeyFormat_NoName": {
+			"name": "constant.rgb-value",
+			"match": "(?i)^(.{5})(a)(.{10})(k)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{
+					"patterns": [{
+						"name":"keyword.control",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid.illegal"}
+			}
+		},
+		"Functions": {
+			"patterns": [
+				{"include": "#starKeywords"},
+				{"include": "#keywords"},
+				{"include": "#numberIndicators"},
+				{"include": "#Numerics"},
+				{"include": "#strings"}
+			]
+		},
+		"recordFormatWithKeyWord":{
+			"name":"keyword.control",
+			"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([R|r][\\s][A-Za-z_][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*]*)([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])\\b)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"emphasis.pf"},
+				"3":{"name":"constant.rgb-value.pf"},
+				"4":{"name":"invalid.illegal.pf"},
+				"5":{"name":"constant.rgb-value.pf"},
+				"6":{"name":"constant.character.escape.pf"}
+			}
+		},
+		"recordFormat":{
+			"name":"keyword.control",
+			"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([R|r][\\s][A-Za-z_][A-Za-z0-9_\\#\\@\\!\\$\\%\\&\\*]*)\\b)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"emphasis.pf"},
+				"3":{"name":"constant.rgb-value.pf"},
+				"4":{"name":"invalid.illegal.pf"},
+				"5":{"name":"constant.rgb-value.pf"}
+			}
+		},
+		"KeyFields":{
+			"name":"keyword.control",
+			"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])(.{10})([K|k][\\s])(.*)\\b)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"emphasis.pf"},
+				"3":{"name":"constant.rgb-value.pf"},
+				"4":{"name":"invalid.illegal.pf"},
+				"5":{"name":"constant.character.escape.pf"}
+			}
+		},
+		"variables":{
+			"name":"constant.rgb-value",
+			"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([A-Za-z_\\#][A-Za-z0-9_\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])(?i:(DATE|DATFMT|DSPATR|EDTCDE|TEXT|TIME))\\b)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.regexp.pf"},
+				"6":{"name":"constant.numeric.pf"},
+				"7":{"name":"constant.language.pf"},
+				"8":{"name":"constant.numeric.pf"},
+				"9":{"name":"constant.character.escape"},
+				"10":{"name":"constant.numeric.pf"},
+				"11":{"name":"constant.language.pf"}
+			}
+		},
+		"variablesWithoutKeyWords":{
+			"name":"constant.rgb-value",
+			"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([A-Za-z_\\#][A-Za-z0-9_\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s]))",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.regexp.pf"},
+				"6":{"name":"constant.numeric.pf"},
+				"7":{"name":"constant.language.pf"},
+				"8":{"name":"constant.numeric.pf"},
+				"9":{"name":"constant.character.escape"},
+				"10":{"name":"constant.numeric.pf"}
+			}
+		},
+		"variablesWithoutPos":{
+			"name":"constant.rgb-value",
+			"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([A-Za-z_\\#][A-Za-z0-9_\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s][0-9 a-zA-Z\\#\\s])([A-Za-z\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])([A-Za-z\\s])([0-9\\s][0-9\\s])([A-Za-z\\s]))",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.regexp.pf"},
+				"6":{"name":"constant.numeric.pf"},
+				"7":{"name":"constant.language.pf"},
+				"8":{"name":"constant.numeric.pf"},
+				"9":{"name":"constant.character.escape"}
+			}
+		},
+		"Lables": {
+			"name":"constant.rgb-value",
+			"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])([0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s][0-9\\s])((?=.*)))",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"constant.numeric.pf"},
+				"5":{"name":"string.quoted.double.pf"}
+			}
+		},
+		"keywordsSingleLine":{
+			"name":"constant.rgb-value",
+			"match": "(?x:^([0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,][0-9 a-zA-Z\\*\\-\\s\\.\\,])([A-Za-z])([A-Za-z\\s])([a-zA-Z\\s])([0-9 \\s][0-9 \\s])([a-zA-Z\\s])([0-9 \\s][0-9 \\s])([a-zA-Z\\s])([0-9 \\s][0-9 \\s])([\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s][\\s])(?i:(COLHDG|DATFMT|EDTCDE|TEXT|UNIQUE|VALUE))\\b)",
+			"captures": {
+				"1":{"name":"comment.pf"},
+				"2":{"name":"support.type.pf"},
+				"3":{"name":"constant.regexp.pf"},
+				"4":{"name":"constant.language.pf"},
+				"5":{"name":"variable.name.pf"},
+				"6":{"name":"constant.language.pf"},
+				"7":{"name":"variable.name.pf"},
+				"8":{"name":"constant.language.pf"},
+				"9":{"name":"variable.name.pf"},
+				"10":{"name":"constant.rgb-value.pf"},
+				"11":{"name":"constant.language.pf"}
+			}
+		},
+		"Numerics": {
+			"name": "constant.numeric.dspf",
+			"patterns": [
+			{
+				"include": "#number-float"
+			},
+			{
+				"include": "#number-dec"
+			},
+			{
+				"include": "#number-hex"
+			},
+			{
+				"include": "#number-oct"
+			},
+			{
+				"include": "#number-bin"
+			},
+			{
+				"name": "invalid.illegal.name.dspf",
+				"match": "\\b[0-9]+\\w+"
+			}]
+		},
+		"number-float": {
+			"name": "constant.numeric.float.dspf",
+			"match": "(?x)\n  (?<! \\w)(?:\n    (?:\n      \\.[0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\. [0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\.\n    ) (?: [eE][+-]?[0-9](?: _?[0-9] )* )?\n    |\n    [0-9](?: _?[0-9] )* (?: [eE][+-]?[0-9](?: _?[0-9] )* )\n  )([jJ])?\\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.imaginary.number.dspf"
+				}
+			}
+		},
+		"number-dec": {
+			"name": "constant.numeric.dec.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])(?:\n      [1-9](?: _?[0-9] )*\n      |\n      0+\n      |\n      [0-9](?: _?[0-9] )* ([jJ])\n      |\n      0 ([0-9]+)(?![eE\\.])\n  )\\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.imaginary.number.dspf"
+				},
+				"2": {
+					"name": "invalid.illegal.dec.dspf"
+				},
+				"3": {
+					"name": "invalid.illegal.dec.dspf"
+				}
+			}
+		},
+		"number-hex": {
+			"name": "constant.numeric.hex.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[xX]) (_?[0-9a-fA-F])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		},
+		"number-oct": {
+			"name": "constant.numeric.oct.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[oO]) (_?[0-7])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		},
+		"number-bin": {
+			"name": "constant.numeric.bin.dspf",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[bB]) (_?[01])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.dspf"
+				}
+			}
+		},
+		"keywords": {
+				"name":"constant.language.pf",
+				"match": "\\b(?i:(COLHDG|DATFMT|TEXT|UNIQUE))\\b"
+		},
+		"starKeywords":{
+				"name":"storage.type.pf",
+				"match": "(?i)[\\*](DS3|ISO|LIBL|SCRBAR|MORE|PFILE|RANGE|RSTCSR|USA|VALUES)\\b"
+		},
+		"numberIndicators":{
+				"name":"storage.type.pf",
+				"match": "(?i)([C][(A|F)][0-9\\s][0-9\\s])"
+		},
+		"strings": {
+			"name": "string.quoted.double.pf",
+			"begin": "'",
+			"end": "('|(-\\n)|\\n)",
+			"patterns": [
+				{
+					"name": "constant.character.escape.pf",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.pf"
+}

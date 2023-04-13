@@ -1,0 +1,80 @@
+{
+    "name": "dspf",
+    "displayName": "DSPF",
+    "description": "Display & Physical File Support",
+	"version": "1.1.16",
+    "publisher": "SpineNetSystems",
+	"author": {
+		"name": "Roy Banuelos"
+	},
+    "engines": {
+        "vscode": "^1.21.0"
+    },
+	"icon": "images/PhysicalFiles.png",
+	"categories": [
+		"Programming Languages"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RoySpino/RB_SNS_VSCodeExtentions"
+	},
+    "contributes": {
+        "languages": 
+        [
+            {
+                "id": "dspf",
+                "aliases": ["dspf"],
+                "extensions": [".dspf", ".dspf38", ".dsp"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "pf",
+                "aliases": ["pf"],
+                "extensions": [".pf", ".pf38"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "prtf",
+                "aliases": ["prtf"],
+                "extensions": [".prtf"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "lf",
+                "aliases": ["lf"],
+                "extensions": [".lf",".lf38"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": 
+        [
+            {
+                "language": "dspf",
+                "scopeName": "source.dspf",
+                "path": "./syntaxes/dspf.tmLanguage.json"
+            },
+            {
+                "language": "pf",
+                "scopeName": "source.pf",
+                "path": "./syntaxes/pf.tmLanguage.json"
+            },
+            {
+                "language": "prtf",
+                "scopeName": "source.prtf",
+                "path": "./syntaxes/prtf.tmLanguage.json"
+            },
+            {
+                "language": "lf",
+                "scopeName": "source.lf",
+                "path": "./syntaxes/lf.tmLanguage.json"
+            }
+        ],
+        "snippets": 
+        [
+            {
+                "language": "dspf",
+                "path": "./snippets/CodeCompleation.json"
+            }
+        ]
+    }
+}

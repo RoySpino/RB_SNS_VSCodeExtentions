@@ -1,0 +1,158 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "LF",
+	"patterns": [
+		{"include": "#comments"},
+        {"include": "#recordFormatWithKeyWord"},
+        {"include": "#KeyFields"},
+		{"include": "#KeyFields_NoKeyWrd"},
+		{"include": "#R_FieldNames"},
+		{"include": "#recordFormat"},
+		{"include": "#Comparisons"},
+		{"include": "#Properties"},
+		{"include": "#variables"},
+		{"include": "#starKeywords"},
+		{"include": "#keywords"},
+		{"include": "#baseLine"}
+	],
+	"repository": {
+		"comments":{
+				"name":"comment.line.lf",
+				"match": "(?i)^(.....[A\\s][*].*$)"
+		},
+		"baseLine":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.....)([A-Z])",
+			"captures": {
+				"1":{"name":"comment.lf"},
+				"2":{"name":"support.type.lf"}
+			}
+		},
+		"recordFormatWithKeyWord":{
+				"name":"constant.language",
+				"match": "(?i)^(.....)([A])(\\s{10})([R][\\s][A-Z].{9})(\\s{,17})",
+				"captures": {
+					"1":{"name":"comment.lf"},
+					"2":{"name":"emphasis.lf"},
+                    "3":{"name":"constant.rgb-value.lf"},
+					"4":{"name":"invalid.illegal.lf"},
+                    "5":{"name":"constant.rgb-value.lf"},
+					"6":{"name":"constant.character.escape.lf"}
+				}
+		},
+		"recordFormat":{
+				"name":"constant.language",
+				"match": "(?i)^(.....)([A])(\\s{10})([R][\\s][A-Za-z_].{,9})",
+				"captures": {
+					"1":{"name":"comment.lf"},
+					"2":{"name":"emphasis.lf"},
+                    "3":{"name":"constant.rgb-value.lf"},
+					"4":{"name":"invalid.illegal.lf"},
+                    "5":{"name":"constant.rgb-value.lf"}
+				}
+		},
+		"KeyFields":{
+				"name":"keyword.control",
+				"match": "(?i)^(.....)([A])(\\s{10})([K][\\s])([A-Z].{,9})",
+				"captures": {
+					"1":{"name":"comment.lf"},
+					"2":{"name":"emphasis.lf"},
+                    "3":{"name":"constant.rgb-value.lf"},
+					"4":{"name":"invalid.illegal.lf"},
+                    "5":{"name":"constant.character.escape.lf"}
+				}
+		},
+		"KeyFields_NoKeyWrd":{
+				"name":"keyword.control",
+				"match": "(?i)^(.....)([A])(\\s{10})([K])",
+				"captures": {
+					"1":{"name":"comment.lf"},
+					"2":{"name":"emphasis.lf"},
+                    "3":{"name":"constant.rgb-value.lf"},
+					"4":{"name":"invalid.illegal.lf"}
+				}
+		},
+		"R_FieldNames":{
+				"name":"constant.rgb-value",
+				"match": "(?i)^(.....)([A])([\\s]{12})([A-Z].{9})(R)",
+				"captures": {
+					"1":{"name":"comment.lf"},
+					"2":{"name":"support.type.lf"},
+					"3":{"name":"constant.rgb-value"},
+                    "4":{"name":"variable"},
+					"5":{"name":"constant.regexp.lf"}
+				}
+		},
+		"Comparisons":{
+				"name":"constant.rgb-value",
+				"match": "(?i)^(.....)([A])([\\s]{10})([S][\\s])([A-Z].{9})(\\s{16})(.*)",
+				"captures": {
+					"1":{"name":"comment.lf"},
+					"2":{"name":"constant.regexp"},
+					"3":{"name":"constant.rgb-value"},
+					"4":{"name":"keyword.control"},
+                    "5":{"name":"variable"},
+					"6":{"name":"constant.rgb-value"},
+					"7":{
+						"patterns": [
+							{"include": "#keywords"},
+							{"include": "#Logicals"},
+							{"include": "#strings"},
+							{"include": "#Float_Numbers"},
+							{"include": "#Integer_Numbers"}
+						],
+						"name":"strong"}
+				}
+		},
+		"Properties":{
+				"name":"constant.rgb-value",
+				"match": "(?i)^(.....)([A])([\\s]{39})(.*)",
+				"captures": {
+					"1":{"name":"comment.lf"},
+					"2":{"name":"support.type.lf"},
+					"3":{"name":"constant.rgb-value"},
+					"4":{
+						"patterns": [
+							{"include": "#keywords",
+								"name":"constant.rgb-value",
+									"match": ".*"
+							}],
+						"name":"strong"}
+				}
+		},
+
+
+
+
+		"keywords": {
+				"name":"constant.language.lf",
+				"match": "\\b(?i:(COLHDG|DATFMT|PFILE|TEXT|REF|COMP))\\b"
+		},
+		"Logicals": {
+			"name":"constant.language.lf",
+			"match": "\\b(?i:(EQ|NE|LT|LE|GT|GE))\\b"
+		},
+		"starKeywords":{
+				"name":"storage.type.lf",
+				"match": "(?i)[\\*](DS3|ISO|LIBL|SCRBAR|MORE|PFILE|RANGE|RSTCSR|USA|VALUES)\\b"
+		},
+		"numberIndicators":{
+				"name":"storage.type.lf",
+				"match": "(?i)([C][AF]\\d|\\s\\d|\\s)"
+		},
+		"strings":{
+			"name": "string.quoted.double",
+			"begin": "'",
+			"end": "'"
+		},
+		"Float_Numbers":{
+			"name":"constant.numeric",
+			"match": "\\d+[.]\\d+"
+		},
+		"Integer_Numbers":{
+			"name":"constant.numeric",
+			"match": "\\d+"
+		}
+	},
+	"scopeName": "source.lf"
+}

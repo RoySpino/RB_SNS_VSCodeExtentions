@@ -1,0 +1,714 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DSPF",
+	"patterns": [
+		{"include": "#comments2"},
+		{"include": "#comments"},
+		{"include": "#strings2"},
+		{"include": "#recFormat"},
+		{"include": "#recFormat_NoKeys"},
+		{"include": "#recFormat_NoName"},
+		{"include": "#stdDisplayFileLine"},
+		{"include": "#stdDisplayFileLine_NoKeywords"},
+		{"include": "#stdDisplayFileLine_NoPos"},
+		{"include": "#stdDisplayFileLine_NoLin"},
+		{"include": "#stdDisplayFileLine_NoB"},
+		{"include": "#stdDisplayFileLine_NoDp"},
+		{"include": "#stdDisplayFileLine_NoT"},
+		{"include": "#stdDisplayFileLine_NoLen"},
+		{"include": "#stdDisplayFileLine_NoName"},
+		{"include": "#stdDisplayFileLine_No03"},
+		{"include": "#stdDisplayFileLine_NoN3"},
+		{"include": "#stdDisplayFileLine_No02"},
+		{"include": "#stdDisplayFileLine_NoN2"},
+		{"include": "#stdDisplayFileLine_No01"},
+		{"include": "#stdDisplayFileLine_NoAn"}
+	],
+	"repository": {
+		"comments":{
+			"name":"comment.line.dspf",
+			"match": "(?i)^([a-z0-9\\s]{6})([*])(.*)"
+		},
+		"comments2":{
+			"name":"comment.line",
+			"begin": "\/\\*",
+			"end": "\\*\/"
+		},
+		"recFormat":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(.)(\\s{10})(r)(\\s)(.{10})(.{16})(.*)",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{
+					"patterns": [{
+						"name":"constant.regexp",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid"},
+				"5":{"name":"constant.rgb-value"},
+				"6":{"name":"constant.character.escape"},
+				"7":{"name":"constant.rgb-value"},
+				"8":{
+					"patterns": [{"include": "#RecordFormatKeys"}],
+					"name":"constant.rgb-value"}
+			}
+		},
+		"recFormat_NoKeys":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(.)(\\s{10})(r)(\\s)(.{,10})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{
+					"patterns": [{
+						"name":"constant.regexp",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid"},
+				"5":{"name":"constant.rgb-value"},
+				"6":{"name":"constant.character.escape"}
+			}
+		},
+		"recFormat_NoName":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(.)(\\s{10})(r)",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{
+					"patterns": [{
+						"name":"constant.regexp",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"3":{"name":"constant.rgb-value"},
+				"4":{"name":"invalid"},
+				"5":{"name":"constant.rgb-value"},
+				"6":{"name":"constant.character.escape"}
+			}
+		},
+
+		"stdDisplayFileLine":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(..)(\\s)(\\s)(.{10})(\\s)(.{5})(.)(..)(.)(.{3})(.{3})(.*)",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"10":{"name":"constant.rgb-value"},
+
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.numeric.float"},
+				"14":{"name":"constant.language"},
+				"15":{"name":"constant.numeric.float"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name":"constant.numeric.float"},
+				"18":{"name":"constant.numeric.float"},
+				"19":{
+					"patterns": [{"include": "#Functions"}],
+					"name":"constant.rgb-value"}
+			}
+		},
+		"stdDisplayFileLine_NoKeywords":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(..)(\\s)(\\s)(.{10})(\\s)(.{5})(.)(..)(.)(.{3})(.{3})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"10":{"name":"constant.rgb-value"},
+
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.numeric.float"},
+				"14":{"name":"constant.language"},
+				"15":{"name":"constant.numeric.float"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name":"constant.numeric.float"},
+				"18":{"name":"constant.numeric.float"}
+			}
+		},
+		"stdDisplayFileLine_NoPos":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(..)(\\s)(\\s)(.{10})(\\s)(.{5})(.)(..)(.)(.{,3})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"10":{"name":"constant.rgb-value"},
+
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.numeric.float"},
+				"14":{"name":"constant.language"},
+				"15":{"name":"constant.numeric.float"},
+				"16":{"name":"constant.character.escape"},
+				"17":{"name":"constant.numeric.float"}
+			}
+		},
+		"stdDisplayFileLine_NoLin":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(..)(\\s)(\\s)(.{10})(\\s)(.{5})(.)(..)(.)",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"10":{"name":"constant.rgb-value"},
+
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.numeric.float"},
+				"14":{"name":"constant.language"},
+				"15":{"name":"constant.numeric.float"},
+				"16":{"name":"constant.character.escape"}
+			}
+		},
+		"stdDisplayFileLine_NoB":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(..)(\\s)(\\s)(.{10})(\\s)(.{5})(.)(.{,2})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"10":{"name":"constant.rgb-value"},
+
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.numeric.float"},
+				"14":{"name":"constant.language"},
+				"15":{"name":"constant.numeric.float"}
+			}
+		},
+		"stdDisplayFileLine_NoDp":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(..)(\\s)(\\s)(.{10})(\\s)(.{5})(.)",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"10":{"name":"constant.rgb-value"},
+
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.numeric.float"},
+				"14":{"name":"constant.language"}
+			}
+		},
+		"stdDisplayFileLine_NoT":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(..)(\\s)(\\s)(.{10})(\\s)(.{,5})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"10":{"name":"constant.rgb-value"},
+
+				"11":{"name":"constant.rgb-value"},
+				"12":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"13":{"name":"constant.numeric.float"}
+			}
+		},
+		"stdDisplayFileLine_NoLen":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(..)(\\s)(\\s)(.{10})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"},
+				"9":{
+					"patterns": [{
+						"name":"invalid.illegal",
+						"match": "."
+					}],
+					"name":"emphasis"},
+				"10":{"name":"constant.rgb-value"},
+
+				"11":{"name":"constant.rgb-value"}
+			}
+		},
+		"stdDisplayFileLine_NoName":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])(.{,2})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"8":{"name":"variable.rpgle"}
+			}
+		},
+		"stdDisplayFileLine_No03":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(..)([n|\\s])",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"},
+				"7":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"}
+			}
+		},
+		"stdDisplayFileLine_NoN3":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])(.{,2})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"},
+				"6":{"name":"variable.rpgle"}
+			}
+		},
+		"stdDisplayFileLine_No02":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)([n|\\s])",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"},
+				"5":{
+					"patterns": [{
+						"name":"constant.language.rpgle",
+						"match": "."
+					}],
+					"name":"strong"}
+			}
+		},
+		"stdDisplayFileLine_NoN2":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)(..)",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"},
+				"4":{"name":"variable.rpgle"}
+			}
+		},
+		"stdDisplayFileLine_No01":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)(..)",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.character.escape"}
+			}
+		},
+		"stdDisplayFileLine_NoAn":{
+			"name":"constant.rgb-value",
+			"match": "(?i)^(.{5})(A)",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"}
+			}
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+		"RecordFormatKeys":{
+			"name":"constant.character.escape",
+			"match": "(?i)(SFLCTL|SFL)\\b"
+		},
+		"starKeywords":{
+			"name":"variable.other.dspf",
+			"match": "(?i)[*](BOTTOM|COLOR|DS3|ISO|LIBL|SCRBAR|MORE|NOMSGLIN|PFILE|RANGE|RSTCSR|TEXT|USA|VALUES)\\b"
+		},
+		"keywords": {
+			"name":"keyword.control.dspf",
+			"match": "(?i)(CHGINPDFT|OVERLAY|SFLSIZ|SFLPAG|TEXT|VALUE)\\b"
+		},
+		"mainKeyWords":{
+			"name":"support.variable",
+			"match": "(?i)(WINDOW|WDWTITLE|VALUES|TIME|TEXT|SFLSNGCHC|SFLSIZ|SFLSCROLL|SFLRCDNBR|SFLPAG|SFLNXTCHG|SFLINZ|SFLFOLD|SFLEND|SFLDSPCTL|SFLDSP|SFLDROP|SFLDLT|SFLCTL|SFLCSRRRN|SFLCLR|RANGE|PRINT|OVERLAY|INDARA|DSPSIZ|DSPATR|DATE|CSRLOC|CSRINPONLY|COMP|COLOR|CLR|CHGINPDFT|CHECK|BLINK|ALARM)"
+		},
+		"numberIndicators":{
+			"name":"storage.type.dspf",
+			"match": "(?i)([C][(A|F)][0-9\\s][0-9\\s])"
+		},
+		"strings": {
+			"name": "string.quoted.double.dspf",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{"include": "#lineContinueation"}
+			]
+		},
+		"strings2": {
+			"name": "string.quoted.double.dspf",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{"include": "#lineContinueation"}
+			]
+		},
+		"colors":{
+			"name":"constant.rgb-value",
+			"match": "(?i)(color)([(])(ylw|wht|trq|red|pnk|grn|blu)([)])",
+			"captures": {
+				"1":{"name":"variable.other"},
+				"2":{"name":"constant.rgb-value"},
+				"3":{"name":"constant.language"},
+				"4":{"name":"constant.rgb-value"}
+			}
+		},
+		"Qlibl":{
+			"name":"constant.rgb-value",
+			"match": "(?i)(\\w{1,10})(\\s*)([\/])(\\s*)(\\w{1,10})",
+			"captures": {
+				"1":{"name":"constant.language"},
+				"2":{"name":"constant.rgb-value"},
+				"3":{"name":"keyword.control.less"},
+				"4":{"name":"constant.rgb-value"},
+				"5":{"name":"constant.language"}
+			}
+		},
+		"DisplayPaternCode":{
+			"name":"constant.language",
+			"match": "(?i)(UL|RI|PR|PC|ND|HI|BL)"
+		},
+		"EditCodeCode":{
+			"name":"constant.language",
+			"match": "(?i)(Y|Z|\\d)"
+		},
+		"CheckValidityCode":{
+			"name":"variable.language",
+			"match": "(?i)\\b(VNE|VN|MF|ME|M11F|M11|M10F|M10|AB)\\b"
+		},
+		"CheckKeybordCode":{
+			"name":"constant.language",
+			"match": "(?i)\\b(RZ|RB|LC|FE|ER)\\b",
+			"captures": {
+				"1":{"patterns": [{
+						"name":"constant.language",
+						"match": "."
+					}],
+					"name":"emphasis"}
+			}
+		},
+		"CheckCursorCode":{
+			"name":"variable.language",
+			"match": "(?i)\\b(RLTB|RL)\\b"
+		},
+		"CheckPatern":{
+			"name":"constant.rgb-value",
+			"match": "(?i)(CHECK)([(])([a-z0-9\\s]*)([)])",
+			"captures": {
+				"1":{"name":"variable.other"},
+				"2":{"name":"constant.rgb-value"},
+				"3":{
+					"patterns": [
+						{"include": "#CheckValidityCode"},
+						{"include": "#CheckCursorCode"},
+						{"include": "#CheckKeybordCode"}],
+					"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"}
+			}
+		},
+		"DisplayPatern":{
+			"name":"constant.rgb-value",
+			"match": "(?i)(DSPATR)([(])([a-z0-9\\s]*)([)])",
+			"captures": {
+				"1":{"name":"variable.other"},
+				"2":{"name":"constant.rgb-value"},
+				"3":{
+					"patterns": [{"include": "#DisplayPaternCode"}],
+					"name":"constant.rgb-value"},
+				"4":{"name":"constant.rgb-value"}
+			}
+		},
+		"EditPatern":{
+			"name":"constant.rgb-value",
+			"match": "(?i)(EDTCDE)(\\()(y|z|\\d)(\\))",
+			"captures": {
+				"1":{"name":"variable.other"},
+				"2":{"name":"constant.rgb-value"},
+				"3":{"name":"constant.language"},
+				"4":{"name":"constant.rgb-value"}
+			}
+		},
+		"Functions": {
+			"patterns": [
+				{"include": "#strings"},
+				{"include": "#starKeywords"},
+				{"include": "#DisplayPatern"},
+				{"include": "#EditPatern"},
+				{"include": "#CheckPatern"},
+				{"include": "#colors"},
+				{"include": "#keywords"},
+				{"include": "#mainKeyWords"},
+				{"include": "#numberIndicators"},
+				{"include": "#Numerics"},
+				{"include": "#Qlibl"},
+				{"include": "#CatchAllControl"}
+			]
+		},
+		"lineContinueation":{
+			"name":"constant.rgb-value",
+			"match": "([\\n\\r]\\s{5})([Aa])(\\s{38})",
+			"captures": {
+				"1":{"name":"comment.dspf"},
+				"2":{"name":"support.type.dspf"},
+				"3":{"name":"constant.rgb-value"}
+			}
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+		"Numerics": {
+			"name": "constant.numeric",
+			"match": "\\d+"
+		}
+	},
+	"scopeName": "source.dspf"
+}
