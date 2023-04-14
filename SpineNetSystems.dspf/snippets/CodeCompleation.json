@@ -7,21 +7,21 @@
 		"scope": "source.dspf"
 	},
 	"window": {
-		"prefix": "window",
+		"prefix": "Build Window",
 		"body":[
 			"     A                                      WINDOW(8 15 5 46 *NORSTCSR)",
-			"     A                                      WDWTITLE((*TEXT 'F12=CANCEL') (*COL-",
-			"     A                                      OR BLU) *BOTTOM)"],
+			"     A                                      WDWTITLE((*TEXT 'F12=CANCEL')",
+			"     A                                      (*COLOR BLU) *BOTTOM)"],
 			"description": "Add a basic window",
 			"scope": "source.dspf"
 	},
 	"popup": {
-		"prefix": "popup",
+		"prefix": "Build Popup",
 		"body":[
 			"     A          R CTRL",
 			"     A                                      WINDOW(8 15 5 46 *NORSTCSR)",
-			"     A                                      WDWTITLE((*TEXT 'F12=CANCEL') (*COL-",
-			"     A                                      OR BLU) *BOTTOM)",
+			"     A                                      WDWTITLE((*TEXT 'F12=CANCEL')",
+			"     A                                      (*COLOR BLU) *BOTTOM)",
 			"     A                                      CA12(12)",
 			"     A                                      CA03(03)",
 			"     A                                      BLINK",
@@ -32,12 +32,12 @@
 			"scope": "source.dspf"
 	},
 	"subfile": {
-		"prefix": "subfile",
+		"prefix": "Build Subfile",
 		"body":[
-			"     A          R BDYS2PT                   SFL",
+			"     A          R BDY2PT                    SFL",
 			"     A            DSDAT         10A  O  7  2",
 			"     A            DSPRE          9A  O  7 13",
-			"     A          R CTRL                      SFLCTL(SUBF)",
+			"     A          R CTRL                      SFLCTL(BDY2PT)",
 			"     A                                      CA03(03)",
 			"     A                                      BLINK",
 			"     A                                      OVERLAY",
@@ -49,12 +49,12 @@
 			"scope": "source.dspf"
 	},
 	"fold": {
-		"prefix": "fold",
+		"prefix": "Build Fold",
 		"body":[
-			"     A          R BDYS2PT                   SFL",
+			"     A          R BDY2PT                    SFL",
 			"     A            DSDAT         10A  O  7  2",
 			"     A            DSPRE          9A  O  8  2",
-			"     A          R CTRL                      SFLCTL(SUBF)",
+			"     A          R CTRL                      SFLCTL(BDY2PT)",
 			"     A                                      CA03(03)",
 			"     A                                      CA03(05)",
 			"     A                                      BLINK",
@@ -68,12 +68,4 @@
 			"description": "Add a basic popup window",
 			"scope": "source.dspf"
 	}
-	
-
-
-
-
-
-
-
 }
