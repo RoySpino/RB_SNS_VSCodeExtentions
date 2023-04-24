@@ -269,6 +269,26 @@
 				"match": "(?i)[*][i][n][l][0-9]",
 			"comment": "number indicators *"
 		},
+		"systemIndicaorsAsArray": {
+			"name":"constant.language.rpgle",
+			"match": "(?i)([*]in)([(])(.+)([)])",
+			"captures": {
+				"1":{
+					"patterns": [{
+						"name": "variable",
+						"match": "[*]in"}],
+					"name":"strong"},
+				"2":{"name": "constant.rgb-value"},
+				"3":{
+					"paterns":[
+						{"include": "#Numerics"},
+						{"include": "#starKeywords"}
+					]
+				},
+				"4":{"name": "constant.rgb-value"}
+			},
+			"comment": "number indicators treated like an array"
+		},
 		"otherStarKeywords": {
 			"name":"constant.language.rpgle",
 			"match": "(?i)\\*(eur|longjul|jis|init|inof|cdmy|cymd|cmdy|hms|on|off|pams|proc|status|routine|parms|detl|getin|totc|totl|detc|ofl|term)\\b",
@@ -280,11 +300,11 @@
 		},
 		"keywordControl":{
 			"name":"keyword.control.rpgle",
-			"match": "(?i)(whenne\\s{4}|whenlt\\s{4}|whengt\\s{4}|wheneq\\s{4}|when\\s{6}|sfile\\s{5}|select\\s{4}|return\\s{4}|plist\\s{5}|other\\s{5}|on-error\\s{2}|monitor\\s{3}|keyed\\s{5}|ifne\\s{6}|iflt\\s{6}|ifle\\s{6}|ifgt\\s{6}|ifge\\s{6}|ifeq\\s{6}|if\\s{8}|for\\s{7}|extpgm\\s{4}|endsr\\s{5}|endsl\\s{5}|endmon\\s{4}|endif\\s{5}|endfor\\s{4}|enddo\\s{5}|end\\s{7}|else\\s{6}|downe\\s{5}|dowlt\\s{5}|dowle\\s{5}|dowgt\\s{5}|dowge\\s{5}|doweq\\s{5}|doweq\\s{5}|dow\\s{7}|doune\\s{5}|doult\\s{5}|doule\\s{5}|dougt\\s{5}|douge\\s{5}|doueq\\s{5}|dou\\s{7}|do\\s{8}|begsr\\s{5})"
+			"match": "(?i)(whenne\\s{4}|whenlt\\s{4}|whengt\\s{4}|wheneq\\s{4}|when\\s{6}|sfile\\s{5}|select\\s{4}|return\\s{4}|plist\\s{5}|other\\s{5}|on-error\\s{2}|monitor\\s{3}|keyed\\s{5}|ifne\\s{6}|iflt\\s{6}|ifle\\s{6}|ifgt\\s{6}|ifge\\s{6}|ifeq\\s{6}|if\\s{8}|for\\s{7}|extpgm\\s{4}|endsr\\s{5}|endsl\\s{5}|endmon\\s{4}|endif\\s{5}|endfor\\s{4}|enddo\\s{5}|end\\s{7}|elseif|else\\s{6}|downe\\s{5}|dowlt\\s{5}|dowle\\s{5}|dowgt\\s{5}|dowge\\s{5}|doweq\\s{5}|doweq\\s{5}|dow\\s{7}|doune\\s{5}|doult\\s{5}|doule\\s{5}|dougt\\s{5}|douge\\s{5}|doueq\\s{5}|dou\\s{7}|do\\s{8}|begsr\\s{5})"
 		},
 		"keywordControl2":{
 			"name":"keyword.control.rpgle",
-			"match": "(?i)(whenne|whenlt|whengt|wheneq|when|sfile|select|return|plist|other|on-error|monitor|keyed|ifne|iflt|ifle|ifgt|ifge|ifeq|if|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|dow|doune|doult|doule|dougt|douge|doueq|dou|begsr)"
+			"match": "(?i)(whenne|whenlt|whengt|wheneq|when|sfile|select|return|plist|other|on-error|monitor|keyed|ifne|iflt|ifle|ifgt|ifge|ifeq|if|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|end|elseif|else|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|dow|doune|doult|doule|dougt|douge|doueq|dou|begsr)"
 		},
 		"keywordsFuncstions":{
 			"name":"variable.rpgle",
@@ -303,7 +323,7 @@
 
 		"freeControl":{
 			"name":"keyword.control",
-			"match": "(?i)\\b(when|usage|sfile|select|return|other|on-error|monitor|keyed|if|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|else|dow|dou|begsr)\\b"
+			"match": "(?i)\\b(when|usage|sfile|select|return|other|on-error|monitor|keyed|if|for-each|for|extpgm|endsr|endsl|endmon|endif|endfor|enddo|elseif|else|dow|dou|begsr)\\b"
 		},
 		"freeCatchAllFunctions":{
 			"name":"variable.rpgle",
@@ -316,6 +336,10 @@
 		"CatchAllControl":{
 			"name":"variable.rpgle",
 			"match": "(?i)\\b(to|or|not|downto|by|and)\\b"
+		},
+		"forLoopKeywords":{
+			"name":"variable.rpgle",
+			"match": "(?i)\\b(to|in|downto|by)\\b"
 		},
 		"sql_struc":{
 			"name": "invalid.illegal.rpg",
@@ -386,7 +410,7 @@
 		},
 		"BIF":{
 			"name":"constant.language",
-			"match": "(?i)\\%(years|xlate|xfoot|workstn|usropn|unsh|uns|ucs2|trimr|triml|trim|tlookup|timestamp|time|subst|subdt|subarr|str|str|str|status|sqrt|size|shtdn|seconds|scanrpl|scan|replace|rem|realloc|proc|parms|ParmNum|paddr|paddr|open|occur|nullind|mseconds|months|minutes|lookup|len|kds|inz|inth|int|hours|graph|found|float|fields|error|equal|eof|elem|editw|editflt|editc|div|diff|decpos|dech|dec|days|date|checkr|check|char|bitxor|bitor|bitnot|bitand|alloc|addr|abs)\\b"
+			"match": "(?i)\\%(years|xlate|xfoot|workstn|usropn|unsh|uns|ucs2|trimr|triml|trim|tlookup|timestamp|time|subst|subdt|subarr|str|str|str|status|sqrt|size|shtdn|seconds|scanrpl|scan|replace|rem|realloc|proc|parms|ParmNum|paddr|paddr|open|occur|nullind|mseconds|months|minutes|lookup|list|len|kds|inz|inth|int|hours|graph|found|float|fields|error|equal|eof|elem|editw|editflt|editc|div|diff|decpos|dech|dec|days|date|checkr|check|char|bitxor|bitor|bitnot|bitand|alloc|addr|abs)\\b"
 		},
 		"compilerConst":{
 			"name": "constant.rgb-value",
@@ -866,7 +890,7 @@
 		},
 		"Cspec_controlComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{45})(.*)",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for-each  |for       |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |end       |elseif    |elseif    |else      |dow       |dou       )(.{45})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -890,7 +914,7 @@
 		},
 		"Cspec_control":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for       |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |dow       |dou       )(.{,45})",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when      |select    |return    |plist     |other     |on-error  |monitor   |if        |for-each  |for       |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |end       |elseif    |else      |dow       |dou       )(.{,45})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -907,13 +931,14 @@
 					"name":"constant.rgb-value"},
 				"7":{"name":"keyword.control"},
 				"8":{
-					"patterns": [{"include": "#factor123CONTROL"}],
+					"patterns": [
+						{"include": "#factor123CONTROL"}],
 					"name":"constant.rgb-value"}
 				}
 		},
 		"Cspec_controlNoFac2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when|select|return|plist|other|on-error|monitor|if|for|extpgm|endsl|endmon|endif|endfor|enddo|endcs|end|else|dow|dou)",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(\\s{14})(when|select|return|plist|other|on-error|monitor|if|for-each|for-each|for|extpgm|endsl|endmon|endif|endfor|enddo|endcs|end|elseif|else|dow|dou)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1062,7 +1087,7 @@
 		},
 		"Cspec_control_rpg3Comment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |plist     |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |endsl     |endmon    |endif     |endfor    |enddo     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |begsr     )(.{14})(\\s{14})(.*)",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |plist     |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |endsl     |endmon    |endif     |endfor    |enddo     |end       |elseif    |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |begsr     )(.{14})(\\s{14})(.*)",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1090,7 +1115,7 @@
 		},
 		"Cspec_control_rpg3NoComment":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |endcs     |end       |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |begsr     )(.{,14})",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne    |whenlt    |whengt    |wheneq    |sfile     |return    |other     |ifne      |iflt      |ifle      |ifgt      |ifge      |ifeq      |extpgm    |endsl     |endmon    |endif     |endfor    |enddo     |endcs     |end       |elseif    |else      |downe     |dowlt     |dowle     |dowgt     |dowge     |doweq     |doweq     |doune     |doult     |doule     |dougt     |douge     |doueq     |begsr     )(.{,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -1113,7 +1138,7 @@
 		},
 		"Cspec_control_rpg3NoFactor2":{
 			"name":"constant.rgb-value",
-			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|sfile|return|other|ifne|iflt|ifle|ifgt|ifge|ifeq|extpgm|endsl|endmon|endif|endfor|enddo|endcs|end|else|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq|begsr)(.{,14})",
+			"match": "(?i)^(|.{5})([c])(an|or|l[0-9]|lr|sr|\\s\\s)([n|\\s])(..)(.{14})(whenne|whenlt|whengt|wheneq|sfile|return|other|ifne|iflt|ifle|ifgt|ifge|ifeq|extpgm|endsl|endmon|endif|endfor|enddo|endcs|end|elseif|else|downe|dowlt|dowle|dowgt|dowge|doweq|doweq|doune|doult|doule|dougt|douge|doueq|begsr)(.{,14})",
 			"captures": {
 				"1":{"name":"comment"},
 				"2":{"name":"support.type.rpgle"},
@@ -3379,6 +3404,7 @@
 				{"include": "#otherStarKeywords"},
 				{"include": "#CatchAllControl"},
 				{"include": "#numericIndicators"},
+				{"include": "#systemIndicaorsAsArray"},
 				{"include": "#Numerics"},
 				{"include": "#BIF"},
 				{"include": "#strings"}
@@ -3390,8 +3416,11 @@
 				{"include": "#starKeywords"},
 				{"include": "#starKeywords2"},
 				{"include": "#otherStarKeywords"},
+				{"include": "#forLoopKeywords"},
+				{"include": "#CatchAllFunctions"},
 				{"include": "#CatchAllControl"},
 				{"include": "#numericIndicators"},
+				{"include": "#systemIndicaorsAsArray"},
 				{"include": "#Numerics"},
 				{"include": "#BIF"},
 				{"include": "#strings"}
@@ -3889,6 +3918,7 @@
 				{"include": "#commentBlock" },
 				{"include": "#compilerConst"},
 				{"include": "#starKeywords"},
+				{"include": "#systemIndicaorsAsArray"},
 				{"include": "#numericIndicators"},
 				{"include": "#LIndicators"},
 				{"include": "#CatchAllControl"},
@@ -3934,6 +3964,7 @@
 				{"include": "#freeHSpec"},
 				{"include": "#FreeFSpecDevice"},
 				{"include": "#starKeywords"},
+				{"include": "#systemIndicaorsAsArray"},
 				{"include": "#freeProc"},
 				{"include": "#freeVarDeclare"},
 				{"include": "#numericIndicators"},
